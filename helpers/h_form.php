@@ -114,8 +114,8 @@ function condicion($value)
 
 function validateDate($date, $format = 'Y-m-d H:i:s')
 {
-    $d = DateTime::createFromFormat($format, $date);
-    return $d && $d->format($format) == $date;
+	$d = DateTime::createFromFormat($format, $date);
+	return $d && $d->format($format) == $date;
 }
 
 /*----------------------------------------------------------------------------
@@ -125,9 +125,8 @@ function validateDate($date, $format = 'Y-m-d H:i:s')
 
 function isTrueFloat($val) 
 { 
-    $pattern = '/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/'; 
-
-    return (!is_bool($val) && (is_float($val) || preg_match($pattern, trim($val)))); 
+	$pattern = '/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/'; 
+	return (!is_bool($val) && (is_float($val) || preg_match($pattern, trim($val)))); 
 } 
 
 
@@ -139,7 +138,7 @@ function isTrueFloat($val)
 
 function transformar_importe($importe) 
 { 
-    $importe = str_replace(".", '', $importe);
+	$importe = str_replace(".", '', $importe);
 	$importe = str_replace(",", '.', $importe);
 	$importe = floatval($importe);
 
