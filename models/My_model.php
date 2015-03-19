@@ -38,6 +38,11 @@ class MY_Model extends Model
 		$campos = '(';
 		$datos	= ' VALUES (';
 		foreach ($data as $key => $value) {
+			echo $value."<br>";
+			$key	= str_replace(",", "", $key);
+			$value	= str_replace(",", "", $value);
+			$key	= str_replace(".", "", $key);
+			$value	= str_replace(".", "", $value);
 			$campos .= $key.' ,';
 			$datos	.= $value.' ,';
 		}
@@ -50,9 +55,9 @@ class MY_Model extends Model
 					$this->_tablename 
 					$campos
 					$datos";
-		echo ($query);
+		
 		$this->_db->query($query);
-		printf ("Nuevo registro con el id %d.\n", $this->_db->insert_id);
+		return $this->_db->insert_id;
 	}
 }
 

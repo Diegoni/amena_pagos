@@ -1,6 +1,4 @@
 <?php
-include_once('My_model.php');
-
 class m_Transaccion extends My_Model
 {
 	protected $_tablename	= 'transacciones';
