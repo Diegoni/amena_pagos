@@ -28,28 +28,38 @@ class MY_Model extends Model
 	public function get_registros()
     {
 		$result = $this->_db->query('SELECT * FROM '.$this->_tablename.' ');
-        $users	= $result->fetch_all(MYSQLI_ASSOC);
+		$users	= $result->fetch_all(MYSQLI_ASSOC);
         return $users;
     }
 	
 		
 	function insert($data)
 	{
-		$campos = '(';
-		$datos	= ' VALUES (';
+		$result = $this->_db->query('SELECT * FROM '.$this->_tablename.' LIMIT 1');
+		$finfo	= $result->fetch_fields();
+		
+		$campos = "(";
+		$datos	= " VALUES (";
 		foreach ($data as $key => $value) {
-			echo $value."<br>";
-			$key	= str_replace(",", "", $key);
-			$value	= str_replace(",", "", $value);
-			$key	= str_replace(".", "", $key);
-			$value	= str_replace(".", "", $value);
-			$campos .= $key.' ,';
-			$datos	.= $value.' ,';
+			foreach ($finfo as $val) {
+				if($key == $val->name){
+					$campos .= $key." ,";
+					
+					if($val->type == 253 || $val->type == 10)
+					{
+						$datos	.= "'".$value."' ,";	
+					}
+					else
+					{
+						$datos	.= $value." ,";	
+					}
+				}
+			}
 		}
-		$campos = trim($campos, ',');
-		$datos	= trim($datos, ',');
-		$campos	.= ')';
-		$datos	.= ')';
+		$campos = trim($campos, ",");
+		$datos	= trim($datos, ",");
+		$campos	.= ")";
+		$datos	.= ")";
 		
 		$query = "INSERT INTO 
 					$this->_tablename 
@@ -57,6 +67,7 @@ class MY_Model extends Model
 					$datos";
 		
 		$this->_db->query($query);
+		
 		return $this->_db->insert_id;
 	}
 }

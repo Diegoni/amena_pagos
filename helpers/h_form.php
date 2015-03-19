@@ -6,21 +6,13 @@
 
 function validation_form($dato, $validacion)
 {
+	$dato = str_replace("'", '', $dato);
+	
 	foreach ($validacion as $value)
 	{
 		$value_case = condicion($value);
 		
 		switch ($value_case) {
-			case 'int':
-				if(!(is_numeric($dato)))
-				{
-					$bandera[] = 'int';
-				}
-				break;
-				
-			case 'text':
-				
-				break;
 			case 'required':
 				if(!(isset($dato) || $dato=='' || $dato==NULL))
 				{
@@ -28,12 +20,10 @@ function validation_form($dato, $validacion)
 				}
 				break;
 				
-			case 'float':
-				$dato = str_replace(".", '', $dato);
-				$dato = str_replace(",", '.', $dato);
-				echo $dato.'<br>';
-				if(!(is_float($dato)))
+			case 'number':
+				if(!(is_numeric($dato)))
 				{
+					var_dump(is_numeric($dato));
 					$bandera[] = 'float';
 				}
 				break;
@@ -112,7 +102,7 @@ function condicion($value)
 		return 'date';
 	}
 	else
-	if($value=='int' || $value=='float' || $value=='text' || $value=='required')
+	if($value=='number' || $value=='text' || $value=='required')
 	{
 		return $value;
 	}
@@ -126,6 +116,34 @@ function validateDate($date, $format = 'Y-m-d H:i:s')
 {
     $d = DateTime::createFromFormat($format, $date);
     return $d && $d->format($format) == $date;
+}
+
+/*----------------------------------------------------------------------------
+		Para validar float
+----------------------------------------------------------------------------*/
+
+
+function isTrueFloat($val) 
+{ 
+    $pattern = '/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/'; 
+
+    return (!is_bool($val) && (is_float($val) || preg_match($pattern, trim($val)))); 
+} 
+
+
+
+/*----------------------------------------------------------------------------
+		Para validar float
+----------------------------------------------------------------------------*/
+
+
+function transformar_importe($importe) 
+{ 
+    $importe = str_replace(".", '', $importe);
+	$importe = str_replace(",", '.', $importe);
+	$importe = floatval($importe);
+
+    return $importe; 
 }
 
 
