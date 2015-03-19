@@ -14,7 +14,7 @@ function validation_form($dato, $validacion)
 		
 		switch ($value_case) {
 			case 'required':
-				if(!(isset($dato) || $dato=='' || $dato==NULL))
+				if(!(isset($dato)) || $dato == '' || $dato == NULL)
 				{
 					$bandera[] = 'required';
 				}

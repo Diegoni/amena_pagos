@@ -41,9 +41,8 @@ foreach ($validacion as $key => $value) {
 	if($value !== TRUE)
 	{
 		foreach ($value as $error) {
-			$log_error['error']		= "'".$error."'";
-			$log_error['dato']		= "'".$key."'";
-			$log_error['date_add']	= "'".date('Y-m-d H:i:s')."'";
+			$log_error['error']		= $error;
+			$log_error['dato']		= $key;
 			
 			$id_insert = $c_error_tra->insert($log_error);
 		}

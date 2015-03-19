@@ -45,7 +45,12 @@ class MY_Model extends Model
 				if($key == $val->name){
 					$campos .= $key." ,";
 					
-					if($val->type == 253 || $val->type == 10)
+					if(	$val->type == 252 || //text 
+						$val->type == 253 || //varchar
+						$val->type == 254 || //char
+						$val->type == 10 || //date
+						$val->type == 11 || //datetime
+						$val->type == 12)	//time
 					{
 						$datos	.= "'".$value."' ,";	
 					}
@@ -56,6 +61,17 @@ class MY_Model extends Model
 				}
 			}
 		}
+		
+		//agregamos fecha de alta
+		foreach ($finfo as $val) {
+			if($val->name == 'date_add')
+			{
+				$campos .= "date_add ,";
+				$datos	.= "'".date('Y:m:d H:i:s')."' ,";				
+			}
+		}
+		
+		//borramos ultima coma de la cadena
 		$campos = trim($campos, ",");
 		$datos	= trim($datos, ",");
 		$campos	.= ")";
