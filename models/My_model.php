@@ -25,9 +25,17 @@ class MY_Model extends Model
 		parent::__construct();
 	}
 	
-	public function get_registros()
+	public function get_registros($where = NULL)
     {
-		$result = $this->_db->query('SELECT * FROM '.$this->_tablename.' ');
+    	if($where == NULL)
+		{
+			$result = $this->_db->query('SELECT * FROM '.$this->_tablename.' ');	
+		}
+		else
+		{
+			$result = $this->_db->query('SELECT * FROM '.$this->_tablename.' WHERE '.$where);
+		}
+		
 		$users	= $result->fetch_all(MYSQLI_ASSOC);
         return $users;
     }
@@ -85,6 +93,25 @@ class MY_Model extends Model
 		$this->_db->query($query);
 		
 		return $this->_db->insert_id;
+	}
+	
+	function update($data, $id)
+	{
+		$campos = '';
+		
+		foreach ($data as $key => $value) {
+			$campos .= $key." = ".$value.",";
+		}
+		$campos	= trim($campos, ",");
+		
+		$query = "UPDATE 
+					$this->_tablename
+					SET 
+					$campos
+					WHERE
+					$this->_id = $id";
+					
+		$this->_db->query($query);
 	}
 }
 

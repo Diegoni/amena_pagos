@@ -11,6 +11,8 @@ $route['404_override']		= 'error404';
 
 $route['models']			= '../models/';
 $route['controllers']		= '../controllers/';
-$route['libraries']			= '../libraries/';
+$route['libraries']			= BASE_URL.'/libraries/';
 $route['helpers']			= '../helpers/';
+$route['doc']				= '../doc/';
+
 
