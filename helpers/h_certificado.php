@@ -53,8 +53,8 @@ function set_pkcs($doc, $pass)
 				<BR><BR>";
 
 	$PK2		= openssl_get_privatekey($p12cert["pkey"]);
-
-	$Crypted	= openssl_private_decrypt($crypttext,$Decrypted,$PK2);
+	
+	$Crypted	= openssl_private_decrypt($crypttext, $Decrypted, $PK2);
 	if (!$Crypted) {
 		$MSG	.= "<p class='error'>Imposible desencriptar ($CCID).</p>";
 	}else{
@@ -67,6 +67,16 @@ function set_X509($doc, $pass)
 {
 	$cert		= file_get_contents($doc);
 	$ssl		= openssl_x509_parse($cert);
+	
+	if(openssl_x509_check_private_key ($cert , $pass ))
+	{
+		echo "Funciona<br>";	
+	}
+	else
+	{
+		echo "No<br>";
+	}
+	
 	foreach ($ssl as $key => $value) {
 		echo "<b>KEY: ".$key."</b><br>";
 		if(is_array($value))

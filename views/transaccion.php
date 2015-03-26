@@ -82,7 +82,7 @@ if($bandera)
 	else
 	if($certificado == 'X509v3')
 	{
-		set_X509($route['doc'].'Amena.cer', "Amena2015");
+		set_X509($route['doc'].'Diego_CN.cer', "ceramica");
 	}
 	
 }
