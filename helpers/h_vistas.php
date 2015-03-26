@@ -90,7 +90,7 @@ function set_format($dato, $format)
 				return $cadena;
 				
 				break;
-			
+
 	}
 }
 
