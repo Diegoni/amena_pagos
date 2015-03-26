@@ -20,7 +20,7 @@ function css_libreria($libreria)
 
 function item_menu($link, $cadena)
 {
-	return '<li><a href="'.base_url().'index.php/'.$link.'">'.$cadena.'</a></li>'. "\n";
+	return '<li><a href="'.$link.'">'.$cadena.'</a></li>'. "\n";
 }
 
 function get_panel_heading($REQUEST_URI)
@@ -28,6 +28,8 @@ function get_panel_heading($REQUEST_URI)
 	$url	= "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 	$title	= str_replace(BASE_URL.'views/', '', $url);
 	$title	= str_replace('.php', '', $title);
+	$title	= str_replace('_', ' ', $title);
+	$title	= str_replace('-', ' ', $title);
 	
 	return ucwords($title);
 }
@@ -53,6 +55,43 @@ function set_alert($mensaje, $type = NULL)
 	$alert	.= "</div>";
 	
 	return $alert; 
+}
+
+function set_format($dato, $format)
+{
+	switch ($format) {
+			case 'cuit':
+				if(strlen($dato) == 11)
+				{
+					$cadena = substr($dato, 0, 2);
+					$cadena .= '-';
+					$cadena .= substr($dato, 2, 8);
+					$cadena .= '-';
+					$cadena .= substr($dato, 10);
+										
+					return $cadena;
+				}
+				break;
+			
+			case 'importe':
+				$cadena = "$ ".round($dato, 2);
+				return $cadena;
+				
+				break;
+			
+			case 'date':
+				$cadena = date('d-m-Y',strtotime( $dato));
+				return $cadena;
+				
+				break;
+				
+			case 'datetime':
+				$cadena = date('d-m-Y H:i:s',strtotime( $dato));
+				return $cadena;
+				
+				break;
+			
+	}
 }
 
 

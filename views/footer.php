@@ -2,8 +2,8 @@
 </div>
 
 <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-      </div>
+	<p class="text-muted pull-right footer-text">
+			Desarrollado por TMS GROUP SA
+	</p>
 </footer>
   
