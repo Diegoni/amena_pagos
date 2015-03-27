@@ -98,10 +98,29 @@ class MY_Model extends Model
 	function update($data, $id)
 	{
 		$campos = '';
+		$result = $this->_db->query('SELECT * FROM '.$this->_tablename.' LIMIT 1');
+		$finfo	= $result->fetch_fields();
 		
 		foreach ($data as $key => $value) {
-			$campos .= $key." = ".$value.",";
+			foreach ($finfo as $val) {
+				if($key == $val->name){
+					if(	$val->type == 252 || //text 
+						$val->type == 253 || //varchar
+						$val->type == 254 || //char
+						$val->type == 10 || //date
+						$val->type == 11 || //datetime
+						$val->type == 12)	//time
+					{
+						$campos .= $key." = '".$value."' ,";
+					}
+					else
+					{
+						$campos .= $key." = ".$value.",";	
+					}
+				}
+			}
 		}
+		
 		$campos	= trim($campos, ",");
 		
 		$query = "UPDATE 
@@ -110,7 +129,7 @@ class MY_Model extends Model
 					$campos
 					WHERE
 					$this->_id = $id";
-					
+							
 		$this->_db->query($query);
 	}
 }

@@ -119,20 +119,20 @@ if($bandera)
 			return true;
 		}
 	}
+	
 	$(document).ready(function(){
 		$('#guardar').click();	
 		window.close();
 	});
 </script>
-<div onsubmit="return control_datos()" class="hidden"> 
-<form method="post" action="<?php echo $url_post?> >
-	<input type='hidden' name="CodigoComunidad" id="CodigoComunidad" value="<?php echo $datos_post['CodigoComunidad']?>">
-	<input type='hidden' name="CantidadTransacciones" id="CantidadTransacciones" value="<?php echo $datos_post['CantidadTransacciones']?>">
-	<input type='hidden' name="WindowPopUp" id="WindowPopUp" value="<?php echo $datos_post['WindowPopUp']?>">
-	<input type='hidden' name="Comprobante1" id="Comprobante1" value="<?php echo $datos_post['Comprobante1']?>">
-	<input type='hidden' name="FechaPago1" id="FechaPago1" value="<?php echo $datos_post['FechaPago1']?>">
-	<input type='hidden' name="Importe1" id="Importe1" value="<?php echo $datos_post['Importe1']?>">
-	<button  type="submit" name="guardar" id="guardar" value="<?php echo $datos_post['CodigoComunidad']?>">
-	</button>
-</form>
+<div class="hidden"> 
+	<form method="post" action="<?php echo $url_post?>" onsubmit="return control_datos()">
+		<input type='hidden' name="CodigoComunidad" id="CodigoComunidad" value="<?php echo $datos_post['CodigoComunidad']?>">
+		<input type='hidden' name="CantidadTransacciones" id="CantidadTransacciones" value="<?php echo $datos_post['CantidadTransacciones']?>">
+		<input type='hidden' name="WindowPopUp" id="WindowPopUp" value="<?php echo $datos_post['WindowPopUp']?>">
+		<input type='hidden' name="Comprobante1" id="Comprobante1" value="<?php echo $datos_post['Comprobante1']?>">
+		<input type='hidden' name="FechaPago1" id="FechaPago1" value="<?php echo $datos_post['FechaPago1']?>">
+		<input type='hidden' name="Importe1" id="Importe1" value="<?php echo $datos_post['Importe1']?>">
+		<input type="submit" name="guardar" id="guardar" value="<?php echo $datos_post['CodigoComunidad']?>">
+	</form>
 </div>
