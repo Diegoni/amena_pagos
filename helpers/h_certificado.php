@@ -104,3 +104,26 @@ function set_X509($doc, $pass)
 		}
 	}
 }
+
+
+
+/*----------------------------------------------------------------------------
+		Post de datos
+----------------------------------------------------------------------------*/
+
+
+function post_curl($url_post, $datos_post)
+{
+	$ch			= curl_init();
+	
+	curl_setopt($ch, CURLOPT_URL, $url_post);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS,
+	            	"CodigoComunidad=".$datos_post['CodigoComunidad']."&
+	            	CantidadTransacciones=1&
+	            	WindowPopUp=True");
+	
+	curl_exec ($ch);
+	curl_close ($ch); 
+}
+	

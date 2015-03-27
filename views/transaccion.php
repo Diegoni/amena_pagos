@@ -68,6 +68,8 @@ if($bandera)
 	$array_config	= $config->get_registros('active = 1');
 	
 	foreach ($array_config as $value) {
+		$url_post			= $value['url_post'];
+		$id_comunidad		= $value['id_comunidad'];
 		$array_config_cert	= $config_cert->get_registros('id_certificado = '.$value['id_config_certificado']);
 	}
 	
@@ -77,12 +79,60 @@ if($bandera)
 	
 	if($certificado == 'PKCS#12')
 	{
-		set_pkcs($route['doc'].'amena_2.p12', "1234");
+		//set_pkcs($route['doc'].'amena_2.p12', "1234");
 	}
 	else
 	if($certificado == 'X509v3')
 	{
-		set_X509($route['doc'].'Diego_CN.cer', "ceramica");
+		//set_X509($route['doc'].'Diego_CN.cer', "ceramica");
 	}
 	
+	$datos_post = array(
+		'CodigoComunidad'		=> $id_comunidad,
+		'CantidadTransacciones'	=> 1,
+		'WindowPopUp'			=> True,
+		'Comprobante1'			=> $datos['comprob'],
+		//'FechaPago1'			=> date('d/m/Y', strtotime($datos['fechapago'])),
+		'FechaPago1'			=> date('d/m/Y'),
+		'Importe1'				=> $datos['importe']
+	);
+		
 }
+?>
+<script>
+	function control_datos()
+	{
+		if
+		(
+			($('#CodigoComunidad').value() != <?php echo $datos_post['CodigoComunidad']?>) ||
+			($('#CantidadTransacciones').value() != <?php echo $datos_post['CantidadTransacciones']?>) ||
+			($('#WindowPopUp').value() != <?php echo $datos_post['WindowPopUp']?>) ||
+			($('#Comprobante1').value() != <?php echo $datos_post['Comprobante1']?>) ||
+			($('#FechaPago1').value() != <?php echo $datos_post['FechaPago1']?>) ||
+			($('#Importe1').value()	!= <?php echo $datos_post['Importe1']?>)	
+		)
+		{
+			return false;	
+		}
+		else
+		{
+			return true;
+		}
+	}
+	$(document).ready(function(){
+		$('#guardar').click();	
+		window.close();
+	});
+</script>
+<div onsubmit="return control_datos()" class="hidden"> 
+<form method="post" action="<?php echo $url_post?> >
+	<input type='hidden' name="CodigoComunidad" id="CodigoComunidad" value="<?php echo $datos_post['CodigoComunidad']?>">
+	<input type='hidden' name="CantidadTransacciones" id="CantidadTransacciones" value="<?php echo $datos_post['CantidadTransacciones']?>">
+	<input type='hidden' name="WindowPopUp" id="WindowPopUp" value="<?php echo $datos_post['WindowPopUp']?>">
+	<input type='hidden' name="Comprobante1" id="Comprobante1" value="<?php echo $datos_post['Comprobante1']?>">
+	<input type='hidden' name="FechaPago1" id="FechaPago1" value="<?php echo $datos_post['FechaPago1']?>">
+	<input type='hidden' name="Importe1" id="Importe1" value="<?php echo $datos_post['Importe1']?>">
+	<button  type="submit" name="guardar" id="guardar" value="<?php echo $datos_post['CodigoComunidad']?>">
+	</button>
+</form>
+</div>
