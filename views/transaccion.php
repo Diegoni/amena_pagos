@@ -84,7 +84,7 @@ if($bandera)
 	else
 	if($certificado == 'X509v3')
 	{
-		//set_X509($route['doc'].'Diego_CN.cer', "ceramica");
+		set_X509($route['doc'].'Diego_CN.cer', "ceramica");
 	}
 	
 	$datos_post = array(
@@ -121,8 +121,8 @@ if($bandera)
 	}
 	
 	$(document).ready(function(){
-		//$('#guardar').click();	
-		//window.close();
+	//	$('#guardar').click();	
+	//	window.close();
 	});
 </script>
 <div class="hidden"> 
@@ -133,6 +133,9 @@ if($bandera)
 		<input type='hidden' name="Comprobante1" id="Comprobante1" value="<?php echo $datos_post['Comprobante1']?>">
 		<input type='hidden' name="FechaPago1" id="FechaPago1" value="<?php echo $datos_post['FechaPago1']?>">
 		<input type='hidden' name="Importe1" id="Importe1" value="<?php echo $datos_post['Importe1']?>">
+		<input type='hidden' name="Signature" id="Signature" value="<?php echo $datos_post['Importe1']?>">
+		<input type='hidden' name="Identificador" id="Identificador" value="<?php echo $datos_post['Importe1']?>">
+		<input type='hidden' name="urlErrorSignature" id="urlErrorSignature" value="<?php echo $datos_post['Importe1']?>">
 		<input type="submit" name="guardar" id="guardar" value="<?php echo $datos_post['CodigoComunidad']?>">
 	</form>
 </div>

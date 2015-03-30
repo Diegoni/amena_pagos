@@ -41,6 +41,8 @@
 				</a>
         		<ul class="dropdown-menu">
         			<?php echo item_menu(BASE_URL.'views/transacciones.php', $language['transacciones']);?>
+        			<?php echo item_menu(BASE_URL.'views/reporte_interbanking.php', $language['reporte']);?>        			
+        			<?php echo item_menu(BASE_URL.'views/estados_transferencias.php', $language['estado']);?>
         		</ul>
       		</li>
       		<li class="dropdown">

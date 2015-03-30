@@ -23,7 +23,7 @@ function item_menu($link, $cadena)
 	return '<li><a href="'.$link.'">'.$cadena.'</a></li>'. "\n";
 }
 
-function get_panel_heading($REQUEST_URI)
+function get_panel_heading()
 {
 	$url	= "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 	$title	= str_replace(BASE_URL.'views/', '', $url);
@@ -41,9 +41,10 @@ function set_alert($mensaje, $type = NULL)
 		$type = 'success';
 	}
 	else
-	if(	$type != 'success' || 
-		$type != 'info' || 
-		$type != 'warning' || 
+	if(	$type != 'success' && 
+		$type != 'info' && 
+		$type != 'warning' && 
+		$type != 'default' && 
 		$type != 'danger')
 	{
 		$type = 'success';

@@ -10,8 +10,13 @@ if(isset($_POST['guardar']))
 {
 	$datos = array(
 		'id_config_certificado'		=> $_POST['certificado'],
+		'id_comunidad'				=> $_POST['id_comunidad'],
+		'Nombre_usuario'			=> $_POST['Nombre_usuario'],
+		'Clave'						=> $_POST['Clave'],
+		'cuil'						=> $_POST['cuil'],
 		'url_post'					=> $_POST['url_post'],
-		'id_comunidad'				=> $_POST['id_comunidad']
+		'url_reporte'				=> $_POST['url_reporte'],
+		'url_estado_transferencia'	=> $_POST['url_estado_transferencia']
 	);
 	
 	$config->update($datos, $_POST['guardar']);
@@ -21,12 +26,10 @@ if(isset($_POST['guardar']))
 $array_certificados			= $config_certificado->get_registros();
 $array_config				= $config->get_registros('active = 1');
 
+
 foreach ($array_config as $value) 
 {
-	$id_certificado = $value['id_config_certificado'];
-	$id_config		= $value['id_config'];
-	$url_post		= $value['url_post'];
-	$id_comunidad	= $value['id_comunidad'];
+	$valores = $value;
 }
 ?>
 <div class='row'>
@@ -38,7 +41,34 @@ foreach ($array_config as $value)
 			<div class="panel-body">
 				<form class="form-horizontal" method="post">
 					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-2 control-label">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['usuario'] ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" name="Nombre_usuario" value="<?php echo $valores['Nombre_usuario']?>">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['clave'] ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" name="Clave" value="<?php echo $valores['Clave']?>">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['cuil'] ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" name="cuil" value="<?php echo $valores['cuil']?>">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
 							<?php echo $language['certificado'] ?>
 						</label>
 						<div class="col-sm-10">
@@ -61,11 +91,29 @@ foreach ($array_config as $value)
 					</div>
 					
 					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-2 control-label">
+						<label class="col-sm-2 control-label">
 							Url Post
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" name="url_post" value="<?php echo $url_post?>">
+							<input class="form-control" name="url_post" value="<?php echo $valores['url_post']?>">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							Url <?php echo $language['reporte'] ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" name="url_reporte" value="<?php echo $valores['url_reporte']?>">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							Url <?php echo $language['estado']; ?> <?php echo $language['transferencia']; ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" name="url_estado_transferencia" value="<?php echo $valores['url_estado_transferencia']?>">
 						</div>
 					</div>
 					
@@ -74,13 +122,13 @@ foreach ($array_config as $value)
 							ID Comunidad
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" name="id_comunidad" value="<?php echo $id_comunidad?>">
+							<input class="form-control" name="id_comunidad" value="<?php echo $valores['id_comunidad']?>">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default" name="guardar" value="<?php echo $id_config?>">
+							<button type="submit" class="btn btn-default" name="guardar" value="<?php echo $valores['id_config']?>">
 								<?php echo $language['guardar'] ?>
 							</button>
 						</div>
@@ -96,8 +144,6 @@ foreach ($array_config as $value)
 		</div>
 	</div>
 </div>
-
-
 
 <?php
 include_once('footer.php');
