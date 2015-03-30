@@ -1,4 +1,26 @@
 <?php include_once('../config/includes.php'); ?>
+ 
+<!----------------------------------------------------------------------------
+		Head
+----------------------------------------------------------------------------->
+
+<title><?php echo $config['title'] ?></title>
+
+<META NAME="keywords" CONTENT="">
+<META NAME="description" CONTENT="<?php echo $config['title'] ?>">
+<META NAME="rating" CONTENT="General">
+<META NAME="ROBOTS" CONTENT="ALL">
+<META http-equiv="Content-type" content="text/html; charset=<?php echo $config['charset'];?>" />
+
+<!-- Iconos -->
+<link type="image/x-icon" href="<?php echo $route['doc'].$config['icono']?>" rel="icon" />
+<link type="image/x-icon" href="<?php echo $route['doc'].$config['icono']?>" rel="shortcut icon" />
+
+ 
+<!----------------------------------------------------------------------------
+		Menu
+----------------------------------------------------------------------------->
+
 
 <nav class="navbar navbar-default" role="navigation">
 	<div class="navbar-header">

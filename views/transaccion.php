@@ -79,7 +79,7 @@ if($bandera)
 	
 	if($certificado == 'PKCS#12')
 	{
-		//set_pkcs($route['doc'].'amena_2.p12', "1234");
+		set_pkcs($route['doc'].'amena_2.p12', "1234");
 	}
 	else
 	if($certificado == 'X509v3')
@@ -121,8 +121,8 @@ if($bandera)
 	}
 	
 	$(document).ready(function(){
-		$('#guardar').click();	
-		window.close();
+		//$('#guardar').click();	
+		//window.close();
 	});
 </script>
 <div class="hidden"> 

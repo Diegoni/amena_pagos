@@ -1,28 +1,14 @@
-<title></title>
-<!--BEGIN META TAGS-->
-<META NAME="keywords" CONTENT="">
-<META NAME="description" CONTENT="Interbanking">
-<META NAME="rating" CONTENT="General">
-<META NAME="ROBOTS" CONTENT="ALL">
-<!--END META TAGS-->
-
-<!-- Charset tiene que estar en utf-8 para que tome ñ y acentos -->
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-
-
-<!-- Iconos -->
-<link type="image/x-icon" href="imagenes/favicon.ico" rel="icon" />
-<link type="image/x-icon" href="imagenes/favicon.ico" rel="shortcut icon" />
 <?php  
 
 /*---------------------------------------------------------------------
 		Configuraciones generales
 ---------------------------------------------------------------------*/
 
-include_once('config.php');
+include_once('configs.php');
 include_once('constants.php');
 include_once('database.php');
 include_once('routes.php');
+
 
 /*---------------------------------------------------------------------
 		Helpers, modelos y vistas
