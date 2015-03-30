@@ -1,13 +1,16 @@
-/* Sticky footer styles
--------------------------------------------------- */
+/*----------------------------------------------------------------------------
+		General
+----------------------------------------------------------------------------*/
+
+
 html
 {
-  position: relative;
-  min-height: 100%;
+	position: relative;
+	min-height: 100%;
 }
 body
 {
-  margin-bottom: 60px;
+	margin-bottom: 60px;
 }
 .footer
 {
@@ -21,5 +24,20 @@ body
 .footer-text
 {
 	margin-top: 20px;
-	margin-right: 20px;
+	margin-right: 150px;
+}
+
+
+/*----------------------------------------------------------------------------
+		Ir arriba
+----------------------------------------------------------------------------*/
+
+
+.scrollup
+{
+	display:none; 
+	position: fixed;
+	z-index: 9000;
+	bottom: 0;
+	right: 0;  
 }

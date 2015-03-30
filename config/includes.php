@@ -1,3 +1,18 @@
+<title></title>
+<!--BEGIN META TAGS-->
+<META NAME="keywords" CONTENT="">
+<META NAME="description" CONTENT="Interbanking">
+<META NAME="rating" CONTENT="General">
+<META NAME="ROBOTS" CONTENT="ALL">
+<!--END META TAGS-->
+
+<!-- Charset tiene que estar en utf-8 para que tome ñ y acentos -->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+
+<!-- Iconos -->
+<link type="image/x-icon" href="imagenes/favicon.ico" rel="icon" />
+<link type="image/x-icon" href="imagenes/favicon.ico" rel="shortcut icon" />
 <?php  
 
 /*---------------------------------------------------------------------
@@ -35,3 +50,8 @@ echo css_libreria($route['libraries'].'eden-ui/skins/eden.css');
 echo js_libreria($route['libraries'].'main/js/main.js');
 echo css_libreria($route['libraries'].'main/css/main.css');
 
+
+echo js_libreria($route['libraries'].'DataTables-1.10.5/media/js/jquery.dataTables.js');
+echo css_libreria($route['libraries'].'DataTables-1.10.5/media/css/jquery.dataTables.css');
+
+echo css_libreria($route['libraries'].'font-awesome-4.3.0/css/font-awesome.css');

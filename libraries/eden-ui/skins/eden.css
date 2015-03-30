@@ -17,8 +17,8 @@ font-family: 'Source Sans Pro', sans-serif;
   line-height: 1.42857143;
   color: #2c3e50;
     font-weight: 300;
-      background-image: url('image/soft_wallpaper.png');
-  /*background-color: #ffffff;*/
+   /*   background-image: url('image/soft_wallpaper.png');*/
+  background-color: #ffffff;
 }
 
 /** hyperlink **/

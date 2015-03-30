@@ -15,7 +15,7 @@ $array_transacciones	= $transaccion->get_registros();
 				<?php echo get_panel_heading();	?>
 			</div>
 			<div class="panel-body">
-				<table class="table table-striped table-hover">
+				<table class="table table-striped table-hover" id="datatable">
 					<thead>
 						<tr>
 							<th class='col-md-2'>Cuit</th>

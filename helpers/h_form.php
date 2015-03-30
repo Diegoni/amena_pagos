@@ -114,8 +114,16 @@ function condicion($value)
 
 function validateDate($date, $format = 'Y-m-d H:i:s')
 {
+	/*
 	$d = DateTime::createFromFormat($format, $date);
 	return $d && $d->format($format) == $date;
+	*/
+	$Stamp = strtotime( $date );
+  	$Month = date( 'm', $Stamp );
+  	$Day   = date( 'd', $Stamp );
+  	$Year  = date( 'Y', $Stamp );
+
+  return checkdate( $Month, $Day, $Year ); 
 }
 
 /*----------------------------------------------------------------------------
