@@ -39,13 +39,13 @@ foreach ($array_config as $value)
 				<?php echo get_panel_heading();	?>
 			</div>
 			<div class="panel-body">
-				<form class="form-horizontal" method="post">
+				<form class="form-horizontal" method="post" onsubmit="return validar_config();">
 					<div class="form-group">
 						<label class="col-sm-2 control-label">
 							<?php echo $language['usuario'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" name="Nombre_usuario" value="<?php echo $valores['Nombre_usuario']?>">
+							<input class="form-control" id="Nombre_usuario" name="Nombre_usuario" value="<?php echo $valores['Nombre_usuario']?>" required>
 						</div>
 					</div>
 					
@@ -54,7 +54,7 @@ foreach ($array_config as $value)
 							<?php echo $language['clave'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" name="Clave" value="<?php echo $valores['Clave']?>">
+							<input class="form-control" id="Clave" name="Clave" value="<?php echo $valores['Clave']?>" required>
 						</div>
 					</div>
 					
@@ -63,7 +63,7 @@ foreach ($array_config as $value)
 							<?php echo $language['cuil'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" name="cuil" value="<?php echo $valores['cuil']?>">
+							<input class="form-control" id="cuil" name="cuil" value="<?php echo $valores['cuil']?>" required>
 						</div>
 					</div>
 					
@@ -72,7 +72,7 @@ foreach ($array_config as $value)
 							<?php echo $language['certificado'] ?>
 						</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="certificado" name="certificado">
+							<select class="form-control" id="certificado" name="certificado" required>
 								<?php
 									foreach ($array_certificados as $value) 
 									{
@@ -95,7 +95,7 @@ foreach ($array_config as $value)
 							Url Post
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" name="url_post" value="<?php echo $valores['url_post']?>">
+							<input class="form-control" id="url_post" name="url_post" value="<?php echo $valores['url_post']?>" required>
 						</div>
 					</div>
 					
@@ -104,7 +104,7 @@ foreach ($array_config as $value)
 							Url <?php echo $language['reporte'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" name="url_reporte" value="<?php echo $valores['url_reporte']?>">
+							<input class="form-control" id="url_reporte" name="url_reporte" value="<?php echo $valores['url_reporte']?>" required>
 						</div>
 					</div>
 					
@@ -113,16 +113,16 @@ foreach ($array_config as $value)
 							Url <?php echo $language['estado']; ?> <?php echo $language['transferencia']; ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" name="url_estado_transferencia" value="<?php echo $valores['url_estado_transferencia']?>">
+							<input class="form-control" id="url_estado_transferencia" name="url_estado_transferencia" value="<?php echo $valores['url_estado_transferencia']?>" required>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-2 control-label">
-							ID Comunidad
+							ID <?php echo $language['comunidad'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" name="id_comunidad" value="<?php echo $valores['id_comunidad']?>">
+							<input class="form-control" id="id_comunidad" name="id_comunidad" value="<?php echo $valores['id_comunidad']?>" required>
 						</div>
 					</div>
 					

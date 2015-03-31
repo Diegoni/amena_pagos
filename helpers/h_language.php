@@ -12,3 +12,4 @@ $language['estado']						= 'Estado';
 $language['usuario']					= 'Usuario';
 $language['clave']						= 'Clave';
 $language['cuil']						= 'Cuil';
+$language['comunidad']					= 'Comunidad';

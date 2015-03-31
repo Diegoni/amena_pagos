@@ -37,20 +37,27 @@
 		<ul class="nav navbar-nav">
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<?php echo $language['transacciones'] ?><b class="caret"></b>
+					<i class="fa fa-th-list"></i> <?php echo $language['transacciones'] ?><b class="caret"></b>
 				</a>
         		<ul class="dropdown-menu">
         			<?php echo item_menu(BASE_URL.'views/transacciones.php', $language['transacciones']);?>
-        			<?php echo item_menu(BASE_URL.'views/reporte_interbanking.php', $language['reporte']);?>        			
-        			<?php echo item_menu(BASE_URL.'views/estados_transferencias.php', $language['estado']);?>
         		</ul>
       		</li>
       		<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<?php echo $language['config'] ?><b class="caret"></b>
+					<i class="fa fa-cogs"></i> <?php echo $language['config'] ?><b class="caret"></b>
 				</a>
         		<ul class="dropdown-menu">
         			<?php echo item_menu(BASE_URL.'views/config_general.php', $language['config']);?>
+        		</ul>
+      		</li>
+      		<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<i class="fa fa-bar-chart"></i> <?php echo $language['reporte'] ?><b class="caret"></b>
+				</a>
+        		<ul class="dropdown-menu">
+        			<?php echo item_menu(BASE_URL.'views/reporte_interbanking.php', $language['reporte']);?>        			
+        			<?php echo item_menu(BASE_URL.'views/estados_transferencias.php', $language['estado']);?>
         		</ul>
       		</li>
     	</ul>
