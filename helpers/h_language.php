@@ -1,6 +1,7 @@
 <?php
 $language['certificado']				= 'Certificado';
 $language['guardar']					= 'Guardar';
+$language['volver']						= 'Volver';
 $language['update_ok']					= 'El registro se ha modificado con éxito';
 $language['config']						= 'Config';
 $language['transacciones']				= 'Transacciones';
@@ -13,3 +14,16 @@ $language['usuario']					= 'Usuario';
 $language['clave']						= 'Clave';
 $language['cuil']						= 'Cuil';
 $language['comunidad']					= 'Comunidad';
+$language['mensaje_enviado']			= 'Mensaje enviado, la administración se comunicara con usted.';
+$language['no_ingreso']					= 'No puedes ingresar.';
+$language['no_acceso']					= 'Problemas para acceder.';
+$language['cerrar']						= 'Cerrar';
+$language['mensaje']					= 'Mensaje';
+$language['email']						= 'Email';
+$language['enviar']						= 'Enviar';
+$language['ingrese']					= 'Ingrese';
+$language['reintentar']					= 'Reintentar';
+$language['usuario_error']				= 'El usuario o el password no han sido ingresados.';
+$language['usuario_delete']				= 'Error, su usuario ha sido eliminado';
+$language['no_connect']					= "Error, no se ha podido conectar";
+

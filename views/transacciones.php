@@ -3,9 +3,7 @@ include_once('menu.php');
 include_once($route['models'].'m_transaccion.php');
 
 $transaccion			= new m_transaccion();
-
 $array_transacciones	= $transaccion->get_registros();
-
 ?>
 
 <div class='row'>

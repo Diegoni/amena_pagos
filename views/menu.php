@@ -1,4 +1,7 @@
-<?php include_once('../config/includes.php'); ?>
+<?php 
+include_once('../config/includes.php'); 
+include_once('control_usuario.php');
+?>
  
 <!----------------------------------------------------------------------------
 		Head
@@ -61,6 +64,13 @@
         		</ul>
       		</li>
     	</ul>
+    	<ul class="nav navbar-nav navbar-right">
+			<li class="">
+				<a class="brand" rel='tooltip' title="Cerrar sessión de usuario" href="logout.php">
+					<?php echo $_SESSION['nombre']?> <i class="fa fa-sign-out"></i>
+				</a>
+			</li>
+		</ul>
 	</div>
 </nav>
 
