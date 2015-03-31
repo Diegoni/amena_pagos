@@ -42,7 +42,7 @@ foreach ($config['correos_error'] as $key => $correo) {
 			</div>		
 			<p>
 				<span>
-					<a href="acceso.php" class="btn btn-default" type="submit" name="enviar" value="Ingresar">
+					<a href="acceso.php" class="btn btn-default" type="submit" name="enviar" value="1">
 						<?php echo $language['volver'] ?>
 					</a>
 				</span>

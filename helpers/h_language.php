@@ -25,5 +25,12 @@ $language['ingrese']					= 'Ingrese';
 $language['reintentar']					= 'Reintentar';
 $language['usuario_error']				= 'El usuario o el password no han sido ingresados.';
 $language['usuario_delete']				= 'Error, su usuario ha sido eliminado';
-$language['no_connect']					= "Error, no se ha podido conectar";
-
+$language['no_connect']					= 'Error, no se ha podido conectar';
+$language['ir_arriba']					= 'Ir Arriba';
+$language['desarrollado']				= 'Desarrollado por TMS GROUP SA';
+$language['salir']						= 'Salir';
+$language['ingresar']					= 'Ingresar';
+$language['password']					= 'Password';
+$language['post']						= 'Post';
+$language['url']						= 'Url';
+$language['id']							= 'ID';

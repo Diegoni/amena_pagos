@@ -2,11 +2,11 @@
 </div>
 
 <a href="#" class="scrollup btn btn-default" title=''>
-	<i class="fa fa-arrow-up"></i> Ir arriba
+	<i class="fa fa-arrow-up"></i> <?php echo $language['ir_arriba'] ?>
 </a>
 <footer class="footer">
 	<p class="text-muted pull-right footer-text">
-			Desarrollado por TMS GROUP SA
+		<?php echo $language['desarrollado'] ?>			
 	</p>
 </footer>
   

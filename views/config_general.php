@@ -92,7 +92,7 @@ foreach ($array_config as $value)
 					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">
-							Url Post
+							<?php echo $language['url']." ".$language['post'] ?>
 						</label>
 						<div class="col-sm-10">
 							<input class="form-control" id="url_post" name="url_post" value="<?php echo $valores['url_post']?>" required>
@@ -101,7 +101,7 @@ foreach ($array_config as $value)
 					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">
-							Url <?php echo $language['reporte'] ?>
+							<?php echo $language['url']." ".$language['reporte'] ?>
 						</label>
 						<div class="col-sm-10">
 							<input class="form-control" id="url_reporte" name="url_reporte" value="<?php echo $valores['url_reporte']?>" required>
@@ -110,7 +110,7 @@ foreach ($array_config as $value)
 					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">
-							Url <?php echo $language['estado']; ?> <?php echo $language['transferencia']; ?>
+							<?php echo $language['url']." ".$language['estado']." ".$language['transferencia']; ?>
 						</label>
 						<div class="col-sm-10">
 							<input class="form-control" id="url_estado_transferencia" name="url_estado_transferencia" value="<?php echo $valores['url_estado_transferencia']?>" required>
@@ -119,7 +119,7 @@ foreach ($array_config as $value)
 					
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-2 control-label">
-							ID <?php echo $language['comunidad'] ?>
+							<?php echo $language['id']." ".$language['comunidad'] ?>
 						</label>
 						<div class="col-sm-10">
 							<input class="form-control" id="id_comunidad" name="id_comunidad" value="<?php echo $valores['id_comunidad']?>" required>

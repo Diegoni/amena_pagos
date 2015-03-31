@@ -18,12 +18,13 @@ include_once('../config/includes.php');
 		<?php if(empty($_SESSION['nombre'])) { ?>
 			<form action="comprobar.php" method="post" name="login"> 
 				<div class="row">
-					<input type="text" name="usuario_nombre" placeholder="Ingrese usuario" autofocus/>
-					<input type="password" name="usuario_clave" placeholder="Ingrese password"/>
+					<input type="text" name="usuario_nombre" placeholder="<?php echo $language['ingrese']." ".$language['usuario']?>" autofocus/>
+					<input type="password" name="usuario_clave" placeholder=<?php echo $language['ingrese']." ".$language['password']?>"/>
 					<hr>
-					<input class="btn btn-default" type="submit" name="enviar" value="Ingresar" />
+					<button class="btn btn-default" type="submit" name="enviar" value="1"/>
+						<?php echo $language['ingresar']?>
+					</button>
 				</div>
-				
 				
 				<a href="" type="button" data-toggle="modal" data-target="#myModal">
 				  <?php echo $language['no_ingreso']?>
@@ -31,11 +32,15 @@ include_once('../config/includes.php');
 			</form>
 		<?php } else { ?> 
 			<div class="row">
-				<b>Usuario: </b>
+				<b><?php echo $language['usuario']?>: </b>
 				<?php echo $_SESSION['nombre']?>
 				<hr>
-				<a class="btn btn-default" title="volver a la aplicación" href="../index.php">Volver</a>
-				<a class="btn btn-default" title="desconectar usuario" href="logout.php">Salir</a></span></p>
+				<a class="btn btn-default" href="transacciones.php">
+					<?php echo $language['volver']?>
+				</a>
+				<a class="btn btn-default" href="logout.php">
+					<?php echo $language['salir']?>
+				</a>
 			</div>
 		<?php } ?>
 		</div>
