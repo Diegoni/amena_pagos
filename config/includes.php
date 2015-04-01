@@ -26,9 +26,6 @@ include_once($route['models'].'My_Model.php');
 
 echo js_libreria($route['libraries'].'jquery/jquery-1.11.2.min.js');
 
-//echo js_libreria($route['libraries'].'bootstrap_3.3.4/js/bootstrap.js');
-//echo css_libreria($route['libraries'].'bootstrap_3.3.4/css/bootstrap.css');
-
 echo js_libreria($route['libraries'].'eden-ui/js/bootstrap.js');
 echo css_libreria($route['libraries'].'eden-ui/css/bootstrap.css');
 echo css_libreria($route['libraries'].'eden-ui/skins/eden.css');
