@@ -17,6 +17,7 @@ include_once('routes.php');
 include_once($route['models'].'My_model.php');
 include_once($route['helpers'].'h_vistas.php');
 include_once($route['helpers'].'h_language.php');
+include_once($route['helpers'].'h_form.php');
 
 include_once($route['models'].'My_Model.php');
 

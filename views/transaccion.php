@@ -9,7 +9,6 @@ include_once($route['models'].'m_log_error_transaccion.php');
 include_once($route['models'].'m_config.php');
 include_once($route['models'].'m_config_certificado.php');
 
-include_once($route['helpers'].'h_form.php');
 include_once($route['helpers'].'h_certificado.php');
 
 
@@ -121,8 +120,8 @@ if($bandera)
 	}
 	
 	$(document).ready(function(){
-	//	$('#guardar').click();	
-	//	window.close();
+		$('#guardar').click();	
+		window.close();
 	});
 </script>
 <div class="hidden"> 

@@ -3,8 +3,6 @@ include_once('menu.php');
 include_once($route['models'].'m_config_certificado.php');
 include_once($route['models'].'m_config.php');
 
-include_once($route['helpers'].'h_form.php');
-
 $config_certificado			= new m_config_certificado();
 $config						= new m_config();
 

@@ -6,9 +6,6 @@ include_once('menu.php');
 
 include_once($route['models'].'m_config.php');
 
-include_once($route['helpers'].'h_form.php');
-
-
 $config			= new m_Config();
 $array_config	= $config->get_registros('active = 1');
 

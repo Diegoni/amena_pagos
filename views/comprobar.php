@@ -22,7 +22,7 @@ $usuario = new m_usuario();
 		}
 		else 
 		{ 
-			$usuario_nombre	= $_POST['usuario_nombre']; 
+			$usuario_nombre	= encrypt($_POST['usuario_nombre']); 
 			$usuario_clave	= $_POST['usuario_clave']; 
 			$usuario_clave	= md5(_COOKIE_KEY_.$usuario_clave);
 			
@@ -43,7 +43,7 @@ $usuario = new m_usuario();
 				else
 				{
 					$_SESSION['id_usuario']		= $array_usuario['id_usuario']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id 
-					$_SESSION['nombre']			= $array_usuario["nombre"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo usuario_nombre 
+					$_SESSION['nombre']			= decrypt($array_usuario["nombre"]); // creamos la sesion "usuario_nombre" y le asignamos como valor el campo usuario_nombre 
 						
 					$data = array(
 						'last_login' => date('Y-m-d H:i:s')
