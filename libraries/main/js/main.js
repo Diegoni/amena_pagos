@@ -94,7 +94,7 @@ function validar_campo(id, validacion, length)
 			return 0;
 		}
 	}
-	else	
+		
 	if(validacion == 'url')
 	{
 		if(!(expre_url.test($('#'+id).val())))
