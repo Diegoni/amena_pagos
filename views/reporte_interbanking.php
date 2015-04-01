@@ -12,8 +12,8 @@ $array_config	= $config->get_registros('active = 1');
 
 foreach ($array_config as $value) {
 		$datos_post = array(
-			'url_reporte'			=> $value['url_reporte'],
-			'id_comunidad'			=> $value['id_comunidad'],
+			'url_reporte'			=> decrypt($value['url_reporte']),
+			'id_comunidad'			=> decrypt($value['id_comunidad']),
 			'CantidadTransacciones'	=> 1,
 			'WindowPopUp'			=> true,
 			'OutURL'				=> 1,

@@ -3,6 +3,8 @@ include_once('menu.php');
 include_once($route['models'].'m_config_certificado.php');
 include_once($route['models'].'m_config.php');
 
+include_once($route['helpers'].'h_form.php');
+
 $config_certificado			= new m_config_certificado();
 $config						= new m_config();
 
@@ -10,13 +12,13 @@ if(isset($_POST['guardar']))
 {
 	$datos = array(
 		'id_config_certificado'		=> $_POST['certificado'],
-		'id_comunidad'				=> $_POST['id_comunidad'],
-		'Nombre_usuario'			=> $_POST['Nombre_usuario'],
-		'Clave'						=> $_POST['Clave'],
-		'cuil'						=> $_POST['cuil'],
-		'url_post'					=> $_POST['url_post'],
-		'url_reporte'				=> $_POST['url_reporte'],
-		'url_estado_transferencia'	=> $_POST['url_estado_transferencia']
+		'id_comunidad'				=> encrypt($_POST['id_comunidad']),
+		'Nombre_usuario'			=> encrypt($_POST['Nombre_usuario']),
+		'Clave'						=> encrypt($_POST['Clave']),
+		'cuil'						=> encrypt($_POST['cuil']),
+		'url_post'					=> encrypt($_POST['url_post']),
+		'url_reporte'				=> encrypt($_POST['url_reporte']),
+		'url_estado_transferencia'	=> encrypt($_POST['url_estado_transferencia'])
 	);
 	
 	$config->update($datos, $_POST['guardar']);
@@ -31,6 +33,7 @@ foreach ($array_config as $value)
 {
 	$valores = $value;
 }
+
 ?>
 <div class='row'>
 	<div class="col-md-12">
@@ -45,7 +48,7 @@ foreach ($array_config as $value)
 							<?php echo $language['usuario'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="Nombre_usuario" name="Nombre_usuario" value="<?php echo $valores['Nombre_usuario']?>" required>
+							<input class="form-control" id="Nombre_usuario" name="Nombre_usuario" value="<?php echo decrypt($valores['Nombre_usuario'])?>" required>
 						</div>
 					</div>
 					
@@ -54,7 +57,7 @@ foreach ($array_config as $value)
 							<?php echo $language['clave'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="Clave" name="Clave" value="<?php echo $valores['Clave']?>" required>
+							<input class="form-control" id="Clave" name="Clave" value="<?php echo decrypt($valores['Clave'])?>" required>
 						</div>
 					</div>
 					
@@ -63,7 +66,7 @@ foreach ($array_config as $value)
 							<?php echo $language['cuil'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="cuil" name="cuil" value="<?php echo $valores['cuil']?>" required>
+							<input class="form-control" id="cuil" name="cuil" value="<?php echo decrypt($valores['cuil'])?>" required>
 						</div>
 					</div>
 					
@@ -95,7 +98,7 @@ foreach ($array_config as $value)
 							<?php echo $language['url']." ".$language['post'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="url_post" name="url_post" value="<?php echo $valores['url_post']?>" required>
+							<input class="form-control" id="url_post" name="url_post" value="<?php echo decrypt($valores['url_post'])?>" required>
 						</div>
 					</div>
 					
@@ -104,7 +107,7 @@ foreach ($array_config as $value)
 							<?php echo $language['url']." ".$language['reporte'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="url_reporte" name="url_reporte" value="<?php echo $valores['url_reporte']?>" required>
+							<input class="form-control" id="url_reporte" name="url_reporte" value="<?php echo decrypt($valores['url_reporte'])?>" required>
 						</div>
 					</div>
 					
@@ -113,7 +116,7 @@ foreach ($array_config as $value)
 							<?php echo $language['url']." ".$language['estado']." ".$language['transferencia']; ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="url_estado_transferencia" name="url_estado_transferencia" value="<?php echo $valores['url_estado_transferencia']?>" required>
+							<input class="form-control" id="url_estado_transferencia" name="url_estado_transferencia" value="<?php echo decrypt($valores['url_estado_transferencia'])?>" required>
 						</div>
 					</div>
 					
@@ -122,7 +125,7 @@ foreach ($array_config as $value)
 							<?php echo $language['id']." ".$language['comunidad'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="id_comunidad" name="id_comunidad" value="<?php echo $valores['id_comunidad']?>" required>
+							<input class="form-control" id="id_comunidad" name="id_comunidad" value="<?php echo decrypt($valores['id_comunidad'])?>" required>
 						</div>
 					</div>
 					

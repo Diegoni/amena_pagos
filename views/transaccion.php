@@ -68,8 +68,8 @@ if($bandera)
 	$array_config	= $config->get_registros('active = 1');
 	
 	foreach ($array_config as $value) {
-		$url_post			= $value['url_post'];
-		$id_comunidad		= $value['id_comunidad'];
+		$url_post			= decrypt($value['url_post']);
+		$id_comunidad		= decrypt($value['id_comunidad']);
 		$array_config_cert	= $config_cert->get_registros('id_certificado = '.$value['id_config_certificado']);
 	}
 	

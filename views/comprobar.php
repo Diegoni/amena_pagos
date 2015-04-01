@@ -24,8 +24,8 @@ $usuario = new m_usuario();
 		{ 
 			$usuario_nombre	= $_POST['usuario_nombre']; 
 			$usuario_clave	= $_POST['usuario_clave']; 
-			$usuario_clave	= md5($usuario_clave); 
-				
+			$usuario_clave	= md5(_COOKIE_KEY_.$usuario_clave);
+			
 			$query = "nombre ='".$usuario_nombre."' AND clave='".$usuario_clave."'";
 			$array_registros = $usuario->get_registros($query);
 				
