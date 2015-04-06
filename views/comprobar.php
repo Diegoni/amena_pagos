@@ -35,8 +35,8 @@ if(isset($_POST['enviar']))
 			}
 			else
 			{
-				$_SESSION['id_usuario']		= $array_usuario['id_usuario']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id 
-				$_SESSION['nombre']			= decrypt($array_usuario["nombre"]); // creamos la sesion "usuario_nombre" y le asignamos como valor el campo usuario_nombre 
+				$_SESSION['id_usuario']		= $array_usuario['id_usuario']; // creamos la sesion "id_usuario" y le asignamos como valor el campo id_usuario 
+				$_SESSION['nombre']			= decrypt($array_usuario["nombre"]); // creamos la sesion "nombre" y le asignamos como valor el campo nombre 
 						
 				$data = array(
 					'last_login' => date('Y-m-d H:i:s')
