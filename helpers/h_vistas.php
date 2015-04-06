@@ -94,6 +94,3 @@ function set_format($dato, $format)
 
 	}
 }
-
-
-

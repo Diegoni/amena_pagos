@@ -25,7 +25,7 @@ include_once('../config/includes.php');
 						<?php echo $language['ingresar']?>
 					</button>
 				</div>
-				
+				<br>
 				<a href="" type="button" data-toggle="modal" data-target="#myModal">
 				  <?php echo $language['no_ingreso']?>
 				</a>

@@ -1,4 +1,15 @@
 <?php 
+if($config['environment'] == 'development')
+{
+	error_reporting(E_ALL);
+	ini_set("display_errors", 1);	
+}
+else
+if($config['environment'] == 'testing' || $config['environment'] == 'production')
+{
+	error_reporting(0);	
+}
+
 include_once('../config/includes.php'); 
 include_once('control_usuario.php');
 ?>
@@ -28,7 +39,7 @@ include_once('control_usuario.php');
 <nav class="navbar navbar-default" role="navigation">
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-			<span class="sr-only">Toggle navigation</span>
+			<span class="sr-only"><?php echo $config['title'] ?></span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
