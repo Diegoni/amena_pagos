@@ -37,12 +37,19 @@ class MY_Model extends Model
 		}
 		
 		//$users	= $result->fetch_all(MYSQLI_ASSOC); PHP 5.3 >
-		while($row = $result->fetch_array())
+		if($result->num_rows > 0)
 		{
-			$rows[] = $row;
+			while($row = $result->fetch_array())
+			{
+				$rows[] = $row;
+			}
+			
+			return $rows;	
 		}
-		
-		return $rows;
+		else
+		{
+			return FALSE;	
+		}
     }
 	
 		

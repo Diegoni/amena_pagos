@@ -21,13 +21,13 @@ if(isset($_POST['enviar']))
 			
 		$query			= "nombre ='".$usuario_nombre."' AND clave='".$usuario_clave."'";
 		$variable		= $usuario->get_registros($query);
-		
-		foreach ($variable as $row) {
-			$array_usuario = $row;
-		}
-
-		if(isset($array_usuario))
+				
+		if(is_array($variable))
 		{
+			foreach ($variable as $row) {
+				$array_usuario = $row;
+			}	
+			
 			if($array_usuario['active'] == 0)
 			{
 				$mensaje = $language['usuario_delete'];
