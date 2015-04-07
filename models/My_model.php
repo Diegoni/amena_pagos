@@ -36,8 +36,13 @@ class MY_Model extends Model
 			$result = $this->_db->query('SELECT * FROM '.$this->_tablename.' WHERE '.$where);
 		}
 		
-		$users	= $result->fetch_all(MYSQLI_ASSOC);
-        return $users;
+		//$users	= $result->fetch_all(MYSQLI_ASSOC); PHP 5.3 >
+		while($row = $result->fetch_array())
+		{
+			$rows[] = $row;
+		}
+		
+		return $rows;
     }
 	
 		
@@ -89,6 +94,7 @@ class MY_Model extends Model
 					$this->_tablename 
 					$campos
 					$datos";
+		echo $query;
 		
 		$this->_db->query($query);
 		

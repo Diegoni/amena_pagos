@@ -4,13 +4,11 @@ include_once('menu.php');
 include_once($route['models'].'m_config.php');
 
 $config			= new m_Config();
-$array_config	= $config->get_registros('active = 1');
+$variable		= $config->get_registros('active = 1');
 
-foreach ($array_config as $value)
-{
-	$datos_post = $value;
+foreach ($variable as $row) {
+	$datos_post = $row;
 }
-
 ?>
 <div class='row'>
 	<div class="col-md-12">

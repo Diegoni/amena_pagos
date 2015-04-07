@@ -24,12 +24,10 @@ if(isset($_POST['guardar']))
 }
 
 $array_certificados			= $config_certificado->get_registros();
-$array_config				= $config->get_registros('active = 1');
+$variable					= $config->get_registros('active = 1');
 
-
-foreach ($array_config as $value) 
-{
-	$valores = $value;
+foreach ($variable as $row) {
+	$valores = $row;
 }
 
 ?>
@@ -75,15 +73,15 @@ foreach ($array_config as $value)
 						<div class="col-sm-10">
 							<select class="form-control" id="certificado" name="certificado" required>
 								<?php
-									foreach ($array_certificados as $value) 
+									foreach ($array_certificados as $row) 
 									{
-										if($value['id_certificado'] == $id_certificado)
+										if($row['id_certificado'] == $id_certificado)
 										{
-											echo "<option value=".$value['id_certificado']." selected> ".$value['certificado']."</option>";
+											echo "<option value=".$row['id_certificado']." selected> ".$row['certificado']."</option>";
 										}
 										else
 										{
-											echo "<option value=".$value['id_certificado']."> ".$value['certificado']."</option>";	
+											echo "<option value=".$row['id_certificado']."> ".$row['certificado']."</option>";	
 										}								
 									}
 								?>

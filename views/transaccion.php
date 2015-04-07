@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);	
+
 include_once('../config/includes.php');
 
 include_once($route['models'].'m_transaccion.php');
@@ -63,14 +66,16 @@ if($bandera)
 	
 	$array_config	= $config->get_registros('active = 1');
 	
-	foreach ($array_config as $value) {
-		$url_post			= decrypt($value['url_post']);
-		$id_comunidad		= decrypt($value['id_comunidad']);
-		$array_config_cert	= $config_cert->get_registros('id_certificado = '.$value['id_config_certificado']);
+	foreach ($array_config as $row)
+	{
+		$url_post			= decrypt($row['url_post']);
+		$id_comunidad		= decrypt($row['id_comunidad']);
+		$array_config_cert	= $config_cert->get_registros('id_certificado = '.$row['id_config_certificado']);
 	}
 	
-	foreach ($array_config_cert as $value) {
-		$certificado		= $value['certificado'];
+	foreach ($array_config_cert as  $row)
+	{
+		$certificado		= $row['certificado'];
 	}
 	
 	if($certificado == 'PKCS#12')
@@ -117,8 +122,8 @@ if($bandera)
 	}
 	
 	$(document).ready(function(){
-		$('#guardar').click();	
-		window.close();
+		//$('#guardar').click();	
+		//window.close();
 	});
 </script>
 <div class="hidden"> 
@@ -129,7 +134,7 @@ if($bandera)
 		<input type='hidden' name="Comprobante1" id="Comprobante1" value="<?php echo $datos_post['Comprobante1']?>">
 		<input type='hidden' name="FechaPago1" id="FechaPago1" value="<?php echo $datos_post['FechaPago1']?>">
 		<input type='hidden' name="Importe1" id="Importe1" value="<?php echo $datos_post['Importe1']?>">
-		<input type='hidden' name="Signature" id="Signature" value="<?php echo $datos_post['Importe1']?>">
+		<input type='text' name="Signature" id="Signature" value="<?php echo $datos_post['Importe1']?>">
 		<input type='hidden' name="Identificador" id="Identificador" value="<?php echo $datos_post['Importe1']?>">
 		<input type='hidden' name="urlErrorSignature" id="urlErrorSignature" value="<?php echo $datos_post['Importe1']?>">
 		<input type="submit" name="guardar" id="guardar" value="<?php echo $datos_post['CodigoComunidad']?>">

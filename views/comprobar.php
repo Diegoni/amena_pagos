@@ -1,4 +1,6 @@
 <?php 
+	error_reporting(E_ALL);
+	ini_set("display_errors", 1);	
 session_start(); 
 include_once('../config/includes.php'); 
 
@@ -17,14 +19,13 @@ if(isset($_POST['enviar']))
 		$usuario_clave	= $_POST['usuario_clave']; 
 		$usuario_clave	= md5(_COOKIE_KEY_.$usuario_clave);
 			
-		$query = "nombre ='".$usuario_nombre."' AND clave='".$usuario_clave."'";
-		$array_registros = $usuario->get_registros($query);
-				
-		foreach ($array_registros as $value)
-		{
-			$array_usuario = $value;
+		$query			= "nombre ='".$usuario_nombre."' AND clave='".$usuario_clave."'";
+		$variable		= $usuario->get_registros($query);
+		
+		foreach ($variable as $row) {
+			$array_usuario = $row;
 		}
-								
+
 		if(isset($array_usuario))
 		{
 			if($array_usuario['active'] == 0)

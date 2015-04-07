@@ -6,15 +6,15 @@ include_once($route['models'].'m_config.php');
 $config			= new m_Config();
 $array_config	= $config->get_registros('active = 1');
 
-foreach ($array_config as $value) {
-		$datos_post = array(
-			'url_reporte'			=> decrypt($value['url_reporte']),
-			'id_comunidad'			=> decrypt($value['id_comunidad']),
-			'CantidadTransacciones'	=> 1,
-			'WindowPopUp'			=> true,
-			'OutURL'				=> 1,
-			'URL'					=> 1
-		);		
+foreach ($array_config as $row) {
+	$datos_post = array(
+		'url_reporte'			=> decrypt($row['url_reporte']),
+		'id_comunidad'			=> decrypt($row['id_comunidad']),
+		'CantidadTransacciones'	=> 1,
+		'WindowPopUp'			=> true,
+		'OutURL'				=> 1,
+		'URL'					=> 1
+	);		
 }
 ?>
 <div class='row'>
