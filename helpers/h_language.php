@@ -21,11 +21,13 @@ $language['enviar']						= 'Enviar';
 $language['estado']						= 'Estado';	
 
 // G
+$language['general']					= 'General';
 $language['generar_informe']			= 'Generar informe de interbanking ';				
 $language['guardar']					= 'Guardar';	
 
 // I	
 $language['id']							= 'ID';
+$language['incremental']				= 'Incremental';
 $language['info_estados']				= 'El siguiente link el estado de transferencias, previo Login';			
 $language['info_informe']				= 'El siguiente link muestra el reporte de transferencia, previo Login';			
 $language['ingresar']					= 'Ingresar';		
@@ -42,7 +44,8 @@ $language['no_connect']					= 'Error, no se ha podido conectar';
 $language['no_ingreso']					= 'No puedes ingresar.';
 
 // P	
-$language['password']					= 'Password';		
+$language['password']					= 'Password';	
+$language['pre-confeccion']				= 'Pre-Confección';
 $language['post']						= 'Post';
 
 // R	

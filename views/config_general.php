@@ -16,7 +16,9 @@ if(isset($_POST['guardar']))
 		'cuil'						=> encrypt($_POST['cuil']),
 		'url_post'					=> encrypt($_POST['url_post']),
 		'url_reporte'				=> encrypt($_POST['url_reporte']),
-		'url_estado_transferencia'	=> encrypt($_POST['url_estado_transferencia'])
+		'url_estado_transferencia'	=> encrypt($_POST['url_estado_transferencia']),
+		'url_estado_incremental'	=> encrypt($_POST['url_estado_incremental']),
+		'url_preconfeccion'			=> encrypt($_POST['url_preconfeccion'])
 	);
 	
 	$config->update($datos, $_POST['guardar']);
@@ -26,7 +28,8 @@ if(isset($_POST['guardar']))
 $array_certificados			= $config_certificado->get_registros();
 $variable					= $config->get_registros('active = 1');
 
-foreach ($variable as $row) {
+foreach ($variable as $row)
+{
 	$valores = $row;
 }
 
@@ -39,6 +42,14 @@ foreach ($variable as $row) {
 			</div>
 			<div class="panel-body">
 				<form class="form-horizontal" method="post" onsubmit="return validar_config();">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#tab1" data-toggle="tab"><?php echo $language['general'] ?></a></li>
+    					<li><a href="#tab2" data-toggle="tab"><?php echo $language['url'] ?></a></li>
+					</ul>
+  					
+  					<div class="tab-content">
+					
+					<div class="tab-pane active" id="tab1">
 					<div class="form-group">
 						<label class="col-sm-2 control-label">
 							<?php echo $language['usuario'] ?>
@@ -89,6 +100,10 @@ foreach ($variable as $row) {
 						</div>
 					</div>
 					
+					</div>
+					
+					<div class="tab-pane" id="tab2">
+					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">
 							<?php echo $language['url']." ".$language['post'] ?>
@@ -117,6 +132,24 @@ foreach ($variable as $row) {
 					</div>
 					
 					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['url']." ".$language['estado']." ".$language['incremental']; ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" id="url_estado_incremental" name="url_estado_incremental" value="<?php echo decrypt($valores['url_estado_incremental'])?>" required>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['url']." ".$language['pre-confeccion']; ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" id="url_preconfeccion" name="url_preconfeccion" value="<?php echo decrypt($valores['url_preconfeccion'])?>" required>
+						</div>
+					</div>
+					
+					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-2 control-label">
 							<?php echo $language['id']." ".$language['comunidad'] ?>
 						</label>
@@ -125,13 +158,18 @@ foreach ($variable as $row) {
 						</div>
 					</div>
 					
+					</div>
+					</div>
+					
+					<br>
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default" name="guardar" value="<?php echo $valores['id_config']?>">
+							<button type="submit" class="btn btn-default btn-lg" name="guardar" value="<?php echo $valores['id_config']?>">
 								<?php echo $language['guardar'] ?>
 							</button>
 						</div>
 					</div>
+					
 				</form>
 				<?php 
 					if(isset($mensaje))

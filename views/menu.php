@@ -55,14 +55,7 @@ include_once('control_usuario.php');
 				</a>
         		<ul class="dropdown-menu">
         			<?php echo item_menu(BASE_URL.'views/transacciones.php', $language['transacciones']);?>
-        		</ul>
-      		</li>
-      		<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<i class="fa fa-cogs"></i> <?php echo $language['config'] ?><b class="caret"></b>
-				</a>
-        		<ul class="dropdown-menu">
-        			<?php echo item_menu(BASE_URL.'views/config_general.php', $language['config']);?>
+        			<?php echo item_menu(BASE_URL.'views/preconfeccion.php', $language['pre-confeccion']);?>
         		</ul>
       		</li>
       		<li class="dropdown">
@@ -72,6 +65,15 @@ include_once('control_usuario.php');
         		<ul class="dropdown-menu">
         			<?php echo item_menu(BASE_URL.'views/reporte_interbanking.php', $language['reporte']);?>        			
         			<?php echo item_menu(BASE_URL.'views/estados_transferencias.php', $language['estado']);?>
+        			<?php echo item_menu(BASE_URL.'views/estados_transferencias_incremental.php', $language['estado']." ".$language['incremental']);?>
+        		</ul>
+      		</li>
+      		<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<i class="fa fa-cogs"></i> <?php echo $language['config'] ?><b class="caret"></b>
+				</a>
+        		<ul class="dropdown-menu">
+        			<?php echo item_menu(BASE_URL.'views/config_general.php', $language['config']);?>
         		</ul>
       		</li>
     	</ul>

@@ -17,7 +17,7 @@ foreach ($variable as $row) {
 				<?php echo get_panel_heading();	?>
 			</div>
 			<div class="panel-body">
-				<form method="post" target="_blank" action="<?php echo decrypt($datos_post['url_estado_transferencia'])?>" onsubmit="return control_datos()">
+				<form method="post" target="_blank" action="<?php echo decrypt($datos_post['url_estado_incremental'])?>" onsubmit="return control_datos()">
 					<input type='hidden' name="Pais" id="Pais" value="<?php echo $datos_post['id_pais']?>">
 					<input type='hidden' name="cuil" id="cuil" value="<?php echo decrypt($datos_post['cuil'])?>">
 					<input type='hidden' name="Nombre_usuario" id="Nombre_usuario" value="<?php echo decrypt($datos_post['Nombre_usuario'])?>">

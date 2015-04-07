@@ -32,7 +32,7 @@ foreach ($array_config as $row) {
 					<input type='hidden' name="URL" id="URL" value="<?php echo $datos_post['URL']?>">
 					<?php 
 					echo set_alert("<i class='fa fa-question-circle'></i> ".$language['info_informe'], 'default');
-					echo "<button type='submit' class='btn btn-info' name='guardar' id='guardar'>".$language['generar_informe']."<i class='fa fa-arrow-right'></i></button>"; 
+					echo "<button type='submit' class='btn btn-info btn-lg' name='guardar' id='guardar'>".$language['generar_informe']."<i class='fa fa-arrow-right'></i></button>"; 
 					?>
 				</form>
 			</div>
