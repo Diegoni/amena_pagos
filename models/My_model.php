@@ -142,7 +142,7 @@ class MY_Model extends Model
 					$campos
 					WHERE
 					$this->_id = $id";
-							
+		
 		$this->_db->query($query);
 	}
 }

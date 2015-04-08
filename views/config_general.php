@@ -9,7 +9,7 @@ $config						= new m_config();
 if(isset($_POST['guardar']))
 {
 	$datos = array(
-		'id_config_certificado'		=> $_POST['certificado'],
+		'id_config_certificado'		=> $_POST['id_config_certificado'],
 		'id_comunidad'				=> encrypt($_POST['id_comunidad']),
 		'Nombre_usuario'			=> encrypt($_POST['Nombre_usuario']),
 		'Clave'						=> encrypt($_POST['Clave']),
@@ -18,7 +18,8 @@ if(isset($_POST['guardar']))
 		'url_reporte'				=> encrypt($_POST['url_reporte']),
 		'url_estado_transferencia'	=> encrypt($_POST['url_estado_transferencia']),
 		'url_estado_incremental'	=> encrypt($_POST['url_estado_incremental']),
-		'url_preconfeccion'			=> encrypt($_POST['url_preconfeccion'])
+		'url_preconfeccion'			=> encrypt($_POST['url_preconfeccion']),
+		'certificado'				=> $_POST['certificado']
 	);
 	
 	$config->update($datos, $_POST['guardar']);
@@ -123,7 +124,7 @@ if(isset($_FILES['certificado']))
 							<?php echo $language['certificado'] ?>
 						</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="certificado" name="certificado" required>
+							<select class="form-control" id="id_config_certificado" name="id_config_certificado" required>
 								<?php
 									foreach ($array_certificados as $row) 
 									{
@@ -217,11 +218,12 @@ if(isset($_FILES['certificado']))
 						</label>
 						<div class="col-sm-10">
 							<a class="btn btn-default" type="button" href="<?php echo $route['doc'].'Tutorial_Certificado.pdf'?>" target="_blank">
+								<i class="fa fa-info-circle"></i> 
 								<?php echo $language['ayuda']." ".$language['certificado']; ?>
 							</a>
 							
 							<a class="btn btn-default" type="button" href="<?php echo $route['doc'].'portecle-1.7.rar'?>" target="_blank">
-								Portecle-1.7.rar
+								<i class="fa fa-download"></i> Portecle-1.7.rar
 							</a>
 						</div>
 					</div>	
@@ -232,6 +234,7 @@ if(isset($_FILES['certificado']))
 						</label>
 						<div class="col-sm-10">
 							<button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">
+								<i class="fa fa-upload"></i>
 								<?php echo $language['subir']." ".$language['archivo']; ?>
 							</button>
 						</div>
@@ -244,8 +247,8 @@ if(isset($_FILES['certificado']))
 					<br>
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default btn-lg" name="guardar" value="<?php echo $valores['id_config']?>">
-								<?php echo $language['guardar'] ?>
+							<button type="submit" class="btn btn-info btn-lg" name="guardar" value="<?php echo $valores['id_config']?>">
+								<i class="fa fa-floppy-o"></i> <?php echo $language['guardar'] ?>
 							</button>
 						</div>
 					</div>

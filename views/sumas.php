@@ -87,7 +87,10 @@ if(isset($_POST['final']))
 					</div>
 					<div class="form-group">
 						<div class="col-sm-2">
-							<button type="submit" class="btn btn-default"><?php echo $language['buscar'] ?></button>
+							<button type="submit" class="btn btn-default">
+								<i class="fa fa-search"></i>
+								<?php echo $language['buscar'] ?>
+							</button>
 						</div>
 					</div>
 				</form>
