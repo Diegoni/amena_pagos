@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);	
+	
 include_once('menu.php');
 include_once($route['models'].'m_config_certificado.php');
 include_once($route['models'].'m_config.php');
@@ -33,6 +36,29 @@ foreach ($variable as $row)
 	$valores = $row;
 }
 
+if(isset($_FILES['certificado']))
+{
+	$id = $valores['certificado'];
+	$extension	= pathinfo($_FILES['certificado']['name']); 
+	$extension	= ".".$extension['extension']; 		
+	$_FILES['certificado']['name'] = $id.$extension;
+  
+	copy($_FILES['certificado']['tmp_name'],$route['doc'].$_FILES['certificado']['name']);
+  
+	$certificado_nombre	= $_FILES['certificado']['name'];
+	$certificado_tipo	= $_FILES['certificado']['type'];
+	$certificado_size	= $_FILES['certificado']['size'];
+  
+	$certificado=array(
+		'certificado_nombre'	=> $certificado_nombre,
+		'certificado_tipo'		=> $certificado_tipo,
+		'certificado_size'		=> $certificado_size,
+		'id_usuario'			=> $id
+	);
+	
+	$mensaje = set_alert($language['upload_ok']);
+}
+
 ?>
 <div class='row'>
 	<div class="col-md-12">
@@ -45,6 +71,7 @@ foreach ($variable as $row)
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#tab1" data-toggle="tab"><?php echo $language['general'] ?></a></li>
     					<li><a href="#tab2" data-toggle="tab"><?php echo $language['url'] ?></a></li>
+    					<li><a href="#tab3" data-toggle="tab"><?php echo $language['certificado'] ?></a></li>
 					</ul>
   					
   					<div class="tab-content">
@@ -159,6 +186,45 @@ foreach ($variable as $row)
 					</div>
 					
 					</div>
+					
+					<div class="tab-pane" id="tab3">
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['certificado']; ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" id="certificado" name="certificado" value="<?php echo $valores['certificado']?>" required>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">							
+						</label>
+						<div class="col-sm-10">
+							<a class="btn btn-default" type="button" href="<?php echo $route['doc'].'Tutorial_Certificado.pdf'?>" target="_blank">
+								<?php echo $language['ayuda']." ".$language['certificado']; ?>
+							</a>
+							
+							<a class="btn btn-default" type="button" href="<?php echo $route['doc'].'portecle-1.7.rar'?>" target="_blank">
+								Portecle-1.7.rar
+							</a>
+						</div>
+					</div>	
+					
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">							
+						</label>
+						<div class="col-sm-10">
+							<button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">
+								<?php echo $language['subir']." ".$language['certificado']; ?>
+							</button>
+						</div>
+					</div>		
+					
+					</div>
+					
 					</div>
 					
 					<br>
@@ -177,6 +243,36 @@ foreach ($variable as $row)
 						echo $mensaje;
 					}
 				?>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><?php echo $language['subir']." ".$language['certificado']; ?></h4>
+			</div>
+			
+			<div class="modal-body">
+        		<form action="config_general.php" method="post" enctype="multipart/form-data">
+				    <input type="file" name="certificado">
+				    <br>
+					
+				
+			</div>
+			
+      		<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+					<?php echo $language['cerrar'] ?>
+				</button>
+				<button type="submit" class ="btn btn-default">
+					<?php echo $language['subir'] ?>
+				</button>
+				</form>
 			</div>
 		</div>
 	</div>

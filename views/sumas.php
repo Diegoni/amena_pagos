@@ -13,13 +13,15 @@ if(isset($_POST['final']))
 	$diferencia		= $fechainicial->diff($fechafinal);
 	$meses			= ( $diferencia->y * 12 ) + $diferencia->m;
 		
-	for ($i=0; $i <= $meses; $i++) {
+	for ($i=0; $i <= $meses; $i++)
+	{
 		$comienzo	= date('Y-m', strtotime("+".($i-1)." month", strtotime($inicio)));
 		$termina	= date('Y-m', strtotime("+".$i." month", strtotime($inicio)));
 		
 		$suma_array = $transaccion->suma_transacciones($comienzo, $termina);
 		
-		foreach ($suma_array as $row) {
+		foreach ($suma_array as $row)
+		{
 			if($row['suma'])
 			{
 				$suma_mes[] = round($row['suma'], 2);	
@@ -28,41 +30,15 @@ if(isset($_POST['final']))
 			{
 				$suma_mes[] = 0;	
 			}
-			
 		}
-		$intervalo[]	= $termina;
-		
+		$intervalo[]	= $termina;	
 	}
-
 }
-
-
-
 ?>
 
 <script>
-	$.datepicker.regional['es'] = {
-		closeText: 'Cerrar',
-		prevText: '<Ant',
-		nextText: 'Sig>',
-		currentText: 'Hoy',
-		monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-		monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-		dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-		dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-		dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
-		weekHeader: 'Sm',
-		dateFormat: 'dd/mm/yy',
-		firstDay: 1,
-		isRTL: false,
-		showMonthAfterYear: false,
-		yearSuffix: ''
-	};
-	$.datepicker.setDefaults($.datepicker.regional['es']);
- 
 	$(function() {
 		$( "#inicio" ).datepicker({
-			changeMonth: true,
 			maxDate: '0',
 			changeMonth: true,
       		changeYear: true,
@@ -72,7 +48,6 @@ if(isset($_POST['final']))
 			}
 		});
 		$( "#final" ).datepicker({
-			changeMonth: true,
 			maxDate: '0',
 			changeMonth: true,
       		changeYear: true,
@@ -95,13 +70,19 @@ if(isset($_POST['final']))
 					<div class="form-group">
 						<label class="col-sm-1 control-label"><?php echo $language['inicio'] ?></label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="inicio" name="inicio" placeholder="<?php echo $language['ingrese']." ".$language['inicio'] ?>" required>
+							<div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+								<input type="text" class="form-control" id="inicio" name="inicio" placeholder="<?php echo $language['ingrese']." ".$language['inicio'] ?>" required>
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-1 control-label"><?php echo $language['final'] ?></label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="final" name="final" placeholder="<?php echo $language['ingrese']." ".$language['final'] ?>" required>
+							<div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+								<input type="text" class="form-control" id="final" name="final" placeholder="<?php echo $language['ingrese']." ".$language['final'] ?>" required>
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
@@ -183,13 +164,6 @@ $(function () {
 <?php
 echo js_libreria($route['libraries'].'Highcharts-4.1.4/js/highcharts.js');
 echo js_libreria($route['libraries'].'Highcharts-4.1.4/js/modules/exporting.js');
-?>		
-
-
-
-
-
-
-<?php
+		
 include_once('footer.php');
 ?>

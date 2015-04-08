@@ -66,6 +66,29 @@ function validar_config()
 
 
 /*----------------------------------------------------------------------------
+		Validar formulario
+----------------------------------------------------------------------------*/
+
+
+function validar_preconfeccion()
+{	
+	if
+	(
+		validar_campo('ClienteCuit', 'numero', 11) == 0 ||
+		validar_campo('ComprobanteNN', 'alfanumerico', 12) == 0 ||
+		validar_campo('ImporteNN', 'numero') == 0 	 
+	)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+
+/*----------------------------------------------------------------------------
 		Validaciones
 ----------------------------------------------------------------------------*/
 
@@ -128,5 +151,30 @@ function validar_campo(id, validacion, length)
 	{
 		return 1;
 	}
-	
 } 
+
+
+/*----------------------------------------------------------------------------
+		Cambio de idioma del datepicker
+----------------------------------------------------------------------------*/
+
+
+$.datepicker.regional['es'] = {
+	closeText: 'Cerrar',
+	prevText: '<Ant',
+	nextText: 'Sig>',
+	currentText: 'Hoy',
+	monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+	monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+	dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+	dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+	dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+	weekHeader: 'Sm',
+	dateFormat: 'dd/mm/yy',
+	firstDay: 1,
+	isRTL: false,
+	showMonthAfterYear: false,
+	yearSuffix: ''
+};
+
+$.datepicker.setDefaults($.datepicker.regional['es']);

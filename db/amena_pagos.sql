@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-04-2015 a las 18:24:43
+-- Tiempo de generación: 08-04-2015 a las 21:03:19
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.11
 
@@ -23,6 +23,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `certificados`
+--
+
+CREATE TABLE IF NOT EXISTS `certificados` (
+  `id_certificado` int(11) NOT NULL AUTO_INCREMENT,
+  `certificado` int(11) NOT NULL,
+  PRIMARY KEY (`id_certificado`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `config`
 --
 
@@ -34,9 +46,12 @@ CREATE TABLE IF NOT EXISTS `config` (
   `url_post` varchar(128) NOT NULL,
   `url_reporte` varchar(128) NOT NULL,
   `url_estado_transferencia` varchar(128) NOT NULL,
+  `url_estado_incremental` varchar(128) NOT NULL,
+  `url_preconfeccion` varchar(128) NOT NULL,
   `id_comunidad` varchar(32) NOT NULL,
   `id_config_certificado` int(11) NOT NULL,
   `id_pais` int(11) NOT NULL,
+  `certificado` varchar(128) NOT NULL,
   `active` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_config`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
@@ -45,165 +60,8 @@ CREATE TABLE IF NOT EXISTS `config` (
 -- Volcado de datos para la tabla `config`
 --
 
-INSERT INTO `config` (`id_config`, `Nombre_usuario`, `Clave`, `cuil`, `url_post`, `url_reporte`, `url_estado_transferencia`, `id_comunidad`, `id_config_certificado`, `id_pais`, `active`) VALUES
-(1, 'w9bLuLvFgHI=', 'w9m7tbqUgg==', 'hJiHiI+Zh3qol56CpQ==', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u015Pfv5rfpqu1uJ+Xfah4rro=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u016LVwaPst62Oe3ODr9U=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfpsL26spW2r8u9eK/C', 'hpSMh46XiHalk6I=', 1, -2, 1);
-
---
--- Disparadores `config`
---
-DROP TRIGGER IF EXISTS `config_delete`;
-DELIMITER //
-CREATE TRIGGER `config_delete` AFTER DELETE ON `config`
- FOR EACH ROW BEGIN
-  INSERT INTO `log_config`
-	(	Accion,
-        Nombre_usuario_old,
-		Nombre_usuario_new,
-		Clave_old,
-		Clave_new,
-		cuil_old,
-		cuil_new,
-		url_post_old,
-		url_post_new,
-		url_reporte_old,
-		url_reporte_new,
-		url_estado_transferencia_old,
-		url_estado_transferencia_new,
-		id_comunidad_old,
-		id_comunidad_new,
-		id_config_certificado_old,
-		id_config_certificado_new,
-		id_pais_old,
-		id_pais_new,
-	date,
-	usuario)
-	VALUES	(
-	'Delete',
-	OLD.Nombre_usuario,
-	NULL,
-	OLD.Clave,
-	NULL,
-	OLD.cuil,
-	NULL,
-	OLD.url_post,
-	NULL,
-	OLD.url_reporte,
-	NULL,
-	OLD.url_estado_transferencia,
-	NULL,
-	OLD.id_comunidad,
-	NULL,
-	OLD.id_config_certificado,
-	NULL,
-	OLD.id_pais,
-	NULL,
-	NOW(),
-	CURRENT_USER());
-END
-//
-DELIMITER ;
-DROP TRIGGER IF EXISTS `config_insert`;
-DELIMITER //
-CREATE TRIGGER `config_insert` AFTER INSERT ON `config`
- FOR EACH ROW BEGIN
-  INSERT INTO `log_config`
-	(	Accion,
-        Nombre_usuario_old,
-		Nombre_usuario_new,
-		Clave_old,
-		Clave_new,
-		cuil_old,
-		cuil_new,
-		url_post_old,
-		url_post_new,
-		url_reporte_old,
-		url_reporte_new,
-		url_estado_transferencia_old,
-		url_estado_transferencia_new,
-		id_comunidad_old,
-		id_comunidad_new,
-		id_config_certificado_old,
-		id_config_certificado_new,
-		id_pais_old,
-		id_pais_new,
-	date,
-	usuario)
-	VALUES	(
-	'Update',
-	NULL,
-	NEW.Nombre_usuario,
-	NULL,
-	NEW.Clave,
-	NULL,
-	NEW.cuil,
-	NULL,
-	NEW.url_post,
-	NULL,
-	NEW.url_reporte,
-	NULL,
-	NEW.url_estado_transferencia,
-	NULL,
-	NEW.id_comunidad,
-	NULL,
-	NEW.id_config_certificado,
-	NULL,
-	NEW.id_pais,
-	NOW(),
-	CURRENT_USER());
-END
-//
-DELIMITER ;
-DROP TRIGGER IF EXISTS `config_update`;
-DELIMITER //
-CREATE TRIGGER `config_update` AFTER UPDATE ON `config`
- FOR EACH ROW BEGIN
-  INSERT INTO `log_config`
-	(	Accion,
-        Nombre_usuario_old,
-		Nombre_usuario_new,
-		Clave_old,
-		Clave_new,
-		cuil_old,
-		cuil_new,
-		url_post_old,
-		url_post_new,
-		url_reporte_old,
-		url_reporte_new,
-		url_estado_transferencia_old,
-		url_estado_transferencia_new,
-		id_comunidad_old,
-		id_comunidad_new,
-		id_config_certificado_old,
-		id_config_certificado_new,
-		id_pais_old,
-		id_pais_new,
-	date,
-	usuario)
-	VALUES	(
-	'Update',
-	OLD.Nombre_usuario,
-	NEW.Nombre_usuario,
-	OLD.Clave,
-	NEW.Clave,
-	OLD.cuil,
-	NEW.cuil,
-	OLD.url_post,
-	NEW.url_post,
-	OLD.url_reporte,
-	NEW.url_reporte,
-	OLD.url_estado_transferencia,
-	NEW.url_estado_transferencia,
-	OLD.id_comunidad,
-	NEW.id_comunidad,
-	OLD.id_config_certificado,
-	NEW.id_config_certificado,
-	OLD.id_pais,
-	NEW.id_pais,
-	NOW(),
-	CURRENT_USER());
-END
-//
-DELIMITER ;
+INSERT INTO `config` (`id_config`, `Nombre_usuario`, `Clave`, `cuil`, `url_post`, `url_reporte`, `url_estado_transferencia`, `url_estado_incremental`, `url_preconfeccion`, `id_comunidad`, `id_config_certificado`, `id_pais`, `certificado`, `active`) VALUES
+(1, 'w9bLuLvFgHI=', 'w9m7tbqUgg==', 'hJiHiI+Zh3qol56CpQ==', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u015Pfv5rfpqu1uJ+Xfah4rro=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u016LVwaPst62Oe3ODr9U=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfpsL26spW2r8u9eK/C', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksn3oprqxtpbDv8e2jbrA2cS8vcW0puWPzb8=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPo4tmu2L7WtpfdrLe6i2OXecq5ia+818a0zce4fuTGzLnW3LfF2Nu1', 'hpSMh46XiHalk6I=', 1, -2, 'Amena', 1);
 
 -- --------------------------------------------------------
 
@@ -293,14 +151,19 @@ CREATE TABLE IF NOT EXISTS `transacciones` (
   `token` varchar(64) NOT NULL,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_transaccion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `transacciones`
 --
 
 INSERT INTO `transacciones` (`id_transaccion`, `cuit`, `importe`, `periodo`, `fechapago`, `comprob`, `token`, `date_add`) VALUES
-(1, '30123456789', 3650.4, '02/2015', '2015-02-03', '000421', '000421020320150220153.650,4030123456789', '2015-04-01 13:24:24');
+(1, '30123456789', 3650.4, '02/2015', '2015-02-03', '000421', '000421020320150220153.650,4030123456789', '2015-04-01 13:33:14'),
+(2, '30123456789', 3650.4, '02/2015', '2015-01-03', '000421', '000421020320150220153.650,4030123456789', '2015-04-06 15:15:35'),
+(3, '30123456789', 3650.4, '02/2015', '2015-03-03', '000421', '000421020320150220153.650,4030123456789', '2015-04-06 15:15:54'),
+(4, '30123456789', 3650.4, '02/2015', '2015-01-03', '000421', '000421020320150220153.650,4030123456789', '2015-04-06 15:16:01'),
+(5, '30123456789', 3650.4, '02/2015', '2015-02-03', '000421', '000421020320150220153.650,4030123456789', '2015-04-06 15:16:20'),
+(6, '30123456789', 3650.4, '02/2015', '2015-02-03', '000421', '000421020320150220153.650,4030123456789', '2015-04-06 15:55:44');
 
 -- --------------------------------------------------------
 
@@ -323,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `clave`, `email`, `last_login`, `active`) VALUES
-(1, 'tMjDvMc=', 'e956d1f5d589a122abf96f60af4acc95', 'diego.nieto@tmsgroup.com.ar', '2015-04-01 13:23:26', 1);
+(1, 'tMjDvMc=', 'e956d1f5d589a122abf96f60af4acc95', 'diego.nieto@tmsgroup.com.ar', '2015-04-07 16:19:24', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

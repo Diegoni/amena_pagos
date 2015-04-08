@@ -1,4 +1,6 @@
 <?php 
+include_once('../config/includes.php');
+
 if($config['environment'] == 'development')
 {
 	error_reporting(E_ALL);
@@ -10,7 +12,6 @@ if($config['environment'] == 'testing' || $config['environment'] == 'production'
 	error_reporting(0);	
 }
 
-include_once('../config/includes.php'); 
 include_once('control_usuario.php');
 ?>
  

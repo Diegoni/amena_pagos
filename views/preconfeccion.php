@@ -10,6 +10,17 @@ foreach ($variable as $row) {
 	$datos_post = $row;
 }
 ?>
+<script>
+	$(function() {
+		$( "#FechaPagoNN" ).datepicker({
+			maxDate: '0',
+			changeMonth: true,
+      		changeYear: true,
+			dateFormat: 'dd-mm-yy'
+		});
+	});
+</script>
+
 <div class='row'>
 	<div class="col-md-12">
 		<div class="panel panel-default">
@@ -17,18 +28,74 @@ foreach ($variable as $row) {
 				<?php echo get_panel_heading();	?>
 			</div>
 			<div class="panel-body">
-				<form method="post" target="_blank" action="<?php echo decrypt($datos_post['url_estado_transferencia'])?>" onsubmit="return control_datos()">
+				<form method="post" target="_blank" action="<?php echo decrypt($datos_post['url_preconfeccion'])?>" onsubmit="return validar_preconfeccion();">
 					<input type='hidden' name="Pais" id="Pais" value="<?php echo $datos_post['id_pais']?>">
 					<input type='hidden' name="cuil" id="cuil" value="<?php echo decrypt($datos_post['cuil'])?>">
 					<input type='hidden' name="Nombre_usuario" id="Nombre_usuario" value="<?php echo decrypt($datos_post['Nombre_usuario'])?>">
 					<input type='hidden' name="Clave" id="Clave" value="<?php echo decrypt($datos_post['Clave'])?>">
 					<input type='hidden' name="Comunidad" id="Comunidad" value="<?php echo decrypt($datos_post['id_comunidad'])?>">
-					<?php 
-					echo set_alert("<i class='fa fa-question-circle'></i> ".$language['info_estados'], 'default');
-					echo "<button type='submit' class='btn btn-info btn-lg' name='guardar' id='guardar'>".$language['generar_informe']."<i class='fa fa-arrow-right'></i></button>"; 
-					?>
-				</form>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['cuil'] ?>
+						</label>
+						<div class="col-sm-10">
+							<input type='number' class="form-control" name="ClienteCuit" id="ClienteCuit" placeholder="<?php echo $language['ingrese']." ".$language['cuil']?>" required>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['cantidad'] ?>
+						</label>
+						<div class="col-sm-10">
+							<input type='number' class="form-control" name="CantidadTransacciones" id="CantidadTransacciones" placeholder="<?php echo $language['ingrese']." ".$language['cantidad']?>" value="1" disabled required>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['fecha'] ?>
+						</label>
+						<div class="col-sm-10">
+							<div class="input-group">
+								<input type='text' onkeypress="return false" class="form-control" name="FechaPagoNN" id="FechaPagoNN" placeholder="<?php echo $language['ingrese']." ".$language['fecha']?>" required>
+								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['comprobante'] ?>
+						</label>
+						<div class="col-sm-10">
+							<input type='text' class="form-control" name="ComprobanteNN" id="ComprobanteNN" placeholder="<?php echo $language['ingrese']." ".$language['comprobante']?>" required>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['importe'] ?>
+						</label>
+						<div class="col-sm-10">
+							<div class="input-group">
+								<input type='text' class="form-control" name="ImporteNN" id="ImporteNN" placeholder="<?php echo $language['ingrese']." ".$language['importe']?>" required>
+								<div class="input-group-addon"><i class="fa fa-money"></i></div>
+							</div>
+						</div>
+					</div>
+					
 			</div>
+					<div class="well">
+						<center>
+							<button type='submit' class='btn btn-info btn-lg' name='guardar' id='guardar'>
+								<?php echo $language['generar_preconfeccion'] ?>
+								<i class='fa fa-arrow-right'></i>
+							</button>
+						</center>
+					</div> 
+				</form>
 		</div>
 	</div>
 </div>
