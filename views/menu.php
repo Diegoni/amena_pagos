@@ -55,6 +55,7 @@ include_once('control_usuario.php');
 				</a>
         		<ul class="dropdown-menu">
         			<?php echo item_menu(BASE_URL.'views/transacciones.php', $language['transacciones']);?>
+        			<?php echo item_menu(BASE_URL.'views/sumas.php', $language['sumas']);?>
         			<?php echo item_menu(BASE_URL.'views/preconfeccion.php', $language['pre-confeccion']);?>
         		</ul>
       		</li>

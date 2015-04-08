@@ -4,7 +4,11 @@
 		Textos del sistema
 ----------------------------------------------------------------------------*/
 
+// B
+$language['buscar']						= 'Buscar';	
+
 // C
+$language['cantidad']					= 'Cantidad';	
 $language['cerrar']						= 'Cerrar';	
 $language['certificado']				= 'Certificado';			
 $language['clave']						= 'Clave';	
@@ -28,11 +32,15 @@ $language['guardar']					= 'Guardar';
 // I	
 $language['id']							= 'ID';
 $language['incremental']				= 'Incremental';
+$language['inicio']						= 'Inicio';
 $language['info_estados']				= 'El siguiente link el estado de transferencias, previo Login';			
 $language['info_informe']				= 'El siguiente link muestra el reporte de transferencia, previo Login';			
 $language['ingresar']					= 'Ingresar';		
 $language['ingrese']					= 'Ingrese';		
 $language['ir_arriba']					= 'Ir Arriba';	
+
+// F	
+$language['final']						= 'Final';
 
 // M	
 $language['mensaje']					= 'Mensaje';		
@@ -44,7 +52,8 @@ $language['no_connect']					= 'Error, no se ha podido conectar';
 $language['no_ingreso']					= 'No puedes ingresar.';
 
 // P	
-$language['password']					= 'Password';	
+$language['password']					= 'Password';
+$language['periodo']					= 'Periodo';
 $language['pre-confeccion']				= 'Pre-Confección';
 $language['post']						= 'Post';
 
@@ -54,6 +63,7 @@ $language['reporte']					= 'Reporte';
 
 // S		
 $language['salir']						= 'Salir';
+$language['sumas']						= 'Sumas';
 
 // T	
 $language['transacciones']				= 'Transacciones';

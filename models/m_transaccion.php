@@ -24,5 +24,33 @@ class m_Transaccion extends My_Model
 				$data_model		= $this->_data_model 
 		);
 	}
+	
+	function suma_transacciones($inicio, $final)
+	{
+		$inicio			= date('Y-m', strtotime($inicio));
+		$final			= date('Y-m', strtotime($final));
+		
+		$query = "SELECT sum(importe) as suma 
+					FROM `transacciones` 
+					WHERE
+					DATE_FORMAT(fechapago, '%Y-%m') > '$inicio' AND
+					DATE_FORMAT(fechapago, '%Y-%m') <= '$final'";
+		
+		$result = $this->_db->query($query);
+		
+		if($result->num_rows > 0)
+		{
+			while($row = $result->fetch_array())
+			{
+				$rows[] = $row;
+			}
+			
+			return $rows;	
+		}
+		else
+		{
+			return 0;	
+		}
+	}
 }
 

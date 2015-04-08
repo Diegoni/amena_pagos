@@ -100,6 +100,15 @@ foreach ($variable as $row)
 						</div>
 					</div>
 					
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">
+							<?php echo $language['id']." ".$language['comunidad'] ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" id="id_comunidad" name="id_comunidad" value="<?php echo decrypt($valores['id_comunidad'])?>" required>
+						</div>
+					</div>
+					
 					</div>
 					
 					<div class="tab-pane" id="tab2">
@@ -146,15 +155,6 @@ foreach ($variable as $row)
 						</label>
 						<div class="col-sm-10">
 							<input class="form-control" id="url_preconfeccion" name="url_preconfeccion" value="<?php echo decrypt($valores['url_preconfeccion'])?>" required>
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-2 control-label">
-							<?php echo $language['id']." ".$language['comunidad'] ?>
-						</label>
-						<div class="col-sm-10">
-							<input class="form-control" id="id_comunidad" name="id_comunidad" value="<?php echo decrypt($valores['id_comunidad'])?>" required>
 						</div>
 					</div>
 					

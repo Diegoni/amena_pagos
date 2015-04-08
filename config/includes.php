@@ -39,3 +39,8 @@ echo js_libreria($route['libraries'].'DataTables-1.10.5/media/js/jquery.dataTabl
 echo css_libreria($route['libraries'].'DataTables-1.10.5/media/css/jquery.dataTables.css');
 
 echo css_libreria($route['libraries'].'font-awesome-4.3.0/css/font-awesome.css');
+
+echo js_libreria($route['libraries'].'jquery-ui-1.11.4/jquery-ui.js');
+echo css_libreria($route['libraries'].'jquery-ui-1.11.4/jquery-ui.css');
+
+
