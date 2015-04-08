@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);	
-	
 include_once('menu.php');
 include_once($route['models'].'m_config_certificado.php');
 include_once($route['models'].'m_config.php');
@@ -38,25 +35,42 @@ foreach ($variable as $row)
 
 if(isset($_FILES['certificado']))
 {
-	$id = $valores['certificado'];
+	$id			= $valores['certificado'];
 	$extension	= pathinfo($_FILES['certificado']['name']); 
-	$extension	= ".".$extension['extension']; 		
-	$_FILES['certificado']['name'] = $id.$extension;
-  
-	copy($_FILES['certificado']['tmp_name'],$route['doc'].$_FILES['certificado']['name']);
-  
-	$certificado_nombre	= $_FILES['certificado']['name'];
-	$certificado_tipo	= $_FILES['certificado']['type'];
-	$certificado_size	= $_FILES['certificado']['size'];
-  
-	$certificado=array(
-		'certificado_nombre'	=> $certificado_nombre,
-		'certificado_tipo'		=> $certificado_tipo,
-		'certificado_size'		=> $certificado_size,
-		'id_usuario'			=> $id
-	);
+	$extension	= ".".$extension['extension'];
 	
-	$mensaje = set_alert($language['upload_ok']);
+	if( 
+		$_FILES['certificado']['type'] == 'application/x-x509-ca-cert' ||
+		$_FILES['certificado']['type'] == 'application/x-pkcs12' ||
+		$_FILES['certificado']['type'] == 'application/octet-stream' 
+		)
+	{
+		$_FILES['certificado']['name'] = $id.$extension;
+  
+		copy($_FILES['certificado']['tmp_name'],$route['doc'].$_FILES['certificado']['name']);
+	  
+		$certificado_nombre	= $_FILES['certificado']['name'];
+		$certificado_tipo	= $_FILES['certificado']['type'];
+		$certificado_size	= $_FILES['certificado']['size'];
+	  
+		$certificado = array(
+			'certificado_nombre'	=> $certificado_nombre,
+			'certificado_tipo'		=> $certificado_tipo,
+			'certificado_size'		=> $certificado_size,
+			'id_usuario'			=> $id
+		);
+		
+		$mensaje = set_alert($language['upload_ok']);
+		
+		if($_FILES['certificado']['size'] > 100000)
+		{
+			$mensaje .= set_alert($language['control_size'], 'warning');
+		}
+	}
+	else
+	{
+		$mensaje = set_alert($language['extension_error'], 'danger');
+	}	
 }
 
 ?>
@@ -218,7 +232,7 @@ if(isset($_FILES['certificado']))
 						</label>
 						<div class="col-sm-10">
 							<button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">
-								<?php echo $language['subir']." ".$language['certificado']; ?>
+								<?php echo $language['subir']." ".$language['archivo']; ?>
 							</button>
 						</div>
 					</div>		
@@ -249,20 +263,23 @@ if(isset($_FILES['certificado']))
 </div>
 
 
+<!---------------------------------------------------------------------
+		Modal
+---------------------------------------------------------------------->
+
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel"><?php echo $language['subir']." ".$language['certificado']; ?></h4>
+				<h4 class="modal-title" id="myModalLabel"><?php echo $language['subir']." ".$language['archivo']; ?></h4>
 			</div>
 			
 			<div class="modal-body">
         		<form action="config_general.php" method="post" enctype="multipart/form-data">
 				    <input type="file" name="certificado">
 				    <br>
-					
-				
 			</div>
 			
       		<div class="modal-footer">

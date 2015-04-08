@@ -4,6 +4,7 @@
 		Textos del sistema
 ----------------------------------------------------------------------------*/
 // A
+$language['archivo']					= 'Archivo';
 $language['ayuda']						= 'Ayuda';	
 
 // B
@@ -16,7 +17,8 @@ $language['certificado']				= 'Certificado';
 $language['clave']						= 'Clave';	
 $language['comunidad']					= 'Comunidad';	
 $language['comprobante']				= 'Comprobante';	
-$language['config']						= 'Config';	
+$language['config']						= 'Config';
+$language['control_size']				= 'El archivo pesa más de lo que debería, controlar si todo esta ok';
 $language['cuil']						= 'Cuil';	
 
 // D
@@ -26,6 +28,7 @@ $language['desarrollado']				= 'Desarrollado por TMS GROUP SA';
 $language['email']						= 'Email';	
 $language['enviar']						= 'Enviar';	
 $language['estado']						= 'Estado';	
+$language['extension_error']			= 'La extención del archivo no es la correcta';
 
 // G
 $language['general']					= 'General';
