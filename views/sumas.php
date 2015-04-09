@@ -81,13 +81,13 @@ if(isset($_POST['final']))
 						<div class="col-sm-4">
 							<div class="input-group">
 								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-								<input type="text" class="form-control" id="final" name="final" placeholder="<?php echo $language['ingrese']." ".$language['final'] ?>" required>
+								<input type="text" class="form-control" id="final" name="final" value="<?php echo date('d-m-Y');?>" placeholder="<?php echo $language['ingrese']." ".$language['final'] ?>" required>
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-2">
-							<button type="submit" class="btn btn-default">
+							<button type="submit" class="btn btn-info">
 								<i class="fa fa-search"></i>
 								<?php echo $language['buscar'] ?>
 							</button>
