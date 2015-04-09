@@ -68,6 +68,7 @@ include_once('control_usuario.php');
         			<?php echo item_menu(BASE_URL.'views/reporte_interbanking.php', $language['reporte']);?>        			
         			<?php echo item_menu(BASE_URL.'views/estados_transferencias.php', $language['estado']);?>
         			<?php echo item_menu(BASE_URL.'views/estados_transferencias_incremental.php', $language['estado']." ".$language['incremental']);?>
+        			<?php echo item_menu(BASE_URL.'views/cierre_comunidades.php', $language['cierre']." ".$language['comunidad']);?>
         		</ul>
       		</li>
       		<li class="dropdown">

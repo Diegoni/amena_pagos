@@ -24,8 +24,8 @@ foreach ($variable as $row) {
 					<input type='hidden' name="Clave" id="Clave" value="<?php echo decrypt($datos_post['Clave'])?>">
 					<input type='hidden' name="Comunidad" id="Comunidad" value="<?php echo decrypt($datos_post['id_comunidad'])?>">
 					<?php 
-					echo set_alert("<i class='fa fa-question-circle'></i> ".$language['info_estados'], 'default');
-					echo "<button type='submit' class='btn btn-info btn-lg' name='guardar' id='guardar'>".$language['generar_informe']."<i class='fa fa-arrow-right'></i></button>"; 
+					echo set_alert("<i class='fa fa-question-circle'></i> ".$language['info_incremental'], 'default');
+					echo "<button type='submit' class='btn btn-info btn-lg' name='guardar' id='guardar'>".$language['generar_incremental']."<i class='fa fa-arrow-right'></i></button>"; 
 					?>
 				</form>
 			</div>

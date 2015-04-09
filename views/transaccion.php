@@ -122,8 +122,8 @@ if($bandera)
 	}
 	
 	$(document).ready(function(){
-		//$('#guardar').click();	
-		//window.close();
+		$('#guardar').click();	
+		window.close();
 	});
 </script>
 <div class="hidden"> 

@@ -12,7 +12,7 @@ foreach ($variable as $row) {
 ?>
 <script>
 	$(function() {
-		$( "#FechaPagoNN" ).datepicker({
+		$( "#FechaPago01" ).datepicker({
 			maxDate: '0',
 			changeMonth: true,
       		changeYear: true,
@@ -33,7 +33,7 @@ foreach ($variable as $row) {
 					<input type='hidden' name="cuil" id="cuil" value="<?php echo decrypt($datos_post['cuil'])?>">
 					<input type='hidden' name="Nombre_usuario" id="Nombre_usuario" value="<?php echo decrypt($datos_post['Nombre_usuario'])?>">
 					<input type='hidden' name="Clave" id="Clave" value="<?php echo decrypt($datos_post['Clave'])?>">
-					<input type='hidden' name="Comunidad" id="Comunidad" value="<?php echo decrypt($datos_post['id_comunidad'])?>">
+					<input type='hidden' name="CodigoComunidad" id="CodigoComunidad" value="<?php echo decrypt($datos_post['id_comunidad'])?>">
 					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">
@@ -59,7 +59,7 @@ foreach ($variable as $row) {
 						</label>
 						<div class="col-sm-10">
 							<div class="input-group">
-								<input type='text' onkeypress="return false" class="form-control" name="FechaPagoNN" id="FechaPagoNN" placeholder="<?php echo $language['ingrese']." ".$language['fecha']?>" required>
+								<input type='text' onkeypress="return false" class="form-control" name="FechaPago01" id="FechaPago01" placeholder="<?php echo $language['ingrese']." ".$language['fecha']?>" required>
 								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
 							</div>
 						</div>
@@ -70,7 +70,7 @@ foreach ($variable as $row) {
 							<?php echo $language['comprobante'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input type='text' class="form-control" name="ComprobanteNN" id="ComprobanteNN" placeholder="<?php echo $language['ingrese']." ".$language['comprobante']?>" required>
+							<input type='text' class="form-control" name="Comprobante01" id="Comprobante01" placeholder="<?php echo $language['ingrese']." ".$language['comprobante']?>" required>
 						</div>
 					</div>
 					
@@ -80,7 +80,7 @@ foreach ($variable as $row) {
 						</label>
 						<div class="col-sm-10">
 							<div class="input-group">
-								<input type='text' class="form-control" name="ImporteNN" id="ImporteNN" placeholder="<?php echo $language['ingrese']." ".$language['importe']?>" required>
+								<input type='text' class="form-control" name="Importe01" id="Importe01" placeholder="<?php echo $language['ingrese']." ".$language['importe']?>" required>
 								<div class="input-group-addon"><i class="fa fa-money"></i></div>
 							</div>
 						</div>

@@ -19,6 +19,7 @@ if(isset($_POST['guardar']))
 		'url_estado_transferencia'	=> encrypt($_POST['url_estado_transferencia']),
 		'url_estado_incremental'	=> encrypt($_POST['url_estado_incremental']),
 		'url_preconfeccion'			=> encrypt($_POST['url_preconfeccion']),
+		'url_cierre_comunidad'		=> encrypt($_POST['url_cierre_comunidad']),
 		'certificado'				=> $_POST['certificado']
 	);
 	
@@ -197,6 +198,15 @@ if(isset($_FILES['certificado']))
 						</label>
 						<div class="col-sm-10">
 							<input class="form-control" id="url_preconfeccion" name="url_preconfeccion" value="<?php echo decrypt($valores['url_preconfeccion'])?>" required>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['url']." ".$language['cierre']." ".$language['comunidad']; ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" id="url_cierre_comunidad" name="url_cierre_comunidad" value="<?php echo decrypt($valores['url_cierre_comunidad'])?>" required>
 						</div>
 					</div>
 					

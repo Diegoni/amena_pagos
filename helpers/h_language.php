@@ -13,7 +13,8 @@ $language['buscar']						= 'Buscar';
 // C
 $language['cantidad']					= 'Cantidad';	
 $language['cerrar']						= 'Cerrar';	
-$language['certificado']				= 'Certificado';			
+$language['certificado']				= 'Certificado';
+$language['cierre']						= 'Cierre';			
 $language['clave']						= 'Clave';	
 $language['comunidad']					= 'Comunidad';	
 $language['comprobante']				= 'Comprobante';	
@@ -32,7 +33,9 @@ $language['extension_error']			= 'La extención del archivo no es la correcta';
 
 // G
 $language['general']					= 'General';
+$language['generar_cierre']				= 'Generar cierre';
 $language['generar_informe']			= 'Generar informe de interbanking ';
+$language['generar_incremental']		= 'Generar incremental de interbanking ';
 $language['generar_preconfeccion']		= 'Generar pago';
 $language['guardar']					= 'Guardar';	
 
@@ -40,8 +43,14 @@ $language['guardar']					= 'Guardar';
 $language['id']							= 'ID';
 $language['incremental']				= 'Incremental';
 $language['inicio']						= 'Inicio';
-$language['info_estados']				= 'El siguiente link el estado de transferencias, previo Login';			
-$language['info_informe']				= 'El siguiente link muestra el reporte de transferencia, previo Login';			
+$language['info_cierre']				= 'El siguiente link responde con el resumen de los estados de las transferencias';
+$language['info_estados']				= 'El siguiente link es para informarse sobre los estados de las transferencias que les hicieron sus clientes.';			
+$language['info_informe']				= 'El siguiente link muestra el reporte de transferencia, previo Login';
+$language['info_incremental']			= 'Las consultas incrementales las hacen las comunidades a través de Interbanking, para tener
+control sobre los estados de las transferencias que les hicieron sus clientes.
+A diferencia de la consulta de estados, donde la misma se hace por filtros, en esta solo se pide
+que se notifique los cambios de estados de las transferencias de cada comunidad que
+implementa esta funcionalidad.	';		
 $language['ingresar']					= 'Ingresar';		
 $language['ingrese']					= 'Ingrese';
 $language['importe']					= 'Importe';		
