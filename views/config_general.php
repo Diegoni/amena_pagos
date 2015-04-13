@@ -21,9 +21,11 @@ if(isset($_POST['guardar']))
 		'url_preconfeccion'			=> encrypt($_POST['url_preconfeccion']),
 		'url_cierre_comunidad'		=> encrypt($_POST['url_cierre_comunidad']),
 		'certificado'				=> $_POST['certificado'],
+		/*
 		'DTD_estados'				=> '"'.$_POST['DTD_estados'].'"',
 		'DTD_estado_incremental'	=> '"'.$_POST['DTD_estado_incremental'].'"',
 		'DTD_cierre'				=> '"'.$_POST['DTD_cierre'].'"',
+		 */
 	);
 	
 	$config->update($datos, $_POST['guardar']);
