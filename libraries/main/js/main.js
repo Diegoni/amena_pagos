@@ -152,3 +152,28 @@ function validar_campo(id, validacion, length)
 		return 1;
 	}
 } 
+
+
+
+
+/*----------------------------------------------------------------------------
+		Armar Token para transacción 
+----------------------------------------------------------------------------*/
+
+
+function armarToken()
+{
+	cuit		= $("#cuit").val();
+	importe		= $("#importe").val();
+	importe		= importe.replace('.','');
+	importe		= importe.replace(',','');
+	periodo		= $("#periodo").val();
+	periodo		= periodo.replace('/','');
+	fechapago	= $("#fechapago").val();
+	fechapago	= fechapago.replace('/','');
+	fechapago	= fechapago.replace('/','');
+	comprob		= $("#comprob").val();
+	token		= comprob+fechapago+periodo+importe+cuit;
+	token		= token.replace(' ', '');
+	$("#token").val(comprob+fechapago+periodo+importe+cuit);
+}

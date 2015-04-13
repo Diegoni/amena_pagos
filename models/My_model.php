@@ -101,7 +101,6 @@ class MY_Model extends Model
 					$this->_tablename 
 					$campos
 					$datos";
-		echo $query;
 		
 		$this->_db->query($query);
 		

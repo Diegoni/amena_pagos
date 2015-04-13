@@ -96,9 +96,7 @@ if($bandera)
 		//'FechaPago1'			=> date('d/m/Y', strtotime($datos['fechapago'])),
 		'FechaPago1'			=> date('d/m/Y'),
 		'Importe1'				=> $datos['importe']
-	);
-		
-}
+	);		
 ?>
 <script>
 	function control_datos()
@@ -134,9 +132,18 @@ if($bandera)
 		<input type='hidden' name="Comprobante1" id="Comprobante1" value="<?php echo $datos_post['Comprobante1']?>">
 		<input type='hidden' name="FechaPago1" id="FechaPago1" value="<?php echo $datos_post['FechaPago1']?>">
 		<input type='hidden' name="Importe1" id="Importe1" value="<?php echo $datos_post['Importe1']?>">
-		<input type='text' name="Signature" id="Signature" value="<?php echo $datos_post['Importe1']?>">
+		<input type='hidden' name="Signature" id="Signature" value="<?php echo $datos_post['Importe1']?>">
 		<input type='hidden' name="Identificador" id="Identificador" value="<?php echo $datos_post['Importe1']?>">
 		<input type='hidden' name="urlErrorSignature" id="urlErrorSignature" value="<?php echo $datos_post['Importe1']?>">
 		<input type="submit" name="guardar" id="guardar" value="<?php echo $datos_post['CodigoComunidad']?>">
 	</form>
 </div>
+
+<?php
+}
+else
+{
+	$back = "<button class='btn btn-danger btn-lg' type='button' onclick='history.back()' />".$language['volver']."</button>";
+	echo set_alert("<center>".$language['error_dato']." <h4>".$log_error['dato']." </h4><br>".$language['problema']." :<h4>".$log_error['error']." </h4><br>".$back."</center>", 'danger');
+}
+?>

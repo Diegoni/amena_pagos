@@ -27,7 +27,8 @@ $language['desarrollado']				= 'Desarrollado por TMS GROUP SA';
 
 // E		
 $language['email']						= 'Email';	
-$language['enviar']						= 'Enviar';	
+$language['enviar']						= 'Enviar';
+$language['error_dato']					= 'Error en el dato: ';	
 $language['estado']						= 'Estado';	
 $language['extension_error']			= 'La extención del archivo no es la correcta';
 
@@ -61,6 +62,7 @@ $language['fecha']						= 'Fecha';
 $language['final']						= 'Final';
 
 // M	
+$language['manual']						= 'Manual';
 $language['mensaje']					= 'Mensaje';		
 $language['mensaje_enviado']			= 'Mensaje enviado, la administración se comunicara con usted.';
 
@@ -73,6 +75,7 @@ $language['no_ingreso']					= 'No puedes ingresar.';
 $language['password']					= 'Password';
 $language['periodo']					= 'Periodo';
 $language['pre-confeccion']				= 'Pre-Confección';
+$language['problema']					= 'Problema';
 $language['post']						= 'Post';
 
 // R	
@@ -85,6 +88,7 @@ $language['subir']						= 'Subir';
 $language['sumas']						= 'Sumas';
 
 // T	
+$language['transaccion']				= 'Transacción';
 $language['transacciones']				= 'Transacciones';
 $language['transferencia']				= 'Transferencia';
 
