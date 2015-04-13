@@ -24,6 +24,7 @@ $language['cuil']						= 'Cuil';
 
 // D
 $language['desarrollado']				= 'Desarrollado por TMS GROUP SA';	
+$language['dtd']						= 'DTD';
 
 // E		
 $language['email']						= 'Email';	

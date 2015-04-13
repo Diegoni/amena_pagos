@@ -125,7 +125,7 @@ if($bandera)
 	});
 </script>
 <div class="hidden"> 
-	<form method="post" action="<?php echo $url_post?>" onsubmit="return control_datos()">
+	<form method="post" target="_blank" action="<?php echo $url_post?>" onsubmit="return control_datos()">
 		<input type='hidden' name="CodigoComunidad" id="CodigoComunidad" value="<?php echo $datos_post['CodigoComunidad']?>">
 		<input type='hidden' name="CantidadTransacciones" id="CantidadTransacciones" value="<?php echo $datos_post['CantidadTransacciones']?>">
 		<input type='hidden' name="WindowPopUp" id="WindowPopUp" value="<?php echo $datos_post['WindowPopUp']?>">

@@ -23,6 +23,7 @@ foreach ($variable as $row) {
 					<input type='hidden' name="Nombre_usuario" id="Nombre_usuario" value="<?php echo decrypt($datos_post['Nombre_usuario'])?>">
 					<input type='hidden' name="Clave" id="Clave" value="<?php echo decrypt($datos_post['Clave'])?>">
 					<input type='hidden' name="Comunidad" id="Comunidad" value="<?php echo decrypt($datos_post['id_comunidad'])?>">
+					<input type='hidden' name="TransactionStatusResult" id="DTD" value="<?php echo $datos_post['DTD_estados']?>">
 					<?php 
 					echo set_alert("<i class='fa fa-question-circle'></i> ".$language['info_estados'], 'default');
 					echo "<button type='submit' class='btn btn-info btn-lg' id='guardar'>".$language['generar_informe']."<i class='fa fa-arrow-right'></i></button>"; 
