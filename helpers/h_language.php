@@ -37,7 +37,6 @@ $language['delete_ok']					= 'El registro se ha dado de baja con éxito';
 $language['desarrollado']				= 'Desarrollado por TMS GROUP SA';
 $language['descripcion']				= 'Descripción';
 $language['desde']						= 'Desde';	
-$language['dtd']						= 'DTD';
 
 // E
 $language['editar']						= 'Editar';		

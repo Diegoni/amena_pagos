@@ -93,7 +93,6 @@ if(isset($_FILES['certificado']))
 						<li class="active"><a href="#tab1" data-toggle="tab"><?php echo $language['general'] ?></a></li>
     					<li><a href="#tab2" data-toggle="tab"><?php echo $language['url'] ?></a></li>
     					<li><a href="#tab3" data-toggle="tab"><?php echo $language['certificado'] ?></a></li>
-    					<li><a href="#tab4" data-toggle="tab"><?php echo $language['dtd'] ?></a></li>
 					</ul>
   					
   					<div class="tab-content">
@@ -255,37 +254,6 @@ if(isset($_FILES['certificado']))
 							</button>
 						</div>
 					</div>		
-					
-					</div>
-					
-					<div class="tab-pane" id="tab4">
-					
-					<div class="form-group">	
-						<label class="col-sm-2 control-label">
-							<?php echo $language['dtd']." ".$language['estado']; ?>
-						</label>
-						<div class="col-sm-10">
-							<textarea class="form-control" rows="10" id="DTD_estados" name="DTD_estados" required><?php echo $valores['DTD_estados']?></textarea>	
-						</div>
-					</div>
-					
-					<div class="form-group">	
-						<label class="col-sm-2 control-label">
-							<?php echo $language['dtd']." ".$language['estado']." ".$language['incremental']; ?>
-						</label>
-						<div class="col-sm-10">
-							<textarea class="form-control" rows="10" id="DTD_estado_incremental" name="DTD_estado_incremental" required><?php echo $valores['DTD_estado_incremental']?></textarea>	
-						</div>
-					</div>
-					
-					<div class="form-group">	
-						<label class="col-sm-2 control-label">
-							<?php echo $language['dtd']." ".$language['cierre']; ?>
-						</label>
-						<div class="col-sm-10">
-							<textarea class="form-control" rows="10" id="DTD_cierre" name="DTD_cierre" required><?php echo $valores['DTD_cierre']?></textarea>	
-						</div>
-					</div>
 					
 					</div>
 					
