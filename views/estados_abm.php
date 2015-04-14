@@ -121,9 +121,9 @@ else
 						</label>
 						<div class="col-sm-10">
 							<input type="hidden" name="id_estado" value="<?php echo $datos['id_estado']?>">
-							<button type="submit" value="1" name="update" class="btn btn-primary"><?php echo $language['editar'] ?></button>
-							<button type="submit" value="1" name="volver" class="btn btn-primary"><?php echo $language['editar'] ?> & <?php echo $language['volver'] ?></button>
-							<a href="<?php echo BASE_URL.'views/estados_abm.php'; ?>" onclick="return confirm('<?php echo $language['confirm_volver']?>')" class="btn btn-danger"><?php echo $language['volver'] ?></a>
+							<button type="submit" value="1" name="update" class="btn btn-primary btn-lg"><?php echo $language['editar'] ?></button>
+							<button type="submit" value="1" name="volver" class="btn btn-primary btn-lg"><?php echo $language['editar'] ?> & <?php echo $language['volver'] ?></button>
+							<a href="<?php echo BASE_URL.'views/estados_abm.php'; ?>" onclick="return confirm('<?php echo $language['confirm_volver']?>')" class="btn btn-danger btn-lg"><?php echo $language['volver'] ?></a>
 						</div>
 					</div>
 				</form>	
@@ -216,7 +216,7 @@ else
 						<label class="col-sm-2 control-label">
 						</label>
 						<div class="col-sm-10">
-							<button type="submit" value="1" name="insert" class="btn btn-primary" ><?php echo $language['guardar'] ?></button>
+							<button type="submit" value="1" name="insert" class="btn btn-primary btn-lg" ><?php echo $language['guardar'] ?></button>
 						</div>
 					</div>
 					</form>	

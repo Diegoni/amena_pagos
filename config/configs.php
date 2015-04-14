@@ -19,3 +19,6 @@ $config['environment']		= 'development';
 //$config['environment']		= 'production';
 
 date_default_timezone_set('America/Mendoza');
+
+ini_set("session.cookie_lifetime"	, "1800");
+ini_set("session.gc_maxlifetime"	, "1800");

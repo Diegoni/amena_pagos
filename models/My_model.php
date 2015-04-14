@@ -12,8 +12,8 @@ class MY_Model extends Model
 	function __construct(
 				$tablename	= null, 
 				$id			= null,
-				$order		= null, 
 				$name		= null,
+				$order		= null,
 				$data_model	= null 
 				)
 	{

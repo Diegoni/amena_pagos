@@ -42,7 +42,7 @@ include_once('menu.php');
 						</label>
 						<div class="col-sm-10"> 
 							<div class="input-group">
-								<input type="text" class="form-control" name="importe" id="importe" placeholder="<?php echo $language['ingrese']." ".$language['importe']?>">
+								<input type="text" onkeypress="return solo_numeros(event)" class="form-control" name="importe" id="importe" placeholder="<?php echo $language['ingrese']." ".$language['importe']?>">
 								<div class="input-group-addon"><i class="fa fa-money"></i></div>
 							</div>
 						</div>

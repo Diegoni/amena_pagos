@@ -3,8 +3,8 @@ class m_Transaccion extends My_Model
 {
 	protected $_tablename	= 'transacciones';
 	protected $_id_table	= 'id_transaccion';
-	protected $_name		= 'fechapago';
-	protected $_order		= 'fechapago';
+	protected $_name		= 'cuit';
+	protected $_order		= 'cuit';
 	protected $_data_model	= array(
 		'cuit'		=> array(),
 		'importe'	=> array(),

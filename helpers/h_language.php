@@ -44,7 +44,7 @@ $language['email']						= 'Email';
 $language['enviar']						= 'Enviar';
 $language['error_dato']					= 'Error en el dato: ';	
 $language['estado']						= 'Estado';	
-$language['extension_error']			= 'La extención del archivo no es la correcta';
+$language['extension_error']			= 'La extensión del archivo no es la correcta';
 
 // G
 $language['general']					= 'General';

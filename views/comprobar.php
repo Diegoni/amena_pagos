@@ -15,7 +15,7 @@ if(isset($_POST['enviar']))
 	}
 	else 
 	{ 
-		$usuario_nombre	= encrypt($_POST['usuario_nombre']); 
+		$usuario_nombre	= $_POST['usuario_nombre']; 
 		$usuario_clave	= $_POST['usuario_clave']; 
 		$usuario_clave	= md5(_COOKIE_KEY_.$usuario_clave);
 			
@@ -35,7 +35,7 @@ if(isset($_POST['enviar']))
 			else
 			{
 				$_SESSION['id_usuario']		= $array_usuario['id_usuario']; // creamos la sesion "id_usuario" y le asignamos como valor el campo id_usuario 
-				$_SESSION['nombre']			= decrypt($array_usuario["nombre"]); // creamos la sesion "nombre" y le asignamos como valor el campo nombre 
+				$_SESSION['nombre']			= $array_usuario["nombre"]; // creamos la sesion "nombre" y le asignamos como valor el campo nombre 
 						
 				$data = array(
 					'last_login' => date('Y-m-d H:i:s')

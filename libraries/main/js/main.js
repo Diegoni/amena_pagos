@@ -233,3 +233,42 @@ $(document).ready(function(){
     	confirm('Esta seguro que desea borrar el registro');
     });
 });
+
+
+/*----------------------------------------------------------------------------
+		Button delete
+----------------------------------------------------------------------------*/
+
+
+function solo_numeros(event)
+{
+	var keycode;
+	if (window.event)
+	{
+		keycode = window.event.keyCode;	
+	}
+	else if (event)
+	{
+		keycode = event.keyCode;
+	}
+	else if (e) 
+	{
+		keycode = e.which;
+	}
+	else 
+	{
+		return true;	
+	}
+	
+	    
+	if ((keycode > 47 && keycode <= 57) || keycode == 44)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+    }
+    
+	return true;
+}
