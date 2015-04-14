@@ -4,10 +4,16 @@
 		Textos del sistema
 ----------------------------------------------------------------------------*/
 // A
+$language['alta']						= 'Alta';
 $language['archivo']					= 'Archivo';
 $language['ayuda']						= 'Ayuda';	
+$language['ayuda_estado']				= 'Filtro por estado de transferencia, si no se coloca el estado, la consulta devuelve todos los estados de las transferencias';
+$language['ayuda_importe']				= 'Filtro de Importe, Numérico de 10 enteros y 2 decimales';
+$language['ayuda_fecha']				= 'Filtro de Fecha de Concertación';
+$language['ayuda_operacion']			= 'Filtro por número de Operación, Alfanumérico de 10 posiciones';	
 
 // B
+$language['borrar']						= 'Borrar';
 $language['buscar']						= 'Buscar';	
 
 // C
@@ -15,18 +21,26 @@ $language['cantidad']					= 'Cantidad';
 $language['cerrar']						= 'Cerrar';	
 $language['certificado']				= 'Certificado';
 $language['cierre']						= 'Cierre';			
-$language['clave']						= 'Clave';	
+$language['clave']						= 'Clave';
+$language['cliente']					= 'Cliente';		
 $language['comunidad']					= 'Comunidad';	
+$language['compensacion']				= 'Compensación';
 $language['comprobante']				= 'Comprobante';	
 $language['config']						= 'Config';
+$language['confirm_eliminar']			= 'Esta seguro que quiere eliminar el registro?';
+$language['confirm_volver']				= '¿Esta seguro? no se guardaran los cambios';
 $language['control_size']				= 'El archivo pesa más de lo que debería, controlar si todo esta ok';
 $language['cuil']						= 'Cuil';	
 
 // D
-$language['desarrollado']				= 'Desarrollado por TMS GROUP SA';	
+$language['delete_ok']					= 'El registro se ha dado de baja con éxito';
+$language['desarrollado']				= 'Desarrollado por TMS GROUP SA';
+$language['descripcion']				= 'Descripción';
+$language['desde']						= 'Desde';	
 $language['dtd']						= 'DTD';
 
-// E		
+// E
+$language['editar']						= 'Editar';		
 $language['email']						= 'Email';	
 $language['enviar']						= 'Enviar';
 $language['error_dato']					= 'Error en el dato: ';	
@@ -40,6 +54,9 @@ $language['generar_informe']			= 'Generar informe de interbanking ';
 $language['generar_incremental']		= 'Generar incremental de interbanking ';
 $language['generar_preconfeccion']		= 'Generar pago';
 $language['guardar']					= 'Guardar';	
+
+// H
+$language['hasta']						= 'Hasta';
 
 // I	
 $language['id']							= 'ID';
@@ -55,11 +72,13 @@ que se notifique los cambios de estados de las transferencias de cada comunidad 
 implementa esta funcionalidad.	';		
 $language['ingresar']					= 'Ingresar';		
 $language['ingrese']					= 'Ingrese';
+$language['insert_ok']					= 'El registro se ha ingresado con éxito';
 $language['importe']					= 'Importe';		
 $language['ir_arriba']					= 'Ir Arriba';	
 
 // F
 $language['fecha']						= 'Fecha';	
+$language['filtros']					= 'Filtros';
 $language['final']						= 'Final';
 
 // M	
@@ -71,6 +90,11 @@ $language['mensaje_enviado']			= 'Mensaje enviado, la administración se comunic
 $language['no_acceso']					= 'Problemas para acceder.';		
 $language['no_connect']					= 'Error, no se ha podido conectar';		
 $language['no_ingreso']					= 'No puedes ingresar.';
+$language['nuevo']						= 'Nuevo';
+
+// O	
+$language['opciones']					= 'Opciones';
+$language['operacion']					= 'Operación';
 
 // P	
 $language['password']					= 'Password';
@@ -101,5 +125,6 @@ $language['usuario']					= 'Usuario';
 $language['usuario_delete']				= 'Error, su usuario ha sido eliminado';			
 $language['usuario_error']				= 'El usuario o el password no han sido ingresados.';
 
-// V			
+// V
+$language['vendedor']					= 'Vendedor';			
 $language['volver']						= 'Volver';	

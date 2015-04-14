@@ -17,12 +17,12 @@ $array_transacciones	= $transaccion->get_registros();
 				<table class="table table-striped table-hover" id="datatable">
 					<thead>
 						<tr>
-							<th class='col-md-2'>Cuit</th>
-							<th class='col-md-2'>Importe</th>
-							<th class='col-md-1'>Periodo</th>
-							<th class='col-md-2'>Fecha pago</th>
-							<th class='col-md-2'>Comprob</th>
-							<th class='col-md-3'>Date_add</th>
+							<th class='col-md-2'><?php echo $language['cuil'];?></th>
+							<th class='col-md-2'><?php echo $language['importe'];?></th>
+							<th class='col-md-1'><?php echo $language['periodo'];?></th>
+							<th class='col-md-2'><?php echo $language['fecha'];?></th>
+							<th class='col-md-2'><?php echo $language['comprobante'];?></th>
+							<th class='col-md-3'><?php echo $language['alta'];?></th>
 						</tr>
 					</thead>
 					<tbody>

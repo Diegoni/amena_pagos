@@ -70,6 +70,36 @@ function validar_config()
 ----------------------------------------------------------------------------*/
 
 
+function validar_estados()
+{	
+	if
+	(/*
+		validar_campo('ClienteCuit', 'numero', 25) == 0 ||
+		validar_campo('VendedorCuit', 'numero', 11) == 0 ||
+		validar_campo('ImporteDesde', 'alfanumerico', 12) == 0 ||
+		validar_campo('ImporteHasta', 'alfanumerico', 12) == 0 ||
+		validar_campo('FechaDesde', 'alfanumerico', 12) == 0 ||
+		validar_campo('FechaHasta', 'alfanumerico', 12) == 0 ||
+		validar_campo('OperacionDesde', 'alfanumerico', 10) == 0 ||
+		validar_campo('OperacionHasta', 'alfanumerico', 12) == 0 ||
+		validar_campo('Estado', 'alfanumerico', 12) == 0  
+	*/
+	false//ver
+	)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+/*----------------------------------------------------------------------------
+		Validar formulario
+----------------------------------------------------------------------------*/
+
+
 function validar_preconfeccion()
 {	
 	if
@@ -154,8 +184,6 @@ function validar_campo(id, validacion, length)
 } 
 
 
-
-
 /*----------------------------------------------------------------------------
 		Armar Token para transacción 
 ----------------------------------------------------------------------------*/
@@ -177,3 +205,31 @@ function armarToken()
 	token		= token.replace(' ', '');
 	$("#token").val(comprob+fechapago+periodo+importe+cuit);
 }
+
+
+/*----------------------------------------------------------------------------
+		Mostrar ocultar div 
+----------------------------------------------------------------------------*/
+
+
+$(document).ready(function(){
+	$(".slidingDiv").hide();
+	$(".show_hide").show();
+ 
+    $('.show_hide').click(function(){
+    	$(".slidingDiv").slideToggle();
+    });
+});
+
+
+
+/*----------------------------------------------------------------------------
+		Button delete
+----------------------------------------------------------------------------*/
+
+
+$(document).ready(function(){
+	$('.delete').click(function(){
+    	confirm('Esta seguro que desea borrar el registro');
+    });
+});

@@ -3,7 +3,7 @@ class m_Transaccion extends My_Model
 {
 	protected $_tablename	= 'transacciones';
 	protected $_id_table	= 'id_transaccion';
-	protected $_name		= 'cuil';
+	protected $_name		= 'fechapago';
 	protected $_order		= 'fechapago';
 	protected $_data_model	= array(
 		'cuit'		=> array(),

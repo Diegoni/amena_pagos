@@ -11,6 +11,7 @@ class Model
             echo "Fallo al conectar a MySQL: ". $this->_db->connect_error;
             return;    
         }
+		
 		$this->_db->set_charset(DB_CHARSET);
     }
 }

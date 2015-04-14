@@ -30,6 +30,7 @@ function get_panel_heading()
 	$title	= str_replace('.php', '', $title);
 	$title	= str_replace('_', ' ', $title);
 	$title	= str_replace('-', ' ', $title);
+	$title	= strtok($title, "?");
 	
 	return ucwords($title);
 }

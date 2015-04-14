@@ -78,6 +78,7 @@ include_once('control_usuario.php');
 				</a>
         		<ul class="dropdown-menu">
         			<?php echo item_menu(BASE_URL.'views/config_general.php', $language['config']);?>
+        			<?php echo item_menu(BASE_URL.'views/estados_abm.php', $language['estado']);?>
         		</ul>
       		</li>
     	</ul>

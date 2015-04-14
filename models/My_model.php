@@ -10,11 +10,11 @@ class MY_Model extends Model
 	protected $_data_model	= array();
 
 	function __construct(
-				$tablename = null, 
-				$id = null,
-				$order = null, 
-				$name = null,
-				$data_model =null 
+				$tablename	= null, 
+				$id			= null,
+				$order		= null, 
+				$name		= null,
+				$data_model	= null 
 				)
 	{
 		$this->_tablename	= $tablename;
@@ -29,14 +29,15 @@ class MY_Model extends Model
     {
     	if($where == NULL)
 		{
-			$result = $this->_db->query('SELECT * FROM '.$this->_tablename.' ');	
+			$consulta = 'SELECT * FROM '.$this->_tablename.' ORDER BY '.$this->_order;	
 		}
 		else
 		{
-			$result = $this->_db->query('SELECT * FROM '.$this->_tablename.' WHERE '.$where);
+			$consulta = 'SELECT * FROM '.$this->_tablename.' WHERE '.$where.' ORDER BY '.$this->_order;
 		}
 		
-		//$users	= $result->fetch_all(MYSQLI_ASSOC); PHP 5.3 >
+		$result = $this->_db->query($consulta);
+		
 		if($result->num_rows > 0)
 		{
 			while($row = $result->fetch_array())
@@ -123,11 +124,11 @@ class MY_Model extends Model
 						$val->type == 11 || //datetime
 						$val->type == 12)	//time
 					{
-						$campos .= $key." = '".$value."' ,";
+						$campos .= "`".$key."` = '".$value."' ,";
 					}
 					else
 					{
-						$campos .= $key." = ".$value.",";	
+						$campos .= "`".$key."` = ".$value.",";	
 					}
 				}
 			}
