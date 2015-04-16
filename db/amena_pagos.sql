@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-04-2015 a las 18:24:30
+-- Tiempo de generación: 16-04-2015 a las 20:27:40
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.11
 
@@ -35,6 +35,32 @@ CREATE TABLE IF NOT EXISTS `certificados` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `cuil` varchar(64) NOT NULL,
+  `nombre` varchar(64) NOT NULL,
+  `apellido` varchar(64) NOT NULL,
+  `alias` varchar(64) NOT NULL,
+  `telefono` varchar(64) NOT NULL,
+  `email` varchar(64) NOT NULL,
+  `direccion` varchar(128) NOT NULL,
+  `active` tinyint(4) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id_cliente`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `cuil`, `nombre`, `apellido`, `alias`, `telefono`, `email`, `direccion`, `active`) VALUES
+(1, '30573118983', 'Diego', 'Nieto', 'Diego TMS Group', '4396721', 'diego.nieto@tmsgroup.com.ar', 'Mariano Moreno', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `config`
 --
 
@@ -49,6 +75,7 @@ CREATE TABLE IF NOT EXISTS `config` (
   `url_estado_incremental` varchar(128) NOT NULL,
   `url_preconfeccion` varchar(128) NOT NULL,
   `url_cierre_comunidad` varchar(128) NOT NULL,
+  `url_interbanking` varchar(128) NOT NULL,
   `id_comunidad` varchar(32) NOT NULL,
   `id_config_certificado` int(11) NOT NULL,
   `id_pais` int(11) NOT NULL,
@@ -61,8 +88,8 @@ CREATE TABLE IF NOT EXISTS `config` (
 -- Volcado de datos para la tabla `config`
 --
 
-INSERT INTO `config` (`id_config`, `Nombre_usuario`, `Clave`, `cuil`, `url_post`, `url_reporte`, `url_estado_transferencia`, `url_estado_incremental`, `url_preconfeccion`, `url_cierre_comunidad`, `id_comunidad`, `id_config_certificado`, `id_pais`, `certificado`, `active`) VALUES
-(1, 'w9bLuLvFgHI=', 'w9bLuLvFgHM=', 'hJiHiI+ZiHGjmqKBqQ==', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u015Pfv5rfpqu1uJ+Xfah4rro=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u016LVwaPst62Oe3ODr9U=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfpsL26spW2r8u9eK/C', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksn3oprqxtpbDv8e2jbrA2cS8vcW0puWPzb8=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPo4tmu2L7WtpfdrLe6i2OXecq5ia+818a0zce4fuTGzLnW3LfF2Nu1', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfjqLq+rnrDrtivt7DB2Le/nNO9tuDKzbHY2Lijzdc=', 'hpSMh46XiHalk6I=', 1, -2, 'Amena', 1);
+INSERT INTO `config` (`id_config`, `Nombre_usuario`, `Clave`, `cuil`, `url_post`, `url_reporte`, `url_estado_transferencia`, `url_estado_incremental`, `url_preconfeccion`, `url_cierre_comunidad`, `url_interbanking`, `id_comunidad`, `id_config_certificado`, `id_pais`, `certificado`, `active`) VALUES
+(1, 'w9bLuLvFgHI=', 'w9bLuLvFgHM=', 'hJiHiI+ZiHGjmqKBqQ==', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u015Pfv5rfpqu1uJ+Xfah4rro=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u016LVwaPst62Oe3ODr9U=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfpsL26spW2r8u9eK/C', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksn3oprqxtpbDv8e2jbrA2cS8vcW0puWPzb8=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPo4tmu2L7WtpfdrLe6i2OXecq5ia+818a0zce4fuTGzLnW3LfF2Nu1', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfjqLq+rnrDrtivt7DB2Le/nNO9tuDKzbHY2Lijzdc=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPr1dfA27W8wJvjsXawuHC7vdW3h7PC0bs=', 'hpSMh46XiHalk6I=', 2, -2, 'Amena', 1);
 
 -- --------------------------------------------------------
 
@@ -115,11 +142,7 @@ INSERT INTO `estados_transaccion` (`id_estado`, `estado`, `descripcion`, `compen
 (9, 'EC', 'Enviada Banco Credito', 'Compensa al cierre de la Red', 0),
 (10, 'RC', 'Rechazada Banco Credito', 'No compensa', 0),
 (11, 'EJ', 'Ejecutada', 'Compensa', 0),
-(12, 'DE', 'Desconocido', 'No compensa', 0),
-(13, '', '', '', 1),
-(14, 'NU', 'Nuevo', 'Nuevo', 1),
-(15, 'NU', 'Nuevo', 'Nuevo', 1),
-(16, 'NU', 'Nuevo', 'Nuevo', 1);
+(12, 'DE', 'Desconocido', 'No compensa', 0);
 
 -- --------------------------------------------------------
 
@@ -262,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `transacciones` (
   `token` varchar(64) NOT NULL,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_transaccion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
 
 --
 -- Volcado de datos para la tabla `transacciones`
@@ -303,7 +326,18 @@ INSERT INTO `transacciones` (`id_transaccion`, `cuit`, `importe`, `periodo`, `fe
 (32, '23312465019', 121551, '03/2015', '2015-10-04', '000422', '0004221004201503201512155123312465019', '2015-04-14 12:39:25'),
 (33, '23312465019', 8989, '04/2015', '2015-08-04', '457878', '45787808042015042015898923312465019', '2015-04-14 12:40:16'),
 (34, '23312465019', 121551, '02/2015', '1969-12-31', '8787', '878723012015 02201512155123312465019', '2015-04-14 12:41:00'),
-(35, '23312465019', 98, '04/2015', '2015-08-04', '85858', '85858080420150420159823312465019', '2015-04-14 12:41:42');
+(35, '23312465019', 98, '04/2015', '2015-08-04', '85858', '85858080420150420159823312465019', '2015-04-14 12:41:42'),
+(36, '23312465019', 2000, '04/2015', '1969-12-31', '15042015', '1504201515042015042015200023312465019', '2015-04-15 10:57:43'),
+(37, '23312465019', 2000, '04/2015', '1969-12-31', '15042015', '1504201515042015042015200023312465019', '2015-04-15 10:58:04'),
+(38, '23312465019', 2000, '04/2015', '1969-12-31', '15042015', '1504201515042015042015200023312465019', '2015-04-15 10:59:22'),
+(39, '23312465019', 2000, '04/2015', '1969-12-31', '15042015', '1504201515042015042015200023312465019', '2015-04-15 11:00:02'),
+(40, '23312465019', 2000, '04/2015', '1969-12-31', '15042015', '1504201515042015042015200023312465019', '2015-04-15 11:00:10'),
+(41, '23312465019', 2000, '04/2015', '1969-12-31', '15042015', '1504201515042015042015200023312465019', '2015-04-15 11:12:27'),
+(42, '23312465019', 3000, '04/2015', '1969-12-31', '15042016', '1504201515042015042015200023312465019', '2015-04-15 11:13:12'),
+(43, '23312465019', 4000, '04/2015', '1969-12-31', '15042017', '1504201515042015042015200023312465019', '2015-04-15 11:14:07'),
+(44, '23312465019', 5000, '04/2015', '1969-12-31', '15042018', '1504201515042015042015200023312465019', '2015-04-15 11:14:56'),
+(45, '23312465019', 6000, '04/2015', '1969-12-31', '15042019', '1504201515042015042015200023312465019', '2015-04-15 11:15:38'),
+(46, '23312465019', 6000, '04/2015', '1969-12-31', '15042019', '1504201515042015042015200023312465019', '2015-04-15 11:16:22');
 
 -- --------------------------------------------------------
 
@@ -326,7 +360,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `clave`, `email`, `last_login`, `active`) VALUES
-(1, 'admin', 'e956d1f5d589a122abf96f60af4acc95', 'diego.nieto@tmsgroup.com.ar', '2015-04-14 13:14:08', 1);
+(1, 'admin', 'e956d1f5d589a122abf96f60af4acc95', 'diego.nieto@tmsgroup.com.ar', '2015-04-16 09:00:45', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

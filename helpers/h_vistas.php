@@ -95,3 +95,90 @@ function set_format($dato, $format)
 
 	}
 }
+
+function cambioCadena($cadena, $language)
+{
+	switch ($cadena) {
+		case 'clientecuit':
+		return $language['cliente']." ".$language['cuil'];
+		break;
+		
+		case 'numerooperacion':
+		return $language['numero']." ".$language['operacion'];
+		break;
+		
+		case 'numerooperacionib':
+		return $language['numero']." ".$language['operacion']." ".$language['interbanking'];
+		break;
+	
+		case 'numerointerno':
+		return $language['numero']." ".$language['interno'];
+		break;
+	
+		case 'numerocuentarecaudacion':
+		return $language['numero']." ".$language['cuenta']." ".$language['recaudacion'];
+		break;
+	
+		case 'fechapago':
+		return $language['fecha']." ".$language['pago'];
+		break;
+		
+		case 'importe':
+		return $language['importe'];
+		break;
+	
+		case 'estado':
+		return $language['estado'];
+		break;
+		
+		case 'motivorechazo':
+		return $language['motivo']." ".$language['rechazo'];
+		break;
+		
+		case 'observaciones':
+		return $language['observaciones'];
+		break;
+	}
+}
+
+
+
+function getProfile($datos)
+{
+	return '<div class="profile-sidebar">
+				
+				<div class="profile-userpic">
+					<img src="../doc/user.png" class="img-responsive" alt="">
+				</div>
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						'.$datos['alias'].'
+					</div>
+					<div class="profile-usertitle-job">
+						'.$datos['apellido'].' '.$datos['nombre'].'
+					</div>
+				</div>
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li>
+							<a>
+							<i class="fa fa-phone"></i>
+							'.$datos['telefono'].'
+							</a> 
+						</li>
+						<li>
+							<a>
+							<i class="fa fa-envelope-o"></i>
+							'.$datos['email'].'
+							</a> 
+						</li>
+						<li>
+							<a>
+							<i class="fa fa-compass"></i>
+							'.$datos['direccion'].'
+							</a> 
+						</li>
+					</ul>
+				</div>
+			</div>';
+}

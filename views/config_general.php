@@ -20,6 +20,7 @@ if(isset($_POST['guardar']))
 		'url_estado_incremental'	=> encrypt($_POST['url_estado_incremental']),
 		'url_preconfeccion'			=> encrypt($_POST['url_preconfeccion']),
 		'url_cierre_comunidad'		=> encrypt($_POST['url_cierre_comunidad']),
+		'url_interbanking'			=> encrypt($_POST['url_interbanking']),
 		'certificado'				=> $_POST['certificado'],
 		/*
 		'DTD_estados'				=> '"'.$_POST['DTD_estados'].'"',
@@ -212,6 +213,15 @@ if(isset($_FILES['certificado']))
 						</label>
 						<div class="col-sm-10">
 							<input class="form-control" id="url_cierre_comunidad" name="url_cierre_comunidad" value="<?php echo decrypt($valores['url_cierre_comunidad'])?>" required>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['url']." ".$language['interbanking']; ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" id="url_interbanking" name="url_interbanking" value="<?php echo decrypt($valores['url_interbanking'])?>" required>
 						</div>
 					</div>
 					

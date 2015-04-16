@@ -17,10 +17,13 @@ $language['borrar']						= 'Borrar';
 $language['buscar']						= 'Buscar';	
 
 // C
+$language['cadena']						= 'Cadena';
 $language['cantidad']					= 'Cantidad';	
 $language['cerrar']						= 'Cerrar';	
 $language['certificado']				= 'Certificado';
-$language['cierre']						= 'Cierre';			
+$language['cierre']						= 'Cierre';
+$language['cierre_no']					= 'El cierre no fue confeccionado';
+$language['cierre_ok']					= 'Ya se ha realizado el cierre, en este momento las transferencias en estado ´Enviada Banco Credito´ compensan';			
 $language['clave']						= 'Clave';
 $language['cliente']					= 'Cliente';		
 $language['comunidad']					= 'Comunidad';	
@@ -30,6 +33,7 @@ $language['config']						= 'Config';
 $language['confirm_eliminar']			= 'Esta seguro que quiere eliminar el registro?';
 $language['confirm_volver']				= '¿Esta seguro? no se guardaran los cambios';
 $language['control_size']				= 'El archivo pesa más de lo que debería, controlar si todo esta ok';
+$language['cuenta']						= 'Cuenta';
 $language['cuil']						= 'Cuil';	
 
 // D
@@ -72,6 +76,8 @@ implementa esta funcionalidad.	';
 $language['ingresar']					= 'Ingresar';		
 $language['ingrese']					= 'Ingrese';
 $language['insert_ok']					= 'El registro se ha ingresado con éxito';
+$language['interbanking']				= 'Interbanking';
+$language['interno']					= 'Interno';
 $language['importe']					= 'Importe';		
 $language['ir_arriba']					= 'Ir Arriba';	
 
@@ -84,18 +90,22 @@ $language['final']						= 'Final';
 $language['manual']						= 'Manual';
 $language['mensaje']					= 'Mensaje';		
 $language['mensaje_enviado']			= 'Mensaje enviado, la administración se comunicara con usted.';
+$language['motivo']						= 'Motivo';
 
 // N				
 $language['no_acceso']					= 'Problemas para acceder.';		
 $language['no_connect']					= 'Error, no se ha podido conectar';		
 $language['no_ingreso']					= 'No puedes ingresar.';
+$language['numero']						= 'Número';
 $language['nuevo']						= 'Nuevo';
 
 // O	
+$language['observaciones']				= 'Observaciones';
 $language['opciones']					= 'Opciones';
 $language['operacion']					= 'Operación';
 
 // P	
+$language['pago']						= 'Pago';
 $language['password']					= 'Password';
 $language['periodo']					= 'Periodo';
 $language['pre-confeccion']				= 'Pre-Confección';
@@ -103,6 +113,8 @@ $language['problema']					= 'Problema';
 $language['post']						= 'Post';
 
 // R	
+$language['recaudacion']				= 'Recaudación';
+$language['rechazo']					= 'Rechazo';
 $language['reintentar']					= 'Reintentar';		
 $language['reporte']					= 'Reporte';
 
@@ -115,6 +127,7 @@ $language['sumas']						= 'Sumas';
 $language['transaccion']				= 'Transacción';
 $language['transacciones']				= 'Transacciones';
 $language['transferencia']				= 'Transferencia';
+$language['transferencias']				= 'Transferencias';
 
 // U			
 $language['update_ok']					= 'El registro se ha modificado con éxito';
