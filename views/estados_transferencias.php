@@ -197,12 +197,32 @@ foreach ($variable as $row)
 			<?php echo $language['transferencias']?>
 		</div>
 		<div class="panel-body">
+			<div role="tabpanel">
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><?php echo $language['tabla']?></a></li>
+					<li role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><?php echo $language['detalle']?></a></li>
+				</ul>
+			</div>
+			<div class="tab-content">
 			<?php
+  
+/*----------------------------------------------------------------------------
+		Obtnemos el XML
+----------------------------------------------------------------------------*/
+			
 			$html = file_get_html(decrypt($datos_post['url_estado_transferencia'])."?Pais=".$datos_post['id_pais']."&cuil=".decrypt($datos_post['cuil'])."&Nombre_usuario=".decrypt($datos_post['Nombre_usuario'])."&Clave=".decrypt($datos_post['Clave'])."&Comunidad=".decrypt($datos_post['id_comunidad'])."");
 			
 			$xml = simplexml_load_string($html);
 			$i = 0;
+			$cabecera = '<tr>';
+
+  
+/*----------------------------------------------------------------------------
+		Detalle de las transferencias
+----------------------------------------------------------------------------*/
+
 			
+			echo '<div role="tabpanel" class="tab-pane" id="home">';
 			foreach ($xml->children() as $segunda_gen) 
 			{
 				echo "<div class='row'>";
@@ -211,7 +231,17 @@ foreach ($variable as $row)
 					$i = $i + 1;
 				foreach ($segunda_gen->children() as $key => $value) 
 				{					
-					echo "<th class='key_xml'>".cambioCadena($key, $language)."</th>";
+					$linea = "<th class='key_xml'>".cambioCadena($key, $language)."</th>";
+					
+					echo $linea;
+					
+					if($i == 1)
+					{
+						if($key != 'observaciones')
+							{
+								$cabecera .= $linea;
+							}	
+					}					
 					
 					if($key == 'estado')
 					{
@@ -244,6 +274,7 @@ foreach ($variable as $row)
 						$show 		= 'show_'.$i;
 						$profile 	= 'profile_'.$i;
 						$cuil		= $value;
+						$descripcion_estado = '<i class="fa fa-arrow-circle-right"></i>';
 					}
 					else
 					{
@@ -281,6 +312,41 @@ foreach ($variable as $row)
 				echo "</div>";
 				echo "<hr>";
 			}
+			echo "</div>";
+  
+/*----------------------------------------------------------------------------
+		Simple tabla
+----------------------------------------------------------------------------*/
+			
+			
+			echo '<div role="tabpanel" class="tab-pane active" id="profile">';
+				echo "<div class='row'>";
+					echo "<div class='col-md-12'>";
+					echo "<table class='table table-hover' id='datatable'>";
+					echo "<thead>";
+					echo $cabecera."</tr>";
+					echo "</thead>";
+					echo "<tbody>";
+					foreach ($xml->children() as $segunda_gen) 
+					{
+						echo "<tr>";
+						
+						foreach ($segunda_gen->children() as $key => $value) 
+						{
+							if($key != 'observaciones')
+							{
+								echo "<td>".$value."</td>";
+							}
+						}
+						
+						echo "</tr>";
+					}	
+					echo "</tbody>";
+			echo "</table>";
+			echo "</div>";
+			
+			
+			echo "</div>";
 								
 			$fichero = $route['doc']."backup/".date('Y-m-d H_i_s')." ".$language['estado']." ".$language['transferencias'].".xml";
 			

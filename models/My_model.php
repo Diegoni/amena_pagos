@@ -145,5 +145,11 @@ class MY_Model extends Model
 		
 		$this->_db->query($query);
 	}
+	
+	
+	function getID()
+	{
+		return $this->_id;
+	}
 }
 

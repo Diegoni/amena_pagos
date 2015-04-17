@@ -182,3 +182,78 @@ function getProfile($datos)
 				</div>
 			</div>';
 }
+
+
+
+
+function input_helper_horizontal($id, $value=NULL, $tamaño=NULL, $placeholder=NULL, $type=NULL)
+{
+	if($type===NULL)
+	{
+		$type_input	= "text";
+	}
+	else 
+	{
+		$cadena = setTipo($type);
+		
+		$type_input = $cadena['input'];
+		$validacion = $cadena['validacion'];		
+	}
+	
+	if($tamaño===NULL)
+	{
+		$tamaño	= 10;
+	}
+	
+	if($placeholder===NULL)
+	{
+		$placeholder	= '-';
+	}
+	
+	$input = "<div class='col-sm-".$tamaño."'>";
+	
+	if(isset($type))
+	{
+		$input .=	"<div class='input-group' $validacion>";
+	}
+	
+	$input	.=		"<input 
+					type		= '".$type_input."' 
+					class		= 'form-control' 
+					id			= '".$id."' 
+					name		= '".$id."'
+					value		= '".$value."' 
+					placeholder	= '".$placeholder."'";
+					
+	if(isset($type) )
+	{
+		$input .= "required >
+					<span class='input-group-addon danger'>
+						<span class='glyphicon glyphicon-remove'>
+						</span>
+					</span>
+					</div></div>";
+	}
+	else 
+	{
+		$input .= "></div>";	
+	}
+	
+	return $input;
+}
+
+
+
+function label_helper_horizontal($texto=NULL, $tamaño=NULL)
+{
+	if($tamaño===NULL){
+		$tamaño	= 2;
+	}
+	if($texto===NULL){
+		$texto	= '';
+	}
+	return "<label class='col-sm-".$tamaño." control-label'>
+    			".$texto."
+    		</label>";
+}
+

@@ -64,6 +64,14 @@ include_once('control_usuario.php');
       		</li>
       		<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<i class="fa fa-users"></i> <?php echo $language['clientes'] ?><b class="caret"></b>
+				</a>
+        		<ul class="dropdown-menu">
+        			<?php echo item_menu(BASE_URL.'views/clientes_abm.php', $language['clientes']);?>
+        		</ul>
+      		</li>
+      		<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<i class="fa fa-bar-chart"></i> <?php echo $language['reporte'] ?><b class="caret"></b>
 				</a>
         		<ul class="dropdown-menu">

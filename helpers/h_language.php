@@ -4,8 +4,10 @@
 		Textos del sistema
 ----------------------------------------------------------------------------*/
 // A
+$language['alias']						= 'Alias';
 $language['alta']						= 'Alta';
 $language['archivo']					= 'Archivo';
+$language['apellido']					= 'Apellido';
 $language['ayuda']						= 'Ayuda';	
 $language['ayuda_estado']				= 'Filtro por estado de transferencia, si no se coloca el estado, la consulta devuelve todos los estados de las transferencias';
 $language['ayuda_importe']				= 'Filtro de Importe, Numérico de 10 enteros y 2 decimales';
@@ -25,7 +27,8 @@ $language['cierre']						= 'Cierre';
 $language['cierre_no']					= 'El cierre no fue confeccionado';
 $language['cierre_ok']					= 'Ya se ha realizado el cierre, en este momento las transferencias en estado ´Enviada Banco Credito´ compensan';			
 $language['clave']						= 'Clave';
-$language['cliente']					= 'Cliente';		
+$language['cliente']					= 'Cliente';
+$language['clientes']					= 'Clientes';		
 $language['comunidad']					= 'Comunidad';	
 $language['compensacion']				= 'Compensación';
 $language['comprobante']				= 'Comprobante';	
@@ -41,6 +44,8 @@ $language['delete_ok']					= 'El registro se ha dado de baja con éxito';
 $language['desarrollado']				= 'Desarrollado por TMS GROUP SA';
 $language['descripcion']				= 'Descripción';
 $language['desde']						= 'Desde';	
+$language['detalle']					= 'Detalle';
+$language['direccion']					= 'Dirección';
 
 // E
 $language['editar']						= 'Editar';		
@@ -78,6 +83,7 @@ $language['ingrese']					= 'Ingrese';
 $language['insert_ok']					= 'El registro se ha ingresado con éxito';
 $language['interbanking']				= 'Interbanking';
 $language['interno']					= 'Interno';
+$language['imagen']						= 'Imágen';
 $language['importe']					= 'Importe';		
 $language['ir_arriba']					= 'Ir Arriba';	
 
@@ -92,7 +98,8 @@ $language['mensaje']					= 'Mensaje';
 $language['mensaje_enviado']			= 'Mensaje enviado, la administración se comunicara con usted.';
 $language['motivo']						= 'Motivo';
 
-// N				
+// N
+$language['nombre']						= 'Nombre';				
 $language['no_acceso']					= 'Problemas para acceder.';		
 $language['no_connect']					= 'Error, no se ha podido conectar';		
 $language['no_ingreso']					= 'No puedes ingresar.';
@@ -123,7 +130,9 @@ $language['salir']						= 'Salir';
 $language['subir']						= 'Subir';
 $language['sumas']						= 'Sumas';
 
-// T	
+// T
+$language['tabla']						= 'Tabla';	
+$language['telefono']					= 'Teléfono';
 $language['transaccion']				= 'Transacción';
 $language['transacciones']				= 'Transacciones';
 $language['transferencia']				= 'Transferencia';
