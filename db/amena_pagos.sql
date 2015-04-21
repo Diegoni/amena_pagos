@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-04-2015 a las 15:28:39
+-- Tiempo de generación: 21-04-2015 a las 16:08:29
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.11
 
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `config` (
   `clave_privada` text NOT NULL,
   `active` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_config`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `config`
@@ -106,6 +106,241 @@ CREATE TABLE IF NOT EXISTS `config` (
 
 INSERT INTO `config` (`id_config`, `id_cuentarecaudacion`, `Nombre_usuario`, `Clave`, `cuil`, `url_post`, `url_reporte`, `url_estado_transferencia`, `url_estado_incremental`, `url_preconfeccion`, `url_cierre_comunidad`, `url_interbanking`, `id_comunidad`, `id_config_certificado`, `id_pais`, `certificado`, `clave_privada`, `active`) VALUES
 (1, 'g5iKg4qUgnWikZ2ApKN2p5mYdmeZag==', 'w9bLuLvFgHI=', 'w9bLuLvFgHM=', 'hJiHiI+ZiHGjmqKBqQ==', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u015Pfv5rfpqu1uJ+Xfah4rro=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u016LVwaPst62Oe3ODr9U=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfpsL26spW2r8u9eK/C', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksn3oprqxtpbDv8e2jbrA2cS8vcW0puWPzb8=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPo4tmu2L7WtpfdrLe6i2OXecq5ia+818a0zce4fuTGzLnW3LfF2Nu1', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfjqLq+rnrDrtivt7DB2Le/nNO9tuDKzbHY2Lijzdc=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPr1dfA27W8wJvjsXawuHC7vdW3h7PC0bs=', 'hpSMh46XiHalk6I=', 1, -2, 'Amena', 'gJGDgIamlYi7r4mix7Rlxbuxl3G5fpe+vo+HkoaBenFws63Bs8vCspKxkn+8qpmQsWKWrqqTv5a5zKvIjpSDo+S11cftyIis3N+QoNGTrd3srMfMzMWdqsrIm6rX2sXWm31bieiaiY6Lcs6y3ZGdhMadr4fRuYik5qm6h6e2j7e7nneKp63oycyFqr+jjcfctODS5L3cotm/oKZqybOqoJ95q1hwv8GOpN3Cy8atuLidmbqly9p+ua24dHrVh8S0vnuv36x/pJatt8+jvtx93cbjnYPvp7KyeYXKkJZ5m5SXpaeUm3FaguGoqrGn2ZXX19mvmNKqzOrvj669s3+WlrDPl6ex6I7QndSEasCMs7mdqI3Cs3/Booa3zZqvyMOmpK/jv9jMqoJzwqKIl6/qvPKMqr2Ip4Gw05/bq+PopaCCwJOn3nq3pcCWvq3Tq5S3l83GqcrTkZbLprW838aN2a+2mHraoarY7kNky66gkpvNrM3n0se8vsTZm1/rhamukZvImdyyuMLCqMmcz6y7isuWq5HKuqrgra2EgbZ9quDrpqWppbqjyM6dl4V6y5Hdn+eJX6uxc5e7lMaZmJiOwYqPyq3P3piFtsmdia2jiL7TmoSUtm3j2OyG0rSJzJucqayXveG9oru8sqN4sVBSmbB8xoK/o32MvqmXibHcl3LczLF7pd6tus/BjJOpi7u0xaXI0cmbvcq8sZbJ18m5uZjFuXXRhq/CvnfNepmDkFhd3L6lspy8j6i4mrS367etn8KzdLaByd+qmInNw554zqvH28KxxMDKe6HBpqWrk75/iKS5r6ORe7axwYqil7Klt25zgMyln+Cc4nWo24rHptKuztXIf7LGsZyXrdrCvKuX059k07CPja2cmr/HsouMuJervY3ag3Wmu92F672GucHQsz1vfNqq7p2JuaG3mMa9t7rM6d6WzMfnhX3MdbKlrIuNjtuhg5KmrMu2jrTFr6bb2765tX3ArN+7cq2v26zLbb+ejWFXxc7ArM+jzr/TorXKmqqxwLfAe5aZs7p5m52w0KCt18F035StytXofLfRurun0aLN6+eqoq+bnHiV4M3Q5sXWrXZa6L+H7JWVu3idiY2dwZ52vq6im6Ocn3bUpNLHx56uwLbgrpHXori6vpjRopZhV5GTk5GltcKPiaLDklTKlZGiioWaa7GPo3iAkYOAZm4=', 1);
+
+--
+-- Disparadores `config`
+--
+DROP TRIGGER IF EXISTS `config_ADEL`;
+DELIMITER //
+CREATE TRIGGER `config_ADEL` AFTER DELETE ON `config`
+ FOR EACH ROW BEGIN
+  INSERT INTO log_config
+	(
+	  `Accion`, 
+	  `Nombre_usuario_old`,
+	  `Nombre_usuario_new`, 
+	  `Clave_old`,
+	  `Clave_new`, 
+	  `cuil_old`,
+	  `cuil_new`,
+	  `url_post_old`,
+	  `url_post_new`, 
+	  `url_reporte_old`, 
+	  `url_reporte_new`, 
+	  `url_estado_transferencia_old`, 
+	  `url_estado_transferencia_new`, 
+	  `url_estado_incremental_old`, 
+	  `url_estado_incremental_new`, 
+	  `url_preconfeccion_old`, 
+	  `url_preconfeccion_new`, 
+	  `url_cierre_comunidad_old`,
+	  `url_cierre_comunidad_new`, 
+	  `url_interbanking_old`, 
+	  `url_interbanking_new`, 
+	  `id_comunidad_old`, 
+	  `id_comunidad_new`, 
+	  `id_config_certificado_old`, 
+	  `id_config_certificado_new`, 
+	  `id_pais_old`, 
+	  `id_pais_new`, 
+	  `certificado_old`, 
+	  `certificado_new`, 
+	  `clave_privada_old`, 
+	  `clave_privada_new`, 
+	  `date`, 
+	  `usuario` 
+	)
+	VALUES	(
+	'Delete',
+	OLD.Nombre_usuario,
+	null, 
+	OLD.Clave,
+	null,
+	OLD.cuil,
+	null,
+	OLD.url_post,
+	null,
+	OLD.url_reporte, 
+	null,
+	OLD.url_estado_transferencia, 
+	null,
+	OLD.url_estado_incremental, 
+	null,
+	OLD.url_preconfeccion, 
+	null,
+	OLD.url_cierre_comunidad,
+	null,
+	OLD.url_interbanking, 
+	null,
+	OLD.id_comunidad, 
+	null,
+	OLD.id_config_certificado, 
+	null,
+	OLD.id_pais, 
+	null,
+	OLD.certificado, 
+	null,
+	OLD.clave_privada, 
+	null,
+	NOW(),
+	CURRENT_USER());
+END
+//
+DELIMITER ;
+DROP TRIGGER IF EXISTS `config_AINS`;
+DELIMITER //
+CREATE TRIGGER `config_AINS` AFTER INSERT ON `config`
+ FOR EACH ROW BEGIN
+  INSERT INTO log_config
+	(
+	  `Accion`, 
+	  `Nombre_usuario_old`,
+	  `Nombre_usuario_new`, 
+	  `Clave_old`,
+	  `Clave_new`, 
+	  `cuil_old`,
+	  `cuil_new`,
+	  `url_post_old`,
+	  `url_post_new`, 
+	  `url_reporte_old`, 
+	  `url_reporte_new`, 
+	  `url_estado_transferencia_old`, 
+	  `url_estado_transferencia_new`, 
+	  `url_estado_incremental_old`, 
+	  `url_estado_incremental_new`, 
+	  `url_preconfeccion_old`, 
+	  `url_preconfeccion_new`, 
+	  `url_cierre_comunidad_old`,
+	  `url_cierre_comunidad_new`, 
+	  `url_interbanking_old`, 
+	  `url_interbanking_new`, 
+	  `id_comunidad_old`, 
+	  `id_comunidad_new`, 
+	  `id_config_certificado_old`, 
+	  `id_config_certificado_new`, 
+	  `id_pais_old`, 
+	  `id_pais_new`, 
+	  `certificado_old`, 
+	  `certificado_new`, 
+	  `clave_privada_old`, 
+	  `clave_privada_new`, 
+	  `date`, 
+	  `usuario` 
+	)
+	VALUES	(
+	'Insert',
+	null,
+	NEW.Nombre_usuario, 
+	null,
+	NEW.Clave, 
+	null,
+	NEW.cuil,
+	null,
+	NEW.url_post, 
+	null,
+	NEW.url_reporte, 
+	null,
+	NEW.url_estado_transferencia, 
+	null,
+	NEW.url_estado_incremental, 
+	null,
+	NEW.url_preconfeccion, 
+	null,
+	NEW.url_cierre_comunidad, 
+	null,
+	NEW.url_interbanking, 
+	null,
+	NEW.id_comunidad, 
+	null,
+	NEW.id_config_certificado, 
+	null,
+	NEW.id_pais, 
+	null,
+	NEW.certificado, 
+	null,
+	NEW.clave_privada, 
+	NOW(),
+	CURRENT_USER());
+END
+//
+DELIMITER ;
+DROP TRIGGER IF EXISTS `config_AUPD`;
+DELIMITER //
+CREATE TRIGGER `config_AUPD` AFTER UPDATE ON `config`
+ FOR EACH ROW BEGIN
+  INSERT INTO log_config
+	(
+	  `Accion`, 
+	  `Nombre_usuario_old`,
+	  `Nombre_usuario_new`, 
+	  `Clave_old`,
+	  `Clave_new`, 
+	  `cuil_old`,
+	  `cuil_new`,
+	  `url_post_old`,
+	  `url_post_new`, 
+	  `url_reporte_old`, 
+	  `url_reporte_new`, 
+	  `url_estado_transferencia_old`, 
+	  `url_estado_transferencia_new`, 
+	  `url_estado_incremental_old`, 
+	  `url_estado_incremental_new`, 
+	  `url_preconfeccion_old`, 
+	  `url_preconfeccion_new`, 
+	  `url_cierre_comunidad_old`,
+	  `url_cierre_comunidad_new`, 
+	  `url_interbanking_old`, 
+	  `url_interbanking_new`, 
+	  `id_comunidad_old`, 
+	  `id_comunidad_new`, 
+	  `id_config_certificado_old`, 
+	  `id_config_certificado_new`, 
+	  `id_pais_old`, 
+	  `id_pais_new`, 
+	  `certificado_old`, 
+	  `certificado_new`, 
+	  `clave_privada_old`, 
+	  `clave_privada_new`, 
+	  `date`, 
+	  `usuario` 
+	)
+	VALUES	(
+	'Update',
+	OLD.Nombre_usuario,
+	NEW.Nombre_usuario, 
+	OLD.Clave,
+	NEW.Clave, 
+	OLD.cuil,
+	NEW.cuil,
+	OLD.url_post,
+	NEW.url_post, 
+	OLD.url_reporte, 
+	NEW.url_reporte, 
+	OLD.url_estado_transferencia, 
+	NEW.url_estado_transferencia, 
+	OLD.url_estado_incremental, 
+	NEW.url_estado_incremental, 
+	OLD.url_preconfeccion, 
+	NEW.url_preconfeccion, 
+	OLD.url_cierre_comunidad,
+	NEW.url_cierre_comunidad, 
+	OLD.url_interbanking, 
+	NEW.url_interbanking, 
+	OLD.id_comunidad, 
+	NEW.id_comunidad, 
+	OLD.id_config_certificado, 
+	NEW.id_config_certificado, 
+	OLD.id_pais, 
+	NEW.id_pais, 
+	OLD.certificado, 
+	NEW.certificado, 
+	OLD.clave_privada, 
+	NEW.clave_privada, 
+	NOW(),
+	CURRENT_USER());
+END
+//
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -169,28 +404,54 @@ INSERT INTO `estados_transaccion` (`id_estado`, `estado`, `descripcion`, `compen
 CREATE TABLE IF NOT EXISTS `log_config` (
   `id_log_config` int(11) NOT NULL AUTO_INCREMENT,
   `Accion` varchar(16) NOT NULL,
-  `Nombre_usuario_old` varchar(12) NOT NULL,
-  `Nombre_usuario_new` varchar(12) NOT NULL,
-  `Clave_old` varchar(12) NOT NULL,
-  `Clave_new` varchar(12) NOT NULL,
-  `cuil_old` text NOT NULL,
-  `cuil_new` text NOT NULL,
-  `url_post_old` varchar(128) NOT NULL,
-  `url_post_new` varchar(128) NOT NULL,
-  `url_reporte_old` varchar(128) NOT NULL,
-  `url_reporte_new` varchar(128) NOT NULL,
-  `url_estado_transferencia_old` varchar(128) NOT NULL,
-  `url_estado_transferencia_new` varchar(128) NOT NULL,
-  `id_comunidad_old` varchar(32) NOT NULL,
-  `id_comunidad_new` varchar(32) NOT NULL,
-  `id_config_certificado_old` int(11) NOT NULL,
-  `id_config_certificado_new` int(11) NOT NULL,
-  `id_pais_old` int(11) NOT NULL,
-  `id_pais_new` int(11) NOT NULL,
+  `Nombre_usuario_old` varchar(12) DEFAULT NULL,
+  `Nombre_usuario_new` varchar(12) DEFAULT NULL,
+  `Clave_old` varchar(12) DEFAULT NULL,
+  `Clave_new` varchar(12) DEFAULT NULL,
+  `cuil_old` text,
+  `cuil_new` text,
+  `url_post_old` varchar(128) DEFAULT NULL,
+  `url_post_new` varchar(128) DEFAULT NULL,
+  `url_reporte_old` varchar(128) DEFAULT NULL,
+  `url_reporte_new` varchar(128) DEFAULT NULL,
+  `url_estado_transferencia_old` varchar(128) DEFAULT NULL,
+  `url_estado_transferencia_new` varchar(128) DEFAULT NULL,
+  `url_estado_incremental_old` varchar(128) DEFAULT NULL,
+  `url_estado_incremental_new` varchar(128) DEFAULT NULL,
+  `url_preconfeccion_old` varchar(128) DEFAULT NULL,
+  `url_preconfeccion_new` varchar(128) DEFAULT NULL,
+  `url_cierre_comunidad_old` varchar(128) DEFAULT NULL,
+  `url_cierre_comunidad_new` varchar(128) DEFAULT NULL,
+  `url_interbanking_old` varchar(128) DEFAULT NULL,
+  `url_interbanking_new` varchar(128) DEFAULT NULL,
+  `id_comunidad_old` varchar(32) DEFAULT NULL,
+  `id_comunidad_new` varchar(32) DEFAULT NULL,
+  `id_config_certificado_old` int(11) DEFAULT NULL,
+  `id_config_certificado_new` int(11) DEFAULT NULL,
+  `id_pais_old` int(11) DEFAULT NULL,
+  `id_pais_new` int(11) DEFAULT NULL,
+  `certificado_old` varchar(128) DEFAULT NULL,
+  `certificado_new` varchar(128) DEFAULT NULL,
+  `clave_privada_old` text,
+  `clave_privada_new` text,
   `date` datetime NOT NULL,
   `usuario` varchar(64) NOT NULL,
   PRIMARY KEY (`id_log_config`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Volcado de datos para la tabla `log_config`
+--
+
+INSERT INTO `log_config` (`id_log_config`, `Accion`, `Nombre_usuario_old`, `Nombre_usuario_new`, `Clave_old`, `Clave_new`, `cuil_old`, `cuil_new`, `url_post_old`, `url_post_new`, `url_reporte_old`, `url_reporte_new`, `url_estado_transferencia_old`, `url_estado_transferencia_new`, `url_estado_incremental_old`, `url_estado_incremental_new`, `url_preconfeccion_old`, `url_preconfeccion_new`, `url_cierre_comunidad_old`, `url_cierre_comunidad_new`, `url_interbanking_old`, `url_interbanking_new`, `id_comunidad_old`, `id_comunidad_new`, `id_config_certificado_old`, `id_config_certificado_new`, `id_pais_old`, `id_pais_new`, `certificado_old`, `certificado_new`, `clave_privada_old`, `clave_privada_new`, `date`, `usuario`) VALUES
+(1, 'Update', 'w9bLuLvFgHI=', 'w9bLuLvFgHI=', 'w9bLuLvFgHM=', 'w9bLuLvFgHM=', 'hJiHiI+ZiHGjmqKBqQ==', 'hJiHiI+ZiHGjmqKBqQ==', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u015Pfv5rfpqu1uJ+Xfah4rro=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u015Pfv5rfpqu1uJ+Xfah4rro=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u016LVwaPst62Oe3ODr9U=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u016LVwaPst62Oe3ODr9U=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfpsL26spW2r8u9eK/C', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfpsL26spW2r8u9eK/C', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksn3oprqxtpbDv8e2jbrA2cS8vcW0puWPzb8=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksn3oprqxtpbDv8e2jbrA2cS8vcW0puWPzb8=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPo4tmu2L7WtpfdrLe6i2OXecq5ia+818a0zce4fuTGzLnW3LfF2Nu1', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPo4tmu2L7WtpfdrLe6i2OXecq5ia+818a0zce4fuTGzLnW3LfF2Nu1', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfjqLq+rnrDrtivt7DB2Le/nNO9tuDKzbHY2Lijzdc=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfjqLq+rnrDrtivt7DB2Le/nNO9tuDKzbHY2Lijzdc=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPr1dfA27W8wJvjsXawuHC7vdW3h7PC0bs=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPr1dfA27W8wJvjsXawuHC7vdW3h7PC0bs=', 'hpSMh46XiHalk6I=', 'hpSMh46XiHalk6I=', 1, 1, -2, -2, 'Amena', 'Amena', 'gJGDgIamlYi7r4mix7Rlxbuxl3G5fpe+vo+HkoaBenFws63Bs8vCspKxkn+8qpmQsWKWrqqTv5a5zKvIjpSDo+S11cftyIis3N+QoNGTrd3srMfMzMWdqsrIm6rX2sXWm31bieiaiY6Lcs6y3ZGdhMadr4fRuYik5qm6h6e2j7e7nneKp63oycyFqr+jjcfctODS5L3cotm/oKZqybOqoJ95q1hwv8GOpN3Cy8atuLidmbqly9p+ua24dHrVh8S0vnuv36x/pJatt8+jvtx93cbjnYPvp7KyeYXKkJZ5m5SXpaeUm3FaguGoqrGn2ZXX19mvmNKqzOrvj669s3+WlrDPl6ex6I7QndSEasCMs7mdqI3Cs3/Booa3zZqvyMOmpK/jv9jMqoJzwqKIl6/qvPKMqr2Ip4Gw05/bq+PopaCCwJOn3nq3pcCWvq3Tq5S3l83GqcrTkZbLprW838aN2a+2mHraoarY7kNky66gkpvNrM3n0se8vsTZm1/rhamukZvImdyyuMLCqMmcz6y7isuWq5HKuqrgra2EgbZ9quDrpqWppbqjyM6dl4V6y5Hdn+eJX6uxc5e7lMaZmJiOwYqPyq3P3piFtsmdia2jiL7TmoSUtm3j2OyG0rSJzJucqayXveG9oru8sqN4sVBSmbB8xoK/o32MvqmXibHcl3LczLF7pd6tus/BjJOpi7u0xaXI0cmbvcq8sZbJ18m5uZjFuXXRhq/CvnfNepmDkFhd3L6lspy8j6i4mrS367etn8KzdLaByd+qmInNw554zqvH28KxxMDKe6HBpqWrk75/iKS5r6ORe7axwYqil7Klt25zgMyln+Cc4nWo24rHptKuztXIf7LGsZyXrdrCvKuX059k07CPja2cmr/HsouMuJervY3ag3Wmu92F672GucHQsz1vfNqq7p2JuaG3mMa9t7rM6d6WzMfnhX3MdbKlrIuNjtuhg5KmrMu2jrTFr6bb2765tX3ArN+7cq2v26zLbb+ejWFXxc7ArM+jzr/TorXKmqqxwLfAe5aZs7p5m52w0KCt18F035StytXofLfRurun0aLN6+eqoq+bnHiV4M3Q5sXWrXZa6L+H7JWVu3idiY2dwZ52vq6im6Ocn3bUpNLHx56uwLbgrpHXori6vpjRopZhV5GTk5GltcKPiaLDklTKlZGiioWaa7GPo3iAkYOAZm4=', 'gJGDgIamlYi7r4mix7Rlxbuxl3G5fpe+vo+HkoaBenFws63Bs8vCspKxkn+8qpmQsWKWrqqTv5a5zKvIjpSDo+S11cftyIis3N+QoNGTrd3srMfMzMWdqsrIm6rX2sXWm31bieiaiY6Lcs6y3ZGdhMadr4fRuYik5qm6h6e2j7e7nneKp63oycyFqr+jjcfctODS5L3cotm/oKZqybOqoJ95q1hwv8GOpN3Cy8atuLidmbqly9p+ua24dHrVh8S0vnuv36x/pJatt8+jvtx93cbjnYPvp7KyeYXKkJZ5m5SXpaeUm3FaguGoqrGn2ZXX19mvmNKqzOrvj669s3+WlrDPl6ex6I7QndSEasCMs7mdqI3Cs3/Booa3zZqvyMOmpK/jv9jMqoJzwqKIl6/qvPKMqr2Ip4Gw05/bq+PopaCCwJOn3nq3pcCWvq3Tq5S3l83GqcrTkZbLprW838aN2a+2mHraoarY7kNky66gkpvNrM3n0se8vsTZm1/rhamukZvImdyyuMLCqMmcz6y7isuWq5HKuqrgra2EgbZ9quDrpqWppbqjyM6dl4V6y5Hdn+eJX6uxc5e7lMaZmJiOwYqPyq3P3piFtsmdia2jiL7TmoSUtm3j2OyG0rSJzJucqayXveG9oru8sqN4sVBSmbB8xoK/o32MvqmXibHcl3LczLF7pd6tus/BjJOpi7u0xaXI0cmbvcq8sZbJ18m5uZjFuXXRhq/CvnfNepmDkFhd3L6lspy8j6i4mrS367etn8KzdLaByd+qmInNw554zqvH28KxxMDKe6HBpqWrk75/iKS5r6ORe7axwYqil7Klt25zgMyln+Cc4nWo24rHptKuztXIf7LGsZyXrdrCvKuX059k07CPja2cmr/HsouMuJervY3ag3Wmu92F672GucHQsz1vfNqq7p2JuaG3mMa9t7rM6d6WzMfnhX3MdbKlrIuNjtuhg5KmrMu2jrTFr6bb2765tX3ArN+7cq2v26zLbb+ejWFXxc7ArM+jzr/TorXKmqqxwLfAe5aZs7p5m52w0KCt18F035StytXofLfRurun0aLN6+eqoq+bnHiV4M3Q5sXWrXZa6L+H7JWVu3idiY2dwZ52vq6im6Ocn3bUpNLHx56uwLbgrpHXori6vpjRopZhV5GTk5GltcKPiaLDklTKlZGiioWaa7GPo3iAkYOAZm4=', '2015-04-21 11:01:11', 'root@localhost'),
+(2, 'Update', 'w9bLuLvFgHI=', 'w9bLuLvFgHI=', 'w9bLuLvFgHM=', 'w9bLuLvFgHM=', 'hJiHiI+ZiHGjmqKBqQ==', 'hJiHiI+ZiHGjmqKBqQ==', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u015Pfv5rfpqu1uJ+Xfah4rro=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u015Pfv5rfpqu1uJ+Xfah4rro=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u016LVwaPst62Oe3ODr9U=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u016LVwaPst62Oe3ODr9U=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfpsL26spW2r8u9eK/C', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfpsL26spW2r8u9eK/C', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksn3oprqxtpbDv8e2jbrA2cS8vcW0puWPzb8=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksn3oprqxtpbDv8e2jbrA2cS8vcW0puWPzb8=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPo4tmu2L7WtpfdrLe6i2OXecq5ia+818a0zce4fuTGzLnW3LfF2Nu1', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPo4tmu2L7WtpfdrLe6i2OXecq5ia+818a0zce4fuTGzLnW3LfF2Nu1', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfjqLq+rnrDrtivt7DB2Le/nNO9tuDKzbHY2Lijzdc=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfjqLq+rnrDrtivt7DB2Le/nNO9tuDKzbHY2Lijzdc=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPr1dfA27W8wJvjsXawuHC7vdW3h7PC0bs=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPr1dfA27W8wJvjsXawuHC7vdW3h7PC0bs=', 'hpSMh46XiHalk6I=', 'hpSMh46XiHalk6I=', 1, 1, -2, -2, 'Amena', 'Amena', 'gJGDgIamlYi7r4mix7Rlxbuxl3G5fpe+vo+HkoaBenFws63Bs8vCspKxkn+8qpmQsWKWrqqTv5a5zKvIjpSDo+S11cftyIis3N+QoNGTrd3srMfMzMWdqsrIm6rX2sXWm31bieiaiY6Lcs6y3ZGdhMadr4fRuYik5qm6h6e2j7e7nneKp63oycyFqr+jjcfctODS5L3cotm/oKZqybOqoJ95q1hwv8GOpN3Cy8atuLidmbqly9p+ua24dHrVh8S0vnuv36x/pJatt8+jvtx93cbjnYPvp7KyeYXKkJZ5m5SXpaeUm3FaguGoqrGn2ZXX19mvmNKqzOrvj669s3+WlrDPl6ex6I7QndSEasCMs7mdqI3Cs3/Booa3zZqvyMOmpK/jv9jMqoJzwqKIl6/qvPKMqr2Ip4Gw05/bq+PopaCCwJOn3nq3pcCWvq3Tq5S3l83GqcrTkZbLprW838aN2a+2mHraoarY7kNky66gkpvNrM3n0se8vsTZm1/rhamukZvImdyyuMLCqMmcz6y7isuWq5HKuqrgra2EgbZ9quDrpqWppbqjyM6dl4V6y5Hdn+eJX6uxc5e7lMaZmJiOwYqPyq3P3piFtsmdia2jiL7TmoSUtm3j2OyG0rSJzJucqayXveG9oru8sqN4sVBSmbB8xoK/o32MvqmXibHcl3LczLF7pd6tus/BjJOpi7u0xaXI0cmbvcq8sZbJ18m5uZjFuXXRhq/CvnfNepmDkFhd3L6lspy8j6i4mrS367etn8KzdLaByd+qmInNw554zqvH28KxxMDKe6HBpqWrk75/iKS5r6ORe7axwYqil7Klt25zgMyln+Cc4nWo24rHptKuztXIf7LGsZyXrdrCvKuX059k07CPja2cmr/HsouMuJervY3ag3Wmu92F672GucHQsz1vfNqq7p2JuaG3mMa9t7rM6d6WzMfnhX3MdbKlrIuNjtuhg5KmrMu2jrTFr6bb2765tX3ArN+7cq2v26zLbb+ejWFXxc7ArM+jzr/TorXKmqqxwLfAe5aZs7p5m52w0KCt18F035StytXofLfRurun0aLN6+eqoq+bnHiV4M3Q5sXWrXZa6L+H7JWVu3idiY2dwZ52vq6im6Ocn3bUpNLHx56uwLbgrpHXori6vpjRopZhV5GTk5GltcKPiaLDklTKlZGiioWaa7GPo3iAkYOAZm4=', 'gJGDgIamlYi7r4mix7Rlxbuxl3G5fpe+vo+HkoaBenFws63Bs8vCspKxkn+8qpmQsWKWrqqTv5a5zKvIjpSDo+S11cftyIis3N+QoNGTrd3srMfMzMWdqsrIm6rX2sXWm31bieiaiY6Lcs6y3ZGdhMadr4fRuYik5qm6h6e2j7e7nneKp63oycyFqr+jjcfctODS5L3cotm/oKZqybOqoJ95q1hwv8GOpN3Cy8atuLidmbqly9p+ua24dHrVh8S0vnuv36x/pJatt8+jvtx93cbjnYPvp7KyeYXKkJZ5m5SXpaeUm3FaguGoqrGn2ZXX19mvmNKqzOrvj669s3+WlrDPl6ex6I7QndSEasCMs7mdqI3Cs3/Booa3zZqvyMOmpK/jv9jMqoJzwqKIl6/qvPKMqr2Ip4Gw05/bq+PopaCCwJOn3nq3pcCWvq3Tq5S3l83GqcrTkZbLprW838aN2a+2mHraoarY7kNky66gkpvNrM3n0se8vsTZm1/rhamukZvImdyyuMLCqMmcz6y7isuWq5HKuqrgra2EgbZ9quDrpqWppbqjyM6dl4V6y5Hdn+eJX6uxc5e7lMaZmJiOwYqPyq3P3piFtsmdia2jiL7TmoSUtm3j2OyG0rSJzJucqayXveG9oru8sqN4sVBSmbB8xoK/o32MvqmXibHcl3LczLF7pd6tus/BjJOpi7u0xaXI0cmbvcq8sZbJ18m5uZjFuXXRhq/CvnfNepmDkFhd3L6lspy8j6i4mrS367etn8KzdLaByd+qmInNw554zqvH28KxxMDKe6HBpqWrk75/iKS5r6ORe7axwYqil7Klt25zgMyln+Cc4nWo24rHptKuztXIf7LGsZyXrdrCvKuX059k07CPja2cmr/HsouMuJervY3ag3Wmu92F672GucHQsz1vfNqq7p2JuaG3mMa9t7rM6d6WzMfnhX3MdbKlrIuNjtuhg5KmrMu2jrTFr6bb2765tX3ArN+7cq2v26zLbb+ejWFXxc7ArM+jzr/TorXKmqqxwLfAe5aZs7p5m52w0KCt18F035StytXofLfRurun0aLN6+eqoq+bnHiV4M3Q5sXWrXZa6L+H7JWVu3idiY2dwZ52vq6im6Ocn3bUpNLHx56uwLbgrpHXori6vpjRopZhV5GTk5GltcKPiaLDklTKlZGiioWaa7GPo3iAkYOAZm4=', '2015-04-21 11:01:36', 'root@localhost'),
+(3, 'Update', NULL, 'asdf', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, 0, NULL, 0, NULL, '', NULL, '', '2015-04-21 11:07:03', 'root@localhost'),
+(4, 'Insert', NULL, 'asdf', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, 0, NULL, 0, NULL, '', NULL, '', '2015-04-21 11:07:43', 'root@localhost'),
+(5, 'Insert', NULL, 'asdf', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, 0, NULL, 0, NULL, '', NULL, '', '2015-04-21 11:07:46', 'root@localhost'),
+(6, 'Delete', 'asdf', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, 0, NULL, 0, NULL, '', NULL, '', NULL, '2015-04-21 11:08:05', 'root@localhost'),
+(7, 'Delete', 'asdf', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, 0, NULL, 0, NULL, '', NULL, '', NULL, '2015-04-21 11:08:05', 'root@localhost'),
+(8, 'Delete', 'asdf', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, 0, NULL, 0, NULL, '', NULL, '', NULL, '2015-04-21 11:08:06', 'root@localhost');
 
 -- --------------------------------------------------------
 
