@@ -101,7 +101,7 @@ else
 				<form class="form-horizontal" method="post" onsubmit="return validar_config();">
 					<div class="form-group">
 						<?php echo label_helper_horizontal($language['cuil']); ?>
-						<?php echo input_helper_horizontal('cuil', $datos['cuil'], NULL, $language['ingrese']." ".$language['cuil']), 'text'?>
+						<?php echo input_helper_horizontal('cuil', $datos['cuil'], NULL, $language['ingrese']." ".$language['cuil'])?>
 					</div>
 					
 					<div class="form-group">

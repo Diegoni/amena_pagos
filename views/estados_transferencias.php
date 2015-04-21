@@ -209,8 +209,24 @@ foreach ($variable as $row)
 /*----------------------------------------------------------------------------
 		Obtnemos el XML
 ----------------------------------------------------------------------------*/
+						
+			$datos =	"Pais=".$datos_post['id_pais'];
+			$datos .=	"&cuil=".decrypt($datos_post['cuil']);
+			$datos .=	"&Nombre_usuario=".decrypt($datos_post['Nombre_usuario']);
+			$datos .=	"&Clave=".decrypt($datos_post['Clave']);
+			$datos .=	"&Comunidad=".decrypt($datos_post['id_comunidad']);
 			
-			$html = file_get_html(decrypt($datos_post['url_estado_transferencia'])."?Pais=".$datos_post['id_pais']."&cuil=".decrypt($datos_post['cuil'])."&Nombre_usuario=".decrypt($datos_post['Nombre_usuario'])."&Clave=".decrypt($datos_post['Clave'])."&Comunidad=".decrypt($datos_post['id_comunidad'])."");
+			$filtros =	"&ClienteCuit=".$_POST['ClienteCuit'];
+			$filtros .=	"&VendedorCuit=".$_POST['VendedorCuit'];
+			$filtros .=	"&ImporteDesde=".$_POST['ImporteDesde'];
+			$filtros .=	"&ImporteHasta=".$_POST['ImporteHasta'];
+			$filtros .=	"&FechaDesde=".$_POST['FechaDesde'];
+			$filtros .=	"&FechaHasta=".$_POST['FechaHasta'];
+			$filtros .=	"&OperacionDesde=".$_POST['OperacionDesde'];
+			$filtros .=	"&OperacionHasta=".$_POST['OperacionHasta'];
+			$filtros .=	"&Estado=".$_POST['Estado'];
+			
+			$html = file_get_html(decrypt($datos_post['url_estado_transferencia'])."?".$datos.$filtros);
 			
 			$xml = simplexml_load_string($html);
 			$i = 0;
@@ -351,6 +367,9 @@ foreach ($variable as $row)
 			$fichero = $route['doc']."backup/".date('Y-m-d H_i_s')." ".$language['estado']." ".$language['transferencias'].".xml";
 			
 			file_put_contents($fichero, $html);
+			
+			echo "</div>";
+			echo "</div>";
 
 		}
 		?>

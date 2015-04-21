@@ -235,6 +235,7 @@ else
 					echo $mensaje;
 				}
 				?>
+				</div>
 			</div>
 		</div>
 	</div>

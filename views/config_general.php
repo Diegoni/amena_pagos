@@ -17,7 +17,6 @@ $certificado				= new m_certificado();
 if(isset($_POST['guardar']))
 {
 	$datos = array(
-		'id_config_certificado'		=> $_POST['id_config_certificado'],
 		'id_cuentarecaudacion'		=> encrypt($_POST['id_cuentarecaudacion']),
 		'id_comunidad'				=> encrypt($_POST['id_comunidad']),
 		'Nombre_usuario'			=> encrypt($_POST['Nombre_usuario']),
