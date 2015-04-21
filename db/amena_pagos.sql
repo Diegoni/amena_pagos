@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-04-2015 a las 16:08:29
+-- Tiempo de generación: 21-04-2015 a las 21:07:51
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.11
 
@@ -61,16 +61,19 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `email` varchar(64) NOT NULL,
   `direccion` varchar(128) NOT NULL,
   `img_perfil` varchar(128) NOT NULL DEFAULT 'img_perfil/user.png',
+  `tipo` varchar(64) NOT NULL,
+  `size` varchar(64) NOT NULL,
   `delete` tinyint(4) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_cliente`, `cuil`, `nombre`, `apellido`, `alias`, `telefono`, `email`, `direccion`, `img_perfil`, `delete`) VALUES
-(1, '30573118983', 'Diego', 'Nieto', 'Diego TMS Group', '4396721', 'diego.nieto@tmsgroup.com.ar', 'Mariano Moreno', 'img_perfil/user.png', 0);
+INSERT INTO `clientes` (`id_cliente`, `cuil`, `nombre`, `apellido`, `alias`, `telefono`, `email`, `direccion`, `img_perfil`, `tipo`, `size`, `delete`) VALUES
+(1, '30573118983', 'Diego', 'Nieto', 'Diego TMS Group', '4396721', 'diego.nieto@tmsgroup.com.ar', 'Mariano Moreno', 'img_perfil/1.png', 'image/png', '2232', 0),
+(2, 'Nuevo', 'Test', '', '', '', '', '', 'img_perfil/user.png', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -437,7 +440,7 @@ CREATE TABLE IF NOT EXISTS `log_config` (
   `date` datetime NOT NULL,
   `usuario` varchar(64) NOT NULL,
   PRIMARY KEY (`id_log_config`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `log_config`
@@ -451,7 +454,8 @@ INSERT INTO `log_config` (`id_log_config`, `Accion`, `Nombre_usuario_old`, `Nomb
 (5, 'Insert', NULL, 'asdf', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, 0, NULL, 0, NULL, '', NULL, '', '2015-04-21 11:07:46', 'root@localhost'),
 (6, 'Delete', 'asdf', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, 0, NULL, 0, NULL, '', NULL, '', NULL, '2015-04-21 11:08:05', 'root@localhost'),
 (7, 'Delete', 'asdf', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, 0, NULL, 0, NULL, '', NULL, '', NULL, '2015-04-21 11:08:05', 'root@localhost'),
-(8, 'Delete', 'asdf', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, 0, NULL, 0, NULL, '', NULL, '', NULL, '2015-04-21 11:08:06', 'root@localhost');
+(8, 'Delete', 'asdf', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, '', NULL, 0, NULL, 0, NULL, '', NULL, '', NULL, '2015-04-21 11:08:06', 'root@localhost'),
+(9, 'Update', 'w9bLuLvFgHI=', 'w9bLuLvFgHI=', 'w9bLuLvFgHM=', 'w9bLuLvFgHM=', 'hJiHiI+ZiHGjmqKBqQ==', 'hJiHiI+ZiHGjmqKBqQ==', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u015Pfv5rfpqu1uJ+Xfah4rro=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u015Pfv5rfpqu1uJ+Xfah4rro=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u016LVwaPst62Oe3ODr9U=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPk39u016LVwaPst62Oe3ODr9U=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfpsL26spW2r8u9eK/C', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfpsL26spW2r8u9eK/C', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksn3oprqxtpbDv8e2jbrA2cS8vcW0puWPzb8=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksn3oprqxtpbDv8e2jbrA2cS8vcW0puWPzb8=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPo4tmu2L7WtpfdrLe6i2OXecq5ia+818a0zce4fuTGzLnW3LfF2Nu1', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPo4tmu2L7WtpfdrLe6i2OXecq5ia+818a0zce4fuTGzLnW3LfF2Nu1', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfjqLq+rnrDrtivt7DB2Le/nNO9tuDKzbHY2Lijzdc=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPb3+K+3rzksnfjqLq+rnrDrtivt7DB2Le/nNO9tuDKzbHY2Lijzdc=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPr1dfA27W8wJvjsXawuHC7vdW3h7PC0bs=', 'u9jKw8yef3Di087D3dVz3tfcpqLHmuXe4qTBk7zDupLH2JPr1dfA27W8wJvjsXawuHC7vdW3h7PC0bs=', 'hpSMh46XiHalk6I=', 'hpSMh46XiHalk6I=', 1, 1, -2, -2, 'Amena', 'Amena', 'gJGDgIamlYi7r4mix7Rlxbuxl3G5fpe+vo+HkoaBenFws63Bs8vCspKxkn+8qpmQsWKWrqqTv5a5zKvIjpSDo+S11cftyIis3N+QoNGTrd3srMfMzMWdqsrIm6rX2sXWm31bieiaiY6Lcs6y3ZGdhMadr4fRuYik5qm6h6e2j7e7nneKp63oycyFqr+jjcfctODS5L3cotm/oKZqybOqoJ95q1hwv8GOpN3Cy8atuLidmbqly9p+ua24dHrVh8S0vnuv36x/pJatt8+jvtx93cbjnYPvp7KyeYXKkJZ5m5SXpaeUm3FaguGoqrGn2ZXX19mvmNKqzOrvj669s3+WlrDPl6ex6I7QndSEasCMs7mdqI3Cs3/Booa3zZqvyMOmpK/jv9jMqoJzwqKIl6/qvPKMqr2Ip4Gw05/bq+PopaCCwJOn3nq3pcCWvq3Tq5S3l83GqcrTkZbLprW838aN2a+2mHraoarY7kNky66gkpvNrM3n0se8vsTZm1/rhamukZvImdyyuMLCqMmcz6y7isuWq5HKuqrgra2EgbZ9quDrpqWppbqjyM6dl4V6y5Hdn+eJX6uxc5e7lMaZmJiOwYqPyq3P3piFtsmdia2jiL7TmoSUtm3j2OyG0rSJzJucqayXveG9oru8sqN4sVBSmbB8xoK/o32MvqmXibHcl3LczLF7pd6tus/BjJOpi7u0xaXI0cmbvcq8sZbJ18m5uZjFuXXRhq/CvnfNepmDkFhd3L6lspy8j6i4mrS367etn8KzdLaByd+qmInNw554zqvH28KxxMDKe6HBpqWrk75/iKS5r6ORe7axwYqil7Klt25zgMyln+Cc4nWo24rHptKuztXIf7LGsZyXrdrCvKuX059k07CPja2cmr/HsouMuJervY3ag3Wmu92F672GucHQsz1vfNqq7p2JuaG3mMa9t7rM6d6WzMfnhX3MdbKlrIuNjtuhg5KmrMu2jrTFr6bb2765tX3ArN+7cq2v26zLbb+ejWFXxc7ArM+jzr/TorXKmqqxwLfAe5aZs7p5m52w0KCt18F035StytXofLfRurun0aLN6+eqoq+bnHiV4M3Q5sXWrXZa6L+H7JWVu3idiY2dwZ52vq6im6Ocn3bUpNLHx56uwLbgrpHXori6vpjRopZhV5GTk5GltcKPiaLDklTKlZGiioWaa7GPo3iAkYOAZm4=', 'gJGDgIamlYi7r4mix7Rlxbuxl3G5fpe+vo+HkoaBenFws63Bs8vCspKxkn+8qpmQsWKWrqqTv5a5zKvIjpSDo+S11cftyIis3N+QoNGTrd3srMfMzMWdqsrIm6rX2sXWm31bieiaiY6Lcs6y3ZGdhMadr4fRuYik5qm6h6e2j7e7nneKp63oycyFqr+jjcfctODS5L3cotm/oKZqybOqoJ95q1hwv8GOpN3Cy8atuLidmbqly9p+ua24dHrVh8S0vnuv36x/pJatt8+jvtx93cbjnYPvp7KyeYXKkJZ5m5SXpaeUm3FaguGoqrGn2ZXX19mvmNKqzOrvj669s3+WlrDPl6ex6I7QndSEasCMs7mdqI3Cs3/Booa3zZqvyMOmpK/jv9jMqoJzwqKIl6/qvPKMqr2Ip4Gw05/bq+PopaCCwJOn3nq3pcCWvq3Tq5S3l83GqcrTkZbLprW838aN2a+2mHraoarY7kNky66gkpvNrM3n0se8vsTZm1/rhamukZvImdyyuMLCqMmcz6y7isuWq5HKuqrgra2EgbZ9quDrpqWppbqjyM6dl4V6y5Hdn+eJX6uxc5e7lMaZmJiOwYqPyq3P3piFtsmdia2jiL7TmoSUtm3j2OyG0rSJzJucqayXveG9oru8sqN4sVBSmbB8xoK/o32MvqmXibHcl3LczLF7pd6tus/BjJOpi7u0xaXI0cmbvcq8sZbJ18m5uZjFuXXRhq/CvnfNepmDkFhd3L6lspy8j6i4mrS367etn8KzdLaByd+qmInNw554zqvH28KxxMDKe6HBpqWrk75/iKS5r6ORe7axwYqil7Klt25zgMyln+Cc4nWo24rHptKuztXIf7LGsZyXrdrCvKuX059k07CPja2cmr/HsouMuJervY3ag3Wmu92F672GucHQsz1vfNqq7p2JuaG3mMa9t7rM6d6WzMfnhX3MdbKlrIuNjtuhg5KmrMu2jrTFr6bb2765tX3ArN+7cq2v26zLbb+ejWFXxc7ArM+jzr/TorXKmqqxwLfAe5aZs7p5m52w0KCt18F035StytXofLfRurun0aLN6+eqoq+bnHiV4M3Q5sXWrXZa6L+H7JWVu3idiY2dwZ52vq6im6Ocn3bUpNLHx56uwLbgrpHXori6vpjRopZhV5GTk5GltcKPiaLDklTKlZGiioWaa7GPo3iAkYOAZm4=', '2015-04-21 11:13:12', 'root@localhost');
 
 -- --------------------------------------------------------
 
@@ -706,7 +710,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `clave`, `email`, `last_login`, `active`) VALUES
-(1, 'admin', 'e956d1f5d589a122abf96f60af4acc95', 'diego.nieto@tmsgroup.com.ar', '2015-04-20 08:46:22', 1);
+(1, 'admin', 'e956d1f5d589a122abf96f60af4acc95', 'diego.nieto@tmsgroup.com.ar', '2015-04-21 11:42:52', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

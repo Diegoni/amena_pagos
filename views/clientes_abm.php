@@ -185,7 +185,7 @@ else
 							echo "<td>".$row['nombre']."</td>";
 							echo "<td>".$row['apellido']."</td>";
 							echo "<td>".$row['alias']."</td>";
-							echo "<td><center><img width ='35px' height='35px' src='".$route['doc'].$row['img_perfil']."'></center></td>";
+							echo "<td><a href='imagen_perfil.php?id=".$row['id_cliente']."'><center><img width ='35px' height='35px' src='".$route['doc'].$row['img_perfil']."'></center></a></td>";
 							
 							?>
 							<td>

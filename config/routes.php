@@ -15,3 +15,4 @@ $route['libraries']			= BASE_URL.'/libraries/';
 $route['helpers']			= '../helpers/';
 $route['doc']				= '../doc/';
 $route['certificados']		= '../doc/certificados/';
+$route['img_perfil']		= 'img_perfil/';

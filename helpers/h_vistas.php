@@ -148,7 +148,7 @@ function getProfile($datos)
 	return '<div class="profile-sidebar">
 				
 				<div class="profile-userpic">
-					<img src="../doc/user.png" class="img-responsive" alt="">
+					<img src="../doc/'.$datos['img_perfil'].'" class="img-responsive" alt="">
 				</div>
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
