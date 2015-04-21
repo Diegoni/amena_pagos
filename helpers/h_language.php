@@ -132,6 +132,7 @@ $language['reporte']					= 'Reporte';
 
 // S		
 $language['salir']						= 'Salir';
+$language['seleccione_periodo']			= 'Seleccione periodo de tiempo';
 $language['subir']						= 'Subir';
 $language['sumas']						= 'Sumas';
 

@@ -66,35 +66,55 @@ if(isset($_POST['final']))
 				<?php echo get_panel_heading();	?>
 			</div>
 			<div class="panel-body">
-				<form method="post" action="sumas.php">
-					<div class="form-group">
-						<label class="col-sm-1 control-label"><?php echo $language['inicio'] ?></label>
-						<div class="col-sm-4">
-							<div class="input-group">
-								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-								<input type="text" class="form-control" id="inicio" name="inicio" placeholder="<?php echo $language['ingrese']." ".$language['inicio'] ?>" required>
+				<div class='row'>
+					<div class='col-md-12'>
+					<form method="post" action="sumas.php">
+						<div class="form-group">
+							<label class="col-sm-1 control-label"><?php echo $language['inicio'] ?></label>
+							<div class="col-sm-4">
+								<div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+									<input type="text" class="form-control" id="inicio" name="inicio" placeholder="<?php echo $language['ingrese']." ".$language['inicio'] ?>" required>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-1 control-label"><?php echo $language['final'] ?></label>
-						<div class="col-sm-4">
-							<div class="input-group">
-								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-								<input type="text" class="form-control" id="final" name="final" value="<?php echo date('d-m-Y');?>" placeholder="<?php echo $language['ingrese']." ".$language['final'] ?>" required>
+						<div class="form-group">
+							<label class="col-sm-1 control-label"><?php echo $language['final'] ?></label>
+							<div class="col-sm-4">
+								<div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+									<input type="text" class="form-control" id="final" name="final" value="<?php echo date('d-m-Y');?>" placeholder="<?php echo $language['ingrese']." ".$language['final'] ?>" required>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-2">
-							<button type="submit" class="btn btn-info">
-								<i class="fa fa-search"></i>
-								<?php echo $language['buscar'] ?>
-							</button>
+						<div class="form-group">
+							<div class="col-sm-2">
+								<button type="submit" class="btn btn-info">
+									<i class="fa fa-search"></i>
+									<?php echo $language['buscar'] ?>
+								</button>
+							</div>
 						</div>
+					</form>
 					</div>
-				</form>
+				</div>
+				<?php
+				if(isset($_POST['final']))
+				{
+				?>
 				<div id="grafico" style="min-width: 310px; height: 400px; margin-bottom: 35px;"></div>
+				<?php
+				}
+				else
+				{
+					echo "<hr>";
+					echo "<div class='row'>";
+					echo "<div class='col-md-12'>";
+					echo set_alert($language['seleccione_periodo'], 'info');
+					echo "</div>";
+					echo "</div>";
+				}
+				?>
 			</div>
 		</div>
 	</div>
