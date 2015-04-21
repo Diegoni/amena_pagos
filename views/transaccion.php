@@ -7,7 +7,6 @@ include_once('../config/includes.php');
 include_once($route['models'].'m_transaccion.php');
 include_once($route['models'].'m_log_error_transaccion.php');
 include_once($route['models'].'m_config.php');
-include_once($route['models'].'m_config_certificado.php');
 
 include_once($route['helpers'].'h_certificado.php');
 
@@ -62,7 +61,6 @@ if($bandera)
 	$id_insert		= $c_tra->insert($datos);
 	
 	$config			= new m_Config();
-	$config_cert	= new m_Config_certificado();
 	
 	$array_config	= $config->get_registros('active = 1');
 	
@@ -70,33 +68,36 @@ if($bandera)
 	{
 		$url_post			= decrypt($row['url_post']);
 		$id_comunidad		= decrypt($row['id_comunidad']);
-		$array_config_cert	= $config_cert->get_registros('id_certificado = '.$row['id_config_certificado']);
+		$clave_privada		= decrypt($row['clave_privada']);
+		$cuentarecaudacion	= decrypt($row['id_cuentarecaudacion']);
 	}
-	
-	foreach ($array_config_cert as  $row)
-	{
-		$certificado		= $row['certificado'];
-	}
-	
-	if($certificado == 'PKCS#12')
-	{
-		set_pkcs($route['doc'].'amena_2.p12', "1234");
-	}
-	else
-	if($certificado == 'X509v3')
-	{
-		set_X509($route['doc'].'Diego_CN.cer', "ceramica");
-	}
-	
+		
 	$datos_post = array(
 		'CodigoComunidad'		=> $id_comunidad,
 		'CantidadTransacciones'	=> 1,
 		'WindowPopUp'			=> True,
 		'Comprobante1'			=> $datos['comprob'],
+		'OutUrl'				=> '',
 		//'FechaPago1'			=> date('d/m/Y', strtotime($datos['fechapago'])),
 		'FechaPago1'			=> date('d/m/Y'),
-		'Importe1'				=> $datos['importe']
-	);		
+		'Importe1'				=> $datos['importe'],
+		'Observacion1'			=> '',
+		'CuentaRecaudacionId1'	=> $cuentarecaudacion,
+		'urlErrorSignature'		=> '',
+		'AtraparErrores'		=> '',
+		'actionUrl'				=> '',
+	);	
+	
+	
+	//$doc_openssl = file_get_contents($route['doc']."openssl/amena.openssl");
+	//$private_key = $doc_openssl;
+	$private_key = $clave_privada;
+	
+	$data = $datos_post['CodigoComunidad'].$datos_post['CantidadTransacciones'].$datos_post['WindowPopUp'].$datos_post['OutUrl'].$datos_post['FechaPago1'].$datos_post['Comprobante1'].$datos_post['Importe1'].$datos_post['CuentaRecaudacionId1'].$datos_post['Observacion1'];
+	
+	openssl_sign($data, $signature, $private_key);
+	
+	$signature_64 = base64_encode($signature);	
 ?>
 <script>
 	function control_datos()
@@ -125,17 +126,21 @@ if($bandera)
 	});
 </script>
 <div class="hidden"> 
-	<form method="post" target="_blank" action="<?php echo $url_post?>" onsubmit="return control_datos()">
-		<input type='hidden' name="CodigoComunidad" id="CodigoComunidad" value="<?php echo $datos_post['CodigoComunidad']?>">
-		<input type='hidden' name="CantidadTransacciones" id="CantidadTransacciones" value="<?php echo $datos_post['CantidadTransacciones']?>">
-		<input type='hidden' name="WindowPopUp" id="WindowPopUp" value="<?php echo $datos_post['WindowPopUp']?>">
-		<input type='hidden' name="Comprobante1" id="Comprobante1" value="<?php echo $datos_post['Comprobante1']?>">
-		<input type='hidden' name="FechaPago1" id="FechaPago1" value="<?php echo $datos_post['FechaPago1']?>">
-		<input type='hidden' name="Importe1" id="Importe1" value="<?php echo $datos_post['Importe1']?>">
-		<input type='hidden' name="Signature" id="Signature" value="<?php echo $datos_post['Importe1']?>">
-		<input type='hidden' name="Identificador" id="Identificador" value="<?php echo $datos_post['Importe1']?>">
-		<input type='hidden' name="urlErrorSignature" id="urlErrorSignature" value="<?php echo $datos_post['Importe1']?>">
-		<input type="submit" name="guardar" id="guardar" value="<?php echo $datos_post['CodigoComunidad']?>">
+	<form method="post" action="https://presib.interbanking.com.ar/loginConfeccionB2B.do">
+		<input type="hidden" name="signature" value="<?php echo $signature_64;?>">
+		<input type="hidden" name="CodigoComunidad" value="<?php echo $datos_post['CodigoComunidad']?>">
+		<input type="hidden" name="CantidadTransacciones" value="<?php echo $datos_post['CantidadTransacciones']?>">
+		<input type="hidden" name="WindowPopUp" value="<?php echo $datos_post['WindowPopUp']?>">
+		<input type="hidden" name="OutUrl" value="<?php echo $datos_post['OutUrl']?>">
+		<input type="hidden" name="FechaPago1" value="<?php echo $datos_post['FechaPago1']?>">
+		<input type="hidden" name="Comprobante1" value="<?php echo $datos_post['Comprobante1']?>">
+		<input type="hidden" name="Importe1" value="<?php echo $datos_post['Importe1']?>">
+		<input type="hidden" name="CuentaRecaudacionId1" value="<?php echo $datos_post['CuentaRecaudacionId1']?>">
+		<input type="hidden" name="Observacion1" value="<?php echo $datos_post['Observacion1']?>">
+		<input type="hidden" name="urlErrorSignature" value="<?php echo $datos_post['urlErrorSignature']?>">
+		<input type="hidden" name="AtraparErrores" value="<?php echo $datos_post['AtraparErrores']?>">
+		<input type="hidden" name="actionUrl" value="<?php echo $datos_post['actionUrl']?>">
+		<input type="submit" name="guardar" id="guardar" value="enviar">
 	</form>
 </div>
 

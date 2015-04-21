@@ -10,6 +10,7 @@ if(isset($_POST['guardar']))
 {
 	$datos = array(
 		'id_config_certificado'		=> $_POST['id_config_certificado'],
+		'id_cuentarecaudacion'		=> encrypt($_POST['id_cuentarecaudacion']),
 		'id_comunidad'				=> encrypt($_POST['id_comunidad']),
 		'Nombre_usuario'			=> encrypt($_POST['Nombre_usuario']),
 		'Clave'						=> encrypt($_POST['Clave']),
@@ -22,18 +23,22 @@ if(isset($_POST['guardar']))
 		'url_cierre_comunidad'		=> encrypt($_POST['url_cierre_comunidad']),
 		'url_interbanking'			=> encrypt($_POST['url_interbanking']),
 		'certificado'				=> $_POST['certificado'],
-		/*
-		'DTD_estados'				=> '"'.$_POST['DTD_estados'].'"',
-		'DTD_estado_incremental'	=> '"'.$_POST['DTD_estado_incremental'].'"',
-		'DTD_cierre'				=> '"'.$_POST['DTD_cierre'].'"',
-		 */
 	);
 	
 	$config->update($datos, $_POST['guardar']);
 	$mensaje = set_alert($language['update_ok']);
 }
 
-$array_certificados			= $config_certificado->get_registros();
+if(isset($_POST['clave_privada']))
+{
+	$datos = array(
+		'clave_privada'		=> encrypt($_POST['clave_privada']),
+	);
+	
+	$config->update($datos, $_POST['guardar_clave']);
+	$mensaje = set_alert($language['update_ok']);
+}
+
 $variable					= $config->get_registros('active = 1');
 
 foreach ($variable as $row)
@@ -101,6 +106,15 @@ if(isset($_FILES['certificado']))
 					<div class="tab-pane active" id="tab1">
 					<div class="form-group">
 						<label class="col-sm-2 control-label">
+							<?php echo $language['id_cuentarecaudacion'] ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" id="id_cuentarecaudacion" name="id_cuentarecaudacion" value="<?php echo decrypt($valores['id_cuentarecaudacion'])?>" required>
+						</div>
+					</div>	
+						
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
 							<?php echo $language['usuario'] ?>
 						</label>
 						<div class="col-sm-10">
@@ -123,29 +137,6 @@ if(isset($_FILES['certificado']))
 						</label>
 						<div class="col-sm-10">
 							<input class="form-control" id="cuil" name="cuil" value="<?php echo decrypt($valores['cuil'])?>" required>
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<label class="col-sm-2 control-label">
-							<?php echo $language['certificado'] ?>
-						</label>
-						<div class="col-sm-10">
-							<select class="form-control" id="id_config_certificado" name="id_config_certificado" required>
-								<?php
-									foreach ($array_certificados as $row) 
-									{
-										if($row['id_certificado'] == $id_certificado)
-										{
-											echo "<option value=".$row['id_certificado']." selected> ".$row['certificado']."</option>";
-										}
-										else
-										{
-											echo "<option value=".$row['id_certificado']."> ".$row['certificado']."</option>";	
-										}								
-									}
-								?>
-							</select>
 						</div>
 					</div>
 					
@@ -247,8 +238,8 @@ if(isset($_FILES['certificado']))
 								<?php echo $language['ayuda']." ".$language['certificado']; ?>
 							</a>
 							
-							<a class="btn btn-default" type="button" href="<?php echo $route['doc'].'portecle-1.7.rar'?>" target="_blank">
-								<i class="fa fa-download"></i> Portecle-1.7.rar
+							<a class="btn btn-default" type="button" href="<?php echo $route['doc'].'aplicaciones/kse-51-setup.rar'?>" target="_blank">
+								<i class="fa fa-download"></i> kse-51-setup.rar
 							</a>
 						</div>
 					</div>	
@@ -263,6 +254,17 @@ if(isset($_FILES['certificado']))
 								<?php echo $language['subir']." ".$language['archivo']; ?>
 							</button>
 						</div>
+					</div>	
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">							
+						</label>
+						<div class="col-sm-10">
+							<button class="btn btn-default" type="button" data-toggle="modal" data-target="#primary_key">
+								<i class="fa fa-upload"></i>
+								<?php echo $language['clave_privada']; ?>
+							</button>
+						</div>
 					</div>		
 					
 					</div>
@@ -273,7 +275,8 @@ if(isset($_FILES['certificado']))
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 							<button type="submit" class="btn btn-info btn-lg" name="guardar" value="<?php echo $valores['id_config']?>">
-								<i class="fa fa-floppy-o"></i> <?php echo $language['guardar'] ?>
+								<i class="fa fa-floppy-o"></i> 
+								<?php echo $language['guardar'] ?>
 							</button>
 						</div>
 					</div>
@@ -315,6 +318,46 @@ if(isset($_FILES['certificado']))
 					<?php echo $language['cerrar'] ?>
 				</button>
 				<button type="submit" class ="btn btn-default">
+					<?php echo $language['subir'] ?>
+				</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="primary_key" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">
+					<?php echo $language['clave_privada']; ?>
+				</h4>
+			</div>
+			
+			<div class="modal-body">
+        		<form class="form-horizontal" action="config_general.php" method="post" enctype="multipart/form-data">
+				   <div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['clave_privada']; ?>
+						</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" id="clave_privada" rows="16" name="clave_privada" required></textarea>
+						</div>
+					</div>
+			</div>
+			
+      		<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+					<?php echo $language['cerrar'] ?>
+				</button>
+				<button type="submit" class ="btn btn-default" name="guardar_clave" value="<?php echo $valores['id_config']?>">
 					<?php echo $language['subir'] ?>
 				</button>
 				</form>

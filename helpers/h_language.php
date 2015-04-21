@@ -27,6 +27,7 @@ $language['cierre']						= 'Cierre';
 $language['cierre_no']					= 'El cierre no fue confeccionado';
 $language['cierre_ok']					= 'Ya se ha realizado el cierre, en este momento las transferencias en estado ´Enviada Banco Credito´ compensan';			
 $language['clave']						= 'Clave';
+$language['clave_privada']				= 'Clave privada';
 $language['cliente']					= 'Cliente';
 $language['clientes']					= 'Clientes';		
 $language['comunidad']					= 'Comunidad';	
@@ -68,6 +69,7 @@ $language['hasta']						= 'Hasta';
 
 // I	
 $language['id']							= 'ID';
+$language['id_cuentarecaudacion']		= 'ID Cuenta Recaudación';
 $language['incremental']				= 'Incremental';
 $language['inicio']						= 'Inicio';
 $language['info_cierre']				= 'El siguiente link responde con el resumen de los estados de las transferencias';
