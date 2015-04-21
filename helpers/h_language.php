@@ -7,6 +7,7 @@
 $language['alias']						= 'Alias';
 $language['alta']						= 'Alta';
 $language['archivo']					= 'Archivo';
+$language['archivo_delete']				= 'El archivo no se encontraba en el servidor';
 $language['apellido']					= 'Apellido';
 $language['ayuda']						= 'Ayuda';	
 $language['ayuda_estado']				= 'Filtro por estado de transferencia, si no se coloca el estado, la consulta devuelve todos los estados de las transferencias';
@@ -43,6 +44,7 @@ $language['cuil']						= 'Cuil';
 // D
 $language['delete_ok']					= 'El registro se ha dado de baja con éxito';
 $language['desarrollado']				= 'Desarrollado por TMS GROUP SA';
+$language['descargar']					= 'Descargar';
 $language['descripcion']				= 'Descripción';
 $language['desde']						= 'Desde';	
 $language['detalle']					= 'Detalle';
@@ -102,7 +104,8 @@ $language['motivo']						= 'Motivo';
 
 // N
 $language['nombre']						= 'Nombre';				
-$language['no_acceso']					= 'Problemas para acceder.';		
+$language['no_acceso']					= 'Problemas para acceder.';
+$language['no_archivos']				= 'No hay archivos cargados';
 $language['no_connect']					= 'Error, no se ha podido conectar';		
 $language['no_ingreso']					= 'No puedes ingresar.';
 $language['numero']						= 'Número';

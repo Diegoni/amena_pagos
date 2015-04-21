@@ -2,9 +2,17 @@
 include_once('menu.php');
 include_once($route['models'].'m_config_certificado.php');
 include_once($route['models'].'m_config.php');
+include_once($route['models'].'m_certificado.php');
 
 $config_certificado			= new m_config_certificado();
 $config						= new m_config();
+$certificado				= new m_certificado();
+
+  
+/*----------------------------------------------------------------------------
+		Guardar la configuración
+----------------------------------------------------------------------------*/
+
 
 if(isset($_POST['guardar']))
 {
@@ -29,6 +37,12 @@ if(isset($_POST['guardar']))
 	$mensaje = set_alert($language['update_ok']);
 }
 
+  
+/*----------------------------------------------------------------------------
+		Cambiar la clave privada
+----------------------------------------------------------------------------*/
+
+
 if(isset($_POST['clave_privada']))
 {
 	$datos = array(
@@ -39,12 +53,55 @@ if(isset($_POST['clave_privada']))
 	$mensaje = set_alert($language['update_ok']);
 }
 
-$variable					= $config->get_registros('active = 1');
+$variable = $config->get_registros('active = 1');
 
 foreach ($variable as $row)
 {
 	$valores = $row;
 }
+
+  
+/*----------------------------------------------------------------------------
+		Borrar archivo
+----------------------------------------------------------------------------*/
+
+
+if(isset($_GET['delete']))
+{
+	$array_certificado = $certificado->get_registros('id_certificado = '.$_GET['delete']);
+	
+	if(is_array($array_certificado))
+	{
+		foreach ($array_certificado as $row)
+		{
+			if(file_exists($route['certificados'].$row['certificado']))
+			{
+				unlink($route['certificados'].$row['certificado']);	
+			}
+			else
+			{
+				$mensaje = set_alert($language['archivo_delete'], 'warning');	
+			}
+		}
+	} 
+		
+	$datos = array(
+		'active'		=> 0,
+	);
+	
+	$certificado->update($datos, $_GET['delete']);
+	if(!isset($mensaje))
+	{
+		$mensaje = set_alert($language['delete_ok']);	
+	}
+	
+}
+
+  
+/*----------------------------------------------------------------------------
+		Cargar archivo
+----------------------------------------------------------------------------*/
+
 
 if(isset($_FILES['certificado']))
 {
@@ -60,18 +117,15 @@ if(isset($_FILES['certificado']))
 	{
 		$_FILES['certificado']['name'] = $id.$extension;
   
-		copy($_FILES['certificado']['tmp_name'],$route['doc'].$_FILES['certificado']['name']);
+		copy($_FILES['certificado']['tmp_name'],$route['certificados'].$_FILES['certificado']['name']);
 	  
-		$certificado_nombre	= $_FILES['certificado']['name'];
-		$certificado_tipo	= $_FILES['certificado']['type'];
-		$certificado_size	= $_FILES['certificado']['size'];
-	  
-		$certificado = array(
-			'certificado_nombre'	=> $certificado_nombre,
-			'certificado_tipo'		=> $certificado_tipo,
-			'certificado_size'		=> $certificado_size,
-			'id_usuario'			=> $id
+		$datos = array(
+			'certificado'	=> $_FILES['certificado']['name'],
+			'tipo'			=> $_FILES['certificado']['type'],
+			'size'			=> $_FILES['certificado']['size']
 		);
+		
+		$certificado->insert($datos);
 		
 		$mensaje = set_alert($language['upload_ok']);
 		
@@ -102,6 +156,12 @@ if(isset($_FILES['certificado']))
 					</ul>
   					
   					<div class="tab-content">
+  						
+  						
+					<!---------------------------------------------------------------------
+							General
+					---------------------------------------------------------------------->
+
 					
 					<div class="tab-pane active" id="tab1">
 					<div class="form-group">
@@ -150,6 +210,12 @@ if(isset($_FILES['certificado']))
 					</div>
 					
 					</div>
+  						
+  						
+					<!---------------------------------------------------------------------
+							URL
+					---------------------------------------------------------------------->
+					
 					
 					<div class="tab-pane" id="tab2">
 					
@@ -217,6 +283,12 @@ if(isset($_FILES['certificado']))
 					</div>
 					
 					</div>
+  						
+  						
+					<!---------------------------------------------------------------------
+							Certificado
+					---------------------------------------------------------------------->
+					
 					
 					<div class="tab-pane" id="tab3">
 					
@@ -233,12 +305,12 @@ if(isset($_FILES['certificado']))
 						<label class="col-sm-2 control-label">							
 						</label>
 						<div class="col-sm-10">
-							<a class="btn btn-default" type="button" href="<?php echo $route['doc'].'Tutorial_Certificado.pdf'?>" target="_blank">
+							<a class="btn btn-default btn-lg" type="button" href="<?php echo $route['doc'].'Tutorial_Certificado.pdf'?>" target="_blank">
 								<i class="fa fa-info-circle"></i> 
 								<?php echo $language['ayuda']." ".$language['certificado']; ?>
 							</a>
 							
-							<a class="btn btn-default" type="button" href="<?php echo $route['doc'].'aplicaciones/kse-51-setup.rar'?>" target="_blank">
+							<a class="btn btn-default btn-lg" type="button" href="<?php echo $route['doc'].'aplicaciones/kse-51-setup.rar'?>" target="_blank">
 								<i class="fa fa-download"></i> kse-51-setup.rar
 							</a>
 						</div>
@@ -249,23 +321,23 @@ if(isset($_FILES['certificado']))
 						<label class="col-sm-2 control-label">							
 						</label>
 						<div class="col-sm-10">
-							<button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">
-								<i class="fa fa-upload"></i>
-								<?php echo $language['subir']." ".$language['archivo']; ?>
-							</button>
-						</div>
-					</div>	
-					
-					<div class="form-group">
-						<label class="col-sm-2 control-label">							
-						</label>
-						<div class="col-sm-10">
-							<button class="btn btn-default" type="button" data-toggle="modal" data-target="#primary_key">
+							
+							<button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#primary_key">
 								<i class="fa fa-upload"></i>
 								<?php echo $language['clave_privada']; ?>
 							</button>
+							
+							<button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#upload">
+								<i class="fa fa-upload"></i>
+								<?php echo $language['subir']." ".$language['archivo']; ?>
+							</button>
+							
+							<button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#download">
+								<i class="fa fa-download"></i> 
+								<?php echo $language['descargar']." ".$language['archivo']; ?>
+							</button>
 						</div>
-					</div>		
+					</div>	
 					
 					</div>
 					
@@ -295,11 +367,11 @@ if(isset($_FILES['certificado']))
 
 
 <!---------------------------------------------------------------------
-		Modal
+		Modal Subir archivo
 ---------------------------------------------------------------------->
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -308,13 +380,14 @@ if(isset($_FILES['certificado']))
 			</div>
 			
 			<div class="modal-body">
+				
         		<form action="config_general.php" method="post" enctype="multipart/form-data">
 				    <input type="file" name="certificado">
 				    <br>
 			</div>
 			
       		<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">
+      			<button type="button" class="btn btn-default" data-dismiss="modal">
 					<?php echo $language['cerrar'] ?>
 				</button>
 				<button type="submit" class ="btn btn-default">
@@ -327,8 +400,70 @@ if(isset($_FILES['certificado']))
 </div>
 
 
+<!---------------------------------------------------------------------
+		Modal Descargar Archivos
+---------------------------------------------------------------------->
 
 
+<div class="modal fade" id="download" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><?php echo $language['descargar']." ".$language['archivo']; ?></h4>
+			</div>
+			
+			<div class="modal-body">
+				<?php
+      			$array_certificado = $certificado->get_registros('active = 1');
+				if(is_array($array_certificado))
+				{
+					foreach ($array_certificado as $row) 
+					{
+					?>
+						<div class="btn-group">
+		  					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+		    					<?php echo $row['certificado'] ?> <span class="caret"></span>
+		  					</button>
+		  					<ul class="dropdown-menu" role="menu">
+		    					<li>
+		    						<a href="<?php echo $route['certificados'].$row['certificado']?>" target="_blank">
+		    							<i class="fa fa-download"></i>
+		    							<?php echo $language['descargar'] ?>
+		    						</a>
+		    					</li>
+		    					<li>
+		    						<a href="<?php echo BASE_URL.'views/config_general.php?delete='.$row['id_certificado'] ?>" onclick="return confirm('<?php echo $language['confirm_eliminar']?>')">
+			   							<i class="fa fa-trash-o"></i>
+			   							<?php echo $language['borrar'] ?>
+			   						</a>
+		    					</li>
+		    				</ul>
+						</div>
+		      			<?php	
+					}
+				}
+				else
+				{
+					echo set_alert($language['no_archivos'], 'warning');				
+				} 
+      			?>
+      			
+			</div>
+			
+      		<div class="modal-footer">
+      			<button type="button" class="btn btn-default" data-dismiss="modal">
+					<?php echo $language['cerrar'] ?>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!---------------------------------------------------------------------
+		Modal Clave privada
+---------------------------------------------------------------------->
 
 
 <div class="modal fade" id="primary_key" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -357,7 +492,7 @@ if(isset($_FILES['certificado']))
 				<button type="button" class="btn btn-default" data-dismiss="modal">
 					<?php echo $language['cerrar'] ?>
 				</button>
-				<button type="submit" class ="btn btn-default" name="guardar_clave" value="<?php echo $valores['id_config']?>">
+				<button type="submit" class="btn btn-default" name="guardar_clave" value="<?php echo $valores['id_config']?>">
 					<?php echo $language['subir'] ?>
 				</button>
 				</form>

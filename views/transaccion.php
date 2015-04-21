@@ -68,7 +68,7 @@ if($bandera)
 	{
 		$url_post			= decrypt($row['url_post']);
 		$id_comunidad		= decrypt($row['id_comunidad']);
-		$clave_privada		= decrypt($row['clave_privada']);
+		$private_key		= decrypt($row['clave_privada']);
 		$cuentarecaudacion	= decrypt($row['id_cuentarecaudacion']);
 	}
 		
@@ -78,8 +78,7 @@ if($bandera)
 		'WindowPopUp'			=> True,
 		'Comprobante1'			=> $datos['comprob'],
 		'OutUrl'				=> '',
-		//'FechaPago1'			=> date('d/m/Y', strtotime($datos['fechapago'])),
-		'FechaPago1'			=> date('d/m/Y'),
+		'FechaPago1'			=> date('d/m/Y', strtotime($datos['fechapago'])),
 		'Importe1'				=> $datos['importe'],
 		'Observacion1'			=> '',
 		'CuentaRecaudacionId1'	=> $cuentarecaudacion,
@@ -89,15 +88,12 @@ if($bandera)
 	);	
 	
 	
-	//$doc_openssl = file_get_contents($route['doc']."openssl/amena.openssl");
-	//$private_key = $doc_openssl;
-	$private_key = $clave_privada;
-	
 	$data = $datos_post['CodigoComunidad'].$datos_post['CantidadTransacciones'].$datos_post['WindowPopUp'].$datos_post['OutUrl'].$datos_post['FechaPago1'].$datos_post['Comprobante1'].$datos_post['Importe1'].$datos_post['CuentaRecaudacionId1'].$datos_post['Observacion1'];
 	
+	// Firma digital y codificación en base 64
 	openssl_sign($data, $signature, $private_key);
-	
-	$signature_64 = base64_encode($signature);	
+	$signature_64 = base64_encode($signature);
+		
 ?>
 <script>
 	function control_datos()
@@ -125,8 +121,11 @@ if($bandera)
 		window.close();
 	});
 </script>
+
+
+
 <div class="hidden"> 
-	<form method="post" action="https://presib.interbanking.com.ar/loginConfeccionB2B.do">
+	<form method="post" action="<?php echo $url_post ?>">
 		<input type="hidden" name="signature" value="<?php echo $signature_64;?>">
 		<input type="hidden" name="CodigoComunidad" value="<?php echo $datos_post['CodigoComunidad']?>">
 		<input type="hidden" name="CantidadTransacciones" value="<?php echo $datos_post['CantidadTransacciones']?>">
