@@ -17,11 +17,21 @@ $c_error_tra	= new m_log_error_Transaccion();
 // Modificamos el formato del importe
 $importe = transformar_importe($_GET['importe']);
 
+$fecha_pago = date('Y/m/d', strtotime($_GET['fechapago']));
+
+if($fecha_pago == '1969/12/31')
+{
+	$fecha_pago_array = explode("/", $_GET['fechapago']);
+	$fecha_pago = $fecha_pago_array[2]."/".$fecha_pago_array[1]."/".$fecha_pago_array[0];
+}
+
+echo $fecha_pago;
+
 $datos = array(
 	'cuit'		=> $_GET['cuit'],
 	'importe'	=> $importe,
 	'periodo'	=> $_GET['periodo'],
-	'fechapago'	=> date('Y/m/d', strtotime($_GET['fechapago'])),
+	'fechapago'	=> $fecha_pago,
 	'comprob'	=> $_GET['comprob'],
 	'token'		=> $_GET['token'],
 );

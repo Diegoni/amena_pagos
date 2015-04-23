@@ -318,12 +318,20 @@ foreach ($variable as $row)
 					echo "<div class='col-md-3 col-md-offset-1' id='".$profile."'>";
 					$cliente_obj		= $cliente->get_registros('`cuil` = '.$cuil);
 					
-					foreach ($cliente_obj as $row)
+					if($cliente_obj)
 					{
-						$array_cliente = $row;
+						foreach ($cliente_obj as $row)
+						{
+							$array_cliente = $row;
+						}
+						
+						echo getProfile($array_cliente);	
+					}
+					else
+					{
+						echo set_alert($language['no_cliente'], 'warning');
 					}
 					
-					echo  getProfile($array_cliente);
 					echo "</div>";
 				echo "</div>";
 				echo "<hr>";

@@ -68,6 +68,7 @@ include_once('control_usuario.php');
 				</a>
         		<ul class="dropdown-menu">
         			<?php echo item_menu(BASE_URL.'views/clientes_abm.php', $language['clientes']);?>
+        			<?php echo item_menu(BASE_URL.'views/emails.php', $language['email']);?>
         		</ul>
       		</li>
       		<li class="dropdown">

@@ -30,6 +30,9 @@ if(isset($_POST['guardar']))
 		'url_cierre_comunidad'		=> encrypt($_POST['url_cierre_comunidad']),
 		'url_interbanking'			=> encrypt($_POST['url_interbanking']),
 		'certificado'				=> $_POST['certificado'],
+		'email'						=> $_POST['email'],
+		'asunto'					=> $_POST['asunto'],
+		'firma_email'				=> $_POST['firma_email'],
 	);
 	
 	$config->update($datos, $_POST['guardar']);
@@ -151,7 +154,8 @@ if(isset($_FILES['certificado']))
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#tab1" data-toggle="tab"><?php echo $language['general'] ?></a></li>
     					<li><a href="#tab2" data-toggle="tab"><?php echo $language['url'] ?></a></li>
-    					<li><a href="#tab3" data-toggle="tab"><?php echo $language['certificado'] ?></a></li>
+    					<li><a href="#tab3" data-toggle="tab"><?php echo $language['email'] ?></a></li>
+    					<li><a href="#tab4" data-toggle="tab"><?php echo $language['certificado'] ?></a></li>
 					</ul>
   					
   					<div class="tab-content">
@@ -285,11 +289,48 @@ if(isset($_FILES['certificado']))
   						
   						
 					<!---------------------------------------------------------------------
-							Certificado
+							EMAIL
 					---------------------------------------------------------------------->
 					
 					
 					<div class="tab-pane" id="tab3">
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['email'] ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" id="email" name="email" value="<?php echo $valores['email']?>" required>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['asunto'] ?>
+						</label>
+						<div class="col-sm-10">
+							<input class="form-control" id="asunto" name="asunto" value="<?php echo $valores['asunto']?>" required>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							<?php echo $language['firma_email'] ?>
+						</label>
+						<div class="col-sm-10">
+							<textarea class="ckeditor form-control" cols="80" id="firma_email" name="firma_email" rows="10"><?php echo $valores['firma_email']?></textarea>
+						</div>
+					</div>
+					
+					</div>
+  							
+  						
+					<!---------------------------------------------------------------------
+							Certificado
+					---------------------------------------------------------------------->
+					
+					
+					<div class="tab-pane" id="tab4">
 					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">

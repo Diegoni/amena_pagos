@@ -9,6 +9,7 @@ $language['alta']						= 'Alta';
 $language['archivo']					= 'Archivo';
 $language['archivo_delete']				= 'El archivo no se encontraba en el servidor';
 $language['apellido']					= 'Apellido';
+$language['asunto']						= 'Asunto';
 $language['ayuda']						= 'Ayuda';	
 $language['ayuda_estado']				= 'Filtro por estado de transferencia, si no se coloca el estado, la consulta devuelve todos los estados de las transferencias';
 $language['ayuda_importe']				= 'Filtro de Importe, Numérico de 10 enteros y 2 decimales';
@@ -39,7 +40,7 @@ $language['confirm_eliminar']			= 'Esta seguro que quiere eliminar el registro?'
 $language['confirm_volver']				= '¿Esta seguro? no se guardaran los cambios';
 $language['control_size']				= 'El archivo pesa más de lo que debería, controlar si todo esta ok';
 $language['cuenta']						= 'Cuenta';
-$language['cuil']						= 'Cuil';	
+$language['cuil']						= 'Cuit';	
 
 // D
 $language['delete_ok']					= 'El registro se ha dado de baja con éxito';
@@ -47,12 +48,14 @@ $language['desarrollado']				= 'Desarrollado por TMS GROUP SA';
 $language['descargar']					= 'Descargar';
 $language['descripcion']				= 'Descripción';
 $language['desde']						= 'Desde';	
+$language['destinatario']				= 'Destinatario';
 $language['detalle']					= 'Detalle';
 $language['direccion']					= 'Dirección';
 
 // E
 $language['editar']						= 'Editar';		
-$language['email']						= 'Email';	
+$language['email']						= 'Email';
+$language['email_ok']					= 'El email se ha enviado con éxito';	
 $language['enviar']						= 'Enviar';
 $language['error_dato']					= 'Error en el dato: ';	
 $language['estado']						= 'Estado';	
@@ -95,6 +98,7 @@ $language['ir_arriba']					= 'Ir Arriba';
 $language['fecha']						= 'Fecha';	
 $language['filtros']					= 'Filtros';
 $language['final']						= 'Final';
+$language['firma_email']				= 'Firma Email';
 
 // M	
 $language['manual']						= 'Manual';
@@ -106,6 +110,7 @@ $language['motivo']						= 'Motivo';
 $language['nombre']						= 'Nombre';				
 $language['no_acceso']					= 'Problemas para acceder.';
 $language['no_archivos']				= 'No hay archivos cargados';
+$language['no_cliente']					= 'No hay cliente cargado';
 $language['no_connect']					= 'Error, no se ha podido conectar';		
 $language['no_ingreso']					= 'No puedes ingresar.';
 $language['numero']						= 'Número';
@@ -127,7 +132,8 @@ $language['post']						= 'Post';
 // R	
 $language['recaudacion']				= 'Recaudación';
 $language['rechazo']					= 'Rechazo';
-$language['reintentar']					= 'Reintentar';		
+$language['reintentar']					= 'Reintentar';
+$language['remitente']					= 'Remitente';		
 $language['reporte']					= 'Reporte';
 
 // S		

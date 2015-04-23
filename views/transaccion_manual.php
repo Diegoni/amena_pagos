@@ -4,7 +4,7 @@ include_once('menu.php');
 <script>
 	$(function() {
 		$( "#fechapago" ).datepicker({
-			maxDate: '0',
+			minDate: '1',
 			changeMonth: true,
       		changeYear: true,
 			dateFormat: 'dd/mm/yy'

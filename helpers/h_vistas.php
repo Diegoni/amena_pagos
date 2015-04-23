@@ -167,7 +167,7 @@ function getProfile($datos)
 							</a> 
 						</li>
 						<li>
-							<a>
+							<a href="enviar_correo.php?id='.$datos['id_cliente'].'"  title="Enviar email a cliente">
 							<i class="fa fa-envelope-o"></i>
 							'.$datos['email'].'
 							</a> 
@@ -180,7 +180,8 @@ function getProfile($datos)
 						</li>
 					</ul>
 				</div>
-			</div>';
+			</div>
+			';
 }
 
 
