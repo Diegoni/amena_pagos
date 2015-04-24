@@ -14,7 +14,7 @@ $array_transacciones	= $transaccion->get_registros();
 				<?php echo get_panel_heading();	?>
 			</div>
 			<div class="panel-body">
-				<table class="table table-striped table-hover" id="datatable">
+				<table class="table table-striped table-hover" id="datatable" width='100%'>
 					<thead>
 						<tr>
 							<th class='col-md-2'><?php echo $language['cuil'];?></th>

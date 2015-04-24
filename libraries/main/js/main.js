@@ -5,6 +5,7 @@
 
 $(document).ready(function() {
 	$('#datatable').DataTable({
+		responsive: true,
 		"language": {
             "lengthMenu": "Mostrar _MENU_ registros por pag.",
             "zeroRecords": "Sin registros",
@@ -31,7 +32,6 @@ $(document).ready(function(){
 		}
 	});
 });
-
 
 
 /*----------------------------------------------------------------------------

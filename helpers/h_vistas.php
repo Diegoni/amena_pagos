@@ -167,7 +167,7 @@ function getProfile($datos)
 				<div class="profile-usermenu">
 					<ul class="nav">
 						<li>
-							<a>
+							<a href="tel:'.$datos['telefono'].'">
 							<i class="fa fa-phone"></i>
 							'.$datos['telefono'].'
 							</a> 

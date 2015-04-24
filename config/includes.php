@@ -44,3 +44,6 @@ echo js_libreria($route['libraries'].'jquery-ui-1.11.4/jquery-ui.js');
 echo css_libreria($route['libraries'].'jquery-ui-1.11.4/jquery-ui.css');
 
 echo js_libreria($route['libraries'].'ckeditor/ckeditor.js');
+
+echo css_libreria($route['libraries'].'main/css/datatable.css');
+echo js_libreria($route['libraries'].'main/js/datatable.js');

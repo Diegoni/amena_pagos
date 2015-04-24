@@ -137,7 +137,7 @@ else
    				<div class="tab-content">
 					
 				<div class="tab-pane active" id="tab1">
-				<table class="table table-striped table-hover" id="datatable">
+				<table class="table table-striped table-hover" id="datatable" width='100%'>
 					<thead>
 						<tr>
 							<th class='col-md-2'><?php echo $language['remitente'];?></th>

@@ -145,7 +145,7 @@ else
 		Tabla de registros
 ----------------------------------------------------------------------------->
 
-				<table class="table table-striped table-hover" id="datatable">
+				<table class="table table-striped table-hover" id="datatable" width='100%'>
 					<thead>
 						<tr>
 							<th class='col-md-3'><?php echo $language['estado'];?></th>

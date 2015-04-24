@@ -214,7 +214,7 @@ else
 		Tabla de registros
 ----------------------------------------------------------------------------->
 
-				<table class="table table-striped table-hover" id="datatable">
+				<table class="table table-striped table-hover" id="datatable" width='100%'>
 					<thead>
 						<tr>
 							<th><?php echo $language['cuil'];?></th>

@@ -279,6 +279,7 @@ foreach ($variable as $row)
 					if($key == 'importe')
 					{
 						$class = 'success';
+						$value = set_format($value, 'importe');
 					}
 					else
 					{
@@ -346,7 +347,7 @@ foreach ($variable as $row)
 			echo '<div role="tabpanel" class="tab-pane active" id="profile">';
 				echo "<div class='row'>";
 					echo "<div class='col-md-12'>";
-					echo "<table class='table table-hover' id='datatable'>";
+					echo "<table class='table table-hover' id='datatable' width='100%'>";
 					echo "<thead>";
 					echo $cabecera."</tr>";
 					echo "</thead>";
