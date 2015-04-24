@@ -4,7 +4,8 @@
 		Textos del sistema
 ----------------------------------------------------------------------------*/
 // A
-$language['alias']						= 'Alias';
+$language['abrir']						= 'Abrir';
+$language['alias']						= 'Nombre de fantasía';
 $language['alta']						= 'Alta';
 $language['archivo']					= 'Archivo';
 $language['archivo_delete']				= 'El archivo no se encontraba en el servidor';
@@ -38,6 +39,7 @@ $language['comprobante']				= 'Comprobante';
 $language['config']						= 'Config';
 $language['confirm_eliminar']			= 'Esta seguro que quiere eliminar el registro?';
 $language['confirm_volver']				= '¿Esta seguro? no se guardaran los cambios';
+$language['contacto']					= 'Contacto';
 $language['control_size']				= 'El archivo pesa más de lo que debería, controlar si todo esta ok';
 $language['cuenta']						= 'Cuenta';
 $language['cuil']						= 'Cuit';	
@@ -56,6 +58,7 @@ $language['direccion']					= 'Dirección';
 $language['editar']						= 'Editar';		
 $language['email']						= 'Email';
 $language['email_ok']					= 'El email se ha enviado con éxito';	
+$language['empresa']					= 'Empresa';
 $language['enviar']						= 'Enviar';
 $language['error_dato']					= 'Error en el dato: ';	
 $language['estado']						= 'Estado';	
@@ -88,6 +91,7 @@ implementa esta funcionalidad.	';
 $language['ingresar']					= 'Ingresar';		
 $language['ingrese']					= 'Ingrese';
 $language['insert_ok']					= 'El registro se ha ingresado con éxito';
+$language['insert_error']				= 'Registro repetido, no se ha ingresado';
 $language['interbanking']				= 'Interbanking';
 $language['interno']					= 'Interno';
 $language['imagen']						= 'Imágen';
@@ -130,6 +134,7 @@ $language['problema']					= 'Problema';
 $language['post']						= 'Post';
 
 // R	
+$language['razon_social']				= 'Razón Social';
 $language['recaudacion']				= 'Recaudación';
 $language['rechazo']					= 'Rechazo';
 $language['reintentar']					= 'Reintentar';
@@ -149,6 +154,7 @@ $language['transaccion']				= 'Transacción';
 $language['transacciones']				= 'Transacciones';
 $language['transferencia']				= 'Transferencia';
 $language['transferencias']				= 'Transferencias';
+$language['total']						= 'Total';
 
 // U			
 $language['update_ok']					= 'El registro se ha modificado con éxito';

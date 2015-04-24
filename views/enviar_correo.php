@@ -54,6 +54,22 @@ if(isset($_POST['remitente']))
 	);
 	
 	$emails->insert($datos);
+	
+	
+	// Para enviar un correo HTML
+	$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+	$cabeceras .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+	$cabeceras .= 'From: '.$_POST['asunto'].' <'.$_POST['remitente'].'>' . "\r\n";
+	
+	$mail = array(
+		'para'				=> $_POST['destinatario'],
+		'titulo'			=> $_POST['asunto'],
+		'mensaje'			=> $_POST['mensaje'],
+		'cabecera'			=> $cabeceras,
+	);
+		
+	mail($mail['para'], $mail['titulo'], $mail['mensaje'], $mail['cabecera']);
+	
 	$mensaje = set_alert($language['email_ok']);
 }
 ?>

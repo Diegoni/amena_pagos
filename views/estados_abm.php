@@ -216,7 +216,9 @@ else
 						<label class="col-sm-2 control-label">
 						</label>
 						<div class="col-sm-10">
-							<button type="submit" value="1" name="insert" class="btn btn-primary btn-lg" ><?php echo $language['guardar'] ?></button>
+							<button type="submit" value="1" name="insert" class="btn btn-primary btn-lg" >
+								<i class="fa fa-floppy-o"></i> <?php echo $language['guardar'] ?>
+							</button>
 						</div>
 					</div>
 					</form>	

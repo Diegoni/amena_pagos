@@ -67,7 +67,7 @@ foreach ($variable as $row)
 					
 					<?php echo set_alert("<i class='fa fa-question-circle'></i> ".$language['info_estados'], 'default'); ?>
 					<button type="button" class="btn btn-default show_hide">
-						<?php echo $language['filtros'] ?>
+						<?php echo $language['filtros'] ?> <i class="fa fa-chevron-down"></i>
 					</button>
 					
 					<div class="slidingDiv">

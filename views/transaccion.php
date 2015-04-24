@@ -25,8 +25,6 @@ if($fecha_pago == '1969/12/31')
 	$fecha_pago = $fecha_pago_array[2]."/".$fecha_pago_array[1]."/".$fecha_pago_array[0];
 }
 
-echo $fecha_pago;
-
 $datos = array(
 	'cuit'		=> $_GET['cuit'],
 	'importe'	=> $importe,

@@ -102,7 +102,42 @@ if(isset($_POST['final']))
 				if(isset($_POST['final']))
 				{
 				?>
-				<div id="grafico" style="min-width: 310px; height: 400px; margin-bottom: 35px;"></div>
+				<div class="row">
+					<hr>
+					<div id="grafico" style="min-width: 310px; height: 400px; margin-bottom: 35px;"></div>
+				</div>
+				<div class="row">
+					<hr>
+					<div class="col-md-6 col-md-offset-3">
+						<table class="table table-hover totales">
+							<thead>
+								<tr>
+									<th><?php echo $language['periodo']?></th>
+									<th><?php echo $language['cantidad']?></th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php
+							$suma_total = 0;
+							foreach ($intervalo as $key => $value)
+							{
+								echo "<tr>";
+								echo "<td>".set_format($value,'month')."</td>";
+								echo "<td>".set_format($suma_mes[$key], 'importe')."</td>";
+								echo "</tr>";
+								
+								$suma_total = $suma_total + $suma_mes[$key];
+			            	}
+							
+								echo "<tr>";
+								echo "<th>".$language['total']."</th>";
+								echo "<th>".set_format($suma_total, 'importe')."</th>";
+								echo "</tr>";
+							?>	
+							</tbody>
+						</table>
+					</div>
+				</div>
 				<?php
 				}
 				else

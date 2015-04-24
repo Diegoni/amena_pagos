@@ -81,14 +81,20 @@ function set_format($dato, $format)
 				
 				break;
 			
+			case 'month':
+				$cadena = date('m-Y',strtotime($dato));
+				return $cadena;
+				
+				break;
+			
 			case 'date':
-				$cadena = date('d-m-Y',strtotime( $dato));
+				$cadena = date('d-m-Y',strtotime($dato));
 				return $cadena;
 				
 				break;
 				
 			case 'datetime':
-				$cadena = date('d-m-Y H:i:s',strtotime( $dato));
+				$cadena = date('d-m-Y H:i:s',strtotime($dato));
 				return $cadena;
 				
 				break;
