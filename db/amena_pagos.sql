@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-04-2015 a las 18:00:22
+-- Tiempo de generación: 27-04-2015 a las 13:53:08
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.11
 
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `size` varchar(64) NOT NULL,
   `delete` tinyint(4) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `clientes`
@@ -764,7 +764,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `clave`, `email`, `last_login`, `active`) VALUES
-(1, 'admin', 'e956d1f5d589a122abf96f60af4acc95', 'diego.nieto@tmsgroup.com.ar', '2015-04-23 12:43:52', 1);
+(1, 'admin', '63c98b897b8e8d001c9ef82020d4e147', 'diego.nieto@tmsgroup.com.ar', '2015-04-24 15:20:23', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

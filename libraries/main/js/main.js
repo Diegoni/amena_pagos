@@ -6,6 +6,8 @@
 $(document).ready(function() {
 	$('#datatable').DataTable({
 		responsive: true,
+		dom: 'T<"clear">lfrtip',
+		
 		"language": {
             "lengthMenu": "Mostrar _MENU_ registros por pag.",
             "zeroRecords": "Sin registros",
