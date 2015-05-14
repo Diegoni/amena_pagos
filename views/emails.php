@@ -149,15 +149,18 @@ else
 					</thead>
 					<tbody>
 					<?php 
-					foreach($array_registros as $row)
+					if(is_array($array_registros))
 					{
-						echo "<tr>";
-						echo "<td class='col-md-2'>".$row['remitente']."</td>";
-						echo "<td class='col-md-2'>".$row['destinatario']."</td>";
-						echo "<td class='col-md-2'>".$row['asunto']."</td>";
-						echo "<td class='col-md-3'>".set_format($row['date_add'], 'datetime')."</td>";
-						echo "<td class='col-md-1'><a href='emails.php?id=".$row['id_email']."' class='btn btn-default'><i class='fa fa-folder-open'></i></a></td>";
-						echo "</tr>";
+						foreach($array_registros as $row)
+						{
+							echo "<tr>";
+							echo "<td class='col-md-2'>".$row['remitente']."</td>";
+							echo "<td class='col-md-2'>".$row['destinatario']."</td>";
+							echo "<td class='col-md-2'>".$row['asunto']."</td>";
+							echo "<td class='col-md-3'>".set_format($row['date_add'], 'datetime')."</td>";
+							echo "<td class='col-md-1'><a href='emails.php?id=".$row['id_email']."' class='btn btn-default'><i class='fa fa-folder-open'></i></a></td>";
+							echo "</tr>";
+						}
 					}
 					?>
 					</tbody>

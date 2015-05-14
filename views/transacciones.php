@@ -27,16 +27,19 @@ $array_transacciones	= $transaccion->get_registros();
 					</thead>
 					<tbody>
 					<?php 
-					foreach($array_transacciones as $row)
+					if(is_array($array_transacciones))
 					{
-						echo "<tr>";
-						echo "<td class='col-md-2'>".set_format($row['cuit'], 'cuit')."</td>";
-						echo "<td class='col-md-2'>".set_format($row['importe'], 'importe')."</td>";
-						echo "<td class='col-md-1'>".$row['periodo']."</td>";
-						echo "<td class='col-md-2'>".set_format($row['fechapago'], 'date')."</td>";
-						echo "<td class='col-md-2'>".$row['comprob']."</td>";
-						echo "<td class='col-md-3'>".set_format($row['date_add'], 'datetime')."</td>";
-						echo "</tr>";
+						foreach($array_transacciones as $row)
+						{
+							echo "<tr>";
+							echo "<td class='col-md-2'>".set_format($row['cuit'], 'cuit')."</td>";
+							echo "<td class='col-md-2'>".set_format($row['importe'], 'importe')."</td>";
+							echo "<td class='col-md-1'>".$row['periodo']."</td>";
+							echo "<td class='col-md-2'>".set_format($row['fechapago'], 'date')."</td>";
+							echo "<td class='col-md-2'>".$row['comprob']."</td>";
+							echo "<td class='col-md-3'>".set_format($row['date_add'], 'datetime')."</td>";
+							echo "</tr>";
+						}	
 					}
 					?>
 					</tbody>
