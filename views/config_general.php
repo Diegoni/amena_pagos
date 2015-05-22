@@ -190,7 +190,7 @@ if(isset($_FILES['certificado']))
 							<?php echo $language['clave'] ?>
 						</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="Clave" name="Clave" value="<?php echo decrypt($valores['Clave'])?>" required>
+							<input class="form-control" id="Clave" name="Clave" value="<?php echo decrypt($valores['Clave'])?>" type="password" required>
 						</div>
 					</div>
 					
