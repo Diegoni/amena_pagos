@@ -66,7 +66,7 @@ function validar_config()
 {	
 	if
 	(
-		validar_campo('id_comunidad', 'numero', 25) == 0 ||
+		validar_campo('id_comunidad', 'alfanumerico', 25) == 0 ||
 		validar_campo('url_reporte', 'url') == 0 ||
 		validar_campo('url_post', 'url') == 0 ||
 		validar_campo('url_estado_transferencia', 'url') == 0 ||
