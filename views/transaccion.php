@@ -25,6 +25,12 @@ if($fecha_pago == '1969/12/31')
 	$fecha_pago = $fecha_pago_array[2]."/".$fecha_pago_array[1]."/".$fecha_pago_array[0];
 }
 
+$link = 'Cuit: '.$_GET['cuit'];
+$link .= ' Importe: '.$_GET['importe'];
+$link .= ' Periodo: '.$_GET['periodo'];
+$link .= ' Fecha pago: '.$_GET['fechapago'];
+$link .= ' Comprob: '.$_GET['comprob'];
+
 $datos = array(
 	'cuit'		=> $_GET['cuit'],
 	'importe'	=> $importe,
@@ -32,6 +38,7 @@ $datos = array(
 	'fechapago'	=> $fecha_pago,
 	'comprob'	=> $_GET['comprob'],
 	'token'		=> $_GET['token'],
+	'link'		=> $link
 );
 
 // Validamos los datos.
