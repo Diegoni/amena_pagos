@@ -25,8 +25,6 @@ $importe = transformar_importe($_GET['importe']);
 	$fecha_pago = $fecha_pago_array[2]."/".$fecha_pago_array[1]."/".$fecha_pago_array[0];
 //}
 
-echo $fecha_pago."<br>";
-
 $link = '';
 
 foreach ($_REQUEST as $key => $value)  
