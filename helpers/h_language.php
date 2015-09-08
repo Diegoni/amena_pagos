@@ -5,6 +5,7 @@
 ----------------------------------------------------------------------------*/
 // A
 $language['abrir']						= 'Abrir';
+$language['accion']						= 'Acción';
 $language['alias']						= 'Nombre de fantasía';
 $language['alta']						= 'Alta';
 $language['archivo']					= 'Archivo';
@@ -103,6 +104,9 @@ $language['fecha']						= 'Fecha';
 $language['filtros']					= 'Filtros';
 $language['final']						= 'Final';
 $language['firma_email']				= 'Firma Email';
+
+// L	
+$language['logs']						= 'Logs';
 
 // M	
 $language['manual']						= 'Manual';

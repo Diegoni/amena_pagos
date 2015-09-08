@@ -38,17 +38,35 @@ class m_Transaccion extends My_Model
 		
 		$result = $this->_db->query($query);
 		
-		if($result->num_rows > 0)
-		{
-			while($row = $result->fetch_array())
-			{
+		if($result->num_rows > 0){
+			while($row = $result->fetch_array()){
 				$rows[] = $row;
 			}
 			
 			return $rows;	
+		} else {
+			return 0;	
 		}
-		else
-		{
+	}
+	
+	
+	function get_transacciones()
+	{
+		$query = "SELECT 
+						* 
+				FROM 
+					`transacciones` 
+				LEFT JOIN clientes ON(transacciones.cuit = clientes.cuil) ";
+		
+		$result = $this->_db->query($query);
+		
+		if($result->num_rows > 0){
+			while($row = $result->fetch_array()){
+				$rows[] = $row;
+			}
+			
+			return $rows;	
+		} else {
 			return 0;	
 		}
 	}

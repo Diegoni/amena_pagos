@@ -13,40 +13,36 @@ $cliente		= new m_Cliente();
 $variable		= $config->get_registros('`active` = 1');
 $estados_array	= $estados->get_registros('`delete` = 0');
 
-foreach ($variable as $row)
-{
+foreach ($variable as $row){
 	$datos_post = $row;
 }
 ?> 
 <script>
-
-
-	function mostrar(id_test)
-	{
+function mostrar(id_test){
 		var id_test = id_test;
 		alert(id_test);	
-	}
+}
 
-	$(function() {
-		$( "#FechaDesde" ).datepicker({
-			maxDate: '0',
-			changeMonth: true,
-      		changeYear: true,
-			dateFormat: 'dd/mm/yy', 
-			onClose: function( selectedDate ) {
-				$( "#final" ).datepicker( "option", "minDate", selectedDate );
-			}
-		});
-		$( "#FechaHasta" ).datepicker({
-			maxDate: '0',
-			changeMonth: true,
-      		changeYear: true,
-			dateFormat: 'dd/mm/yy', 
-			onClose: function( selectedDate ) {
-				$( "#inicio" ).datepicker( "option", "maxDate", selectedDate );
-			}
-		});
+$(function() {
+	$( "#FechaDesde" ).datepicker({
+		maxDate: '0',
+		changeMonth: true,
+   		changeYear: true,
+		dateFormat: 'dd/mm/yy', 
+		onClose: function( selectedDate ) {
+			$( "#final" ).datepicker( "option", "minDate", selectedDate );
+		}
 	});
+	$( "#FechaHasta" ).datepicker({
+		maxDate: '0',
+		changeMonth: true,
+   		changeYear: true,
+		dateFormat: 'dd/mm/yy', 
+		onClose: function( selectedDate ) {
+			$( "#inicio" ).datepicker( "option", "maxDate", selectedDate );
+		}
+	});
+});
 </script>
 
 
@@ -64,6 +60,7 @@ foreach ($variable as $row)
 					<input type='hidden' name="Nombre_usuario" id="Nombre_usuario" value="<?php echo decrypt($datos_post['Nombre_usuario'])?>">
 					<input type='hidden' name="Clave" id="Clave" value="<?php echo decrypt($datos_post['Clave'])?>">
 					<input type='hidden' name="Comunidad" id="Comunidad" value="<?php echo decrypt($datos_post['id_comunidad'])?>">
+					
 					
 					<?php echo set_alert("<i class='fa fa-question-circle'></i> ".$language['info_estados'], 'default'); ?>
 					<button type="button" class="btn btn-default show_hide">
@@ -239,103 +236,115 @@ foreach ($variable as $row)
 
 			
 			echo '<div role="tabpanel" class="tab-pane" id="home">';
-			foreach ($xml->children() as $segunda_gen) 
-			{
-				echo "<div class='row'>";
-					echo "<div class='col-md-6'>";
-					echo "<table class='table table-hover'>";
-					$i = $i + 1;
-				foreach ($segunda_gen->children() as $key => $value) 
-				{					
-					$linea = "<th class='key_xml'>".cambioCadena($key, $language)."</th>";
-					
-					echo $linea;
-					
-					if($i == 1)
-					{
-						if($key != 'observaciones')
+			
+			if(isset($show)){
+				foreach ($xml->children() as $segunda_gen) 
+				{
+					echo "<div class='row'>";
+						echo "<div class='col-md-6'>";
+						echo "<table class='table table-hover'>";
+						$i = $i + 1;
+					foreach ($segunda_gen->children() as $key => $value) 
+					{					
+						$linea = "<th class='key_xml'>".cambioCadena($key, $language)."</th>";
+						
+						echo $linea;
+						
+						if($i == 1)
+						{
+							if($key != 'observaciones')
+								{
+									$cabecera .= $linea;
+								}	
+						}					
+						
+						if($key == 'estado')
+						{
+							$key_estado		= $estados->get_registros("`estado` = '".$value."'");
+							
+							foreach ($key_estado as $row)
 							{
-								$cabecera .= $linea;
-							}	
-					}					
-					
-					if($key == 'estado')
-					{
-						$key_estado		= $estados->get_registros("`estado` = '".$value."'");
-						
-						foreach ($key_estado as $row)
-						{
-							$descripcion_estado = "- ".$row['descripcion'];
-							$title = $row['compensacion'];
+								$descripcion_estado = "- ".$row['descripcion'];
+								$title = $row['compensacion'];
+							}
 						}
+						else
+						{
+							$descripcion_estado = '';
+							$title = '';
+						}
+						
+						
+						if($key == 'importe')
+						{
+							$class = 'success';
+							$value = set_format($value, 'importe');
+						}
+						else
+						{
+							$class = '';
+						}
+						
+						if($key == 'clientecuit')
+						{
+							$show 		= 'show_'.$i;
+							$profile 	= 'profile_'.$i;
+							$cuil		= $value;
+							$descripcion_estado = '<i class="fa fa-arrow-circle-right"></i>';
+						}
+						else
+						{
+							$action = '';		
+						}
+	
+						echo "<td class='".$class."' id='".$show."' title='".$title."'>".$value." ".$descripcion_estado."</td>";
+						echo "</tr>";
 					}
-					else
-					{
-						$descripcion_estado = '';
-						$title = '';
-					}
+	
+					if(isset($show)){
+					?>
+					<script>
+					$(document).ready(function() {
+						$("#<?php echo $profile?>").hide();
+					});
 					
-					
-					if($key == 'importe')
-					{
-						$class = 'success';
-						$value = set_format($value, 'importe');
+					$("#<?php echo $show?>").click(function(){
+						$("#<?php echo $profile?>").toggle(
+							"Explode"
+						);
+					});
+					</script>
+					<?php
 					}
-					else
-					{
-						$class = '';
-					}
-					
-					if($key == 'clientecuit')
-					{
-						$show 		= 'show_'.$i;
-						$profile 	= 'profile_'.$i;
-						$cuil		= $value;
-						$descripcion_estado = '<i class="fa fa-arrow-circle-right"></i>';
-					}
-					else
-					{
-						$action = '';		
-					}
-
-					echo "<td class='".$class."' id='".$show."' title='".$title."'>".$value." ".$descripcion_estado."</td>";
-					echo "</tr>";
+						echo "</table>";
+						echo "</div>";
+						echo "<div class='col-md-3 col-md-offset-1' id='".$profile."'>";
+						$cliente_obj		= $cliente->get_registros('`cuil` = '.$cuil);
+						
+						if($cliente_obj)
+						{
+							foreach ($cliente_obj as $row)
+							{
+								$array_cliente = $row;
+							}
+							
+							echo getProfile($array_cliente);	
+						}
+						else
+						{
+							echo set_alert($language['no_cliente'], 'warning');
+						}
+						
+						echo "</div>";
+					echo "</div>";
+					echo "<hr>";
 				}
-				?>
-				<script>
-				$(document).ready(function() {
-					$("#<?php echo $profile?>").hide();
-				});
-				
-				$("#<?php echo $show?>").click(function(){
-					$("#<?php echo $profile?>").toggle(
-						"Explode"
-					);
-				});
-				</script>
-				<?php
-					echo "</table>";
-					echo "</div>";
-					echo "<div class='col-md-3 col-md-offset-1' id='".$profile."'>";
-					$cliente_obj		= $cliente->get_registros('`cuil` = '.$cuil);
-					
-					if($cliente_obj)
-					{
-						foreach ($cliente_obj as $row)
-						{
-							$array_cliente = $row;
-						}
-						
-						echo getProfile($array_cliente);	
-					}
-					else
-					{
-						echo set_alert($language['no_cliente'], 'warning');
-					}
-					
-					echo "</div>";
-				echo "</div>";
-				echo "<hr>";
+			}else{
+				echo "<script>";
+				echo 	"$(document).ready(function() {";
+				echo 		'$(".slidingDiv").hide();';
+				echo 	"});";
+				echo "</script>";
 			}
 			echo "</div>";
   

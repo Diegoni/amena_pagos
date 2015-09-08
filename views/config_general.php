@@ -3,10 +3,13 @@ include_once('menu.php');
 include_once($route['models'].'m_config_certificado.php');
 include_once($route['models'].'m_config.php');
 include_once($route['models'].'m_certificado.php');
+include_once($route['models'].'m_log_config.php');
 
 $config_certificado			= new m_config_certificado();
 $config						= new m_config();
 $certificado				= new m_certificado();
+$log_config					= new m_log_config();
+$array_logs_config			= $log_config->get_registros();
 
   
 /*----------------------------------------------------------------------------
@@ -156,6 +159,7 @@ if(isset($_FILES['certificado']))
     					<li><a href="#tab2" data-toggle="tab"><?php echo $language['url'] ?></a></li>
     					<li><a href="#tab3" data-toggle="tab"><?php echo $language['email'] ?></a></li>
     					<li><a href="#tab4" data-toggle="tab"><?php echo $language['certificado'] ?></a></li>
+    					<li><a href="#tab5" data-toggle="tab"><?php echo $language['logs'] ?></a></li>
 					</ul>
   					
   					<div class="tab-content">
@@ -378,6 +382,43 @@ if(isset($_FILES['certificado']))
 							</button>
 						</div>
 					</div>	
+					
+					</div>
+					
+					
+					<!---------------------------------------------------------------------
+							Logs
+					---------------------------------------------------------------------->
+					
+					
+					<div class="tab-pane" id="tab5">
+					
+						<table class="table table-striped table-hover" id="datatable" width='100%'>
+							<thead>
+								<tr>
+									<td><?php echo $language['id']; ?></td>
+									<td><?php echo $language['accion']; ?></td>
+									<td><?php echo $language['usuario']; ?></td>
+									<td><?php echo $language['fecha']; ?></td>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<?php
+								if(is_array($array_logs_config)){
+									foreach($array_logs_config as $row){
+										echo '<tr>';									
+										echo '<td>'.$row['id_log_config'].'</td>';
+										echo '<td>'.$row['Accion'].'</td>';
+										echo '<td>'.$row['usuario'].'</td>';
+										echo '<td>'.set_format($row['date'], 'datetime').'</td>';
+										echo '</tr>';
+									}
+								}
+								?>
+								</tr>
+							</tbody>
+						</table>	
 					
 					</div>
 					

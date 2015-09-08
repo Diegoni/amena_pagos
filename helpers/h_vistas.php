@@ -94,7 +94,7 @@ function set_format($dato, $format)
 				break;
 				
 			case 'datetime':
-				$cadena = date('d-m-Y H:i:s',strtotime($dato));
+				$cadena = date('Y-m-d H:i:s',strtotime($dato));
 				return $cadena;
 				
 				break;
