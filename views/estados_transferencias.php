@@ -60,8 +60,7 @@ $(function() {
 					<input type='hidden' name="Nombre_usuario" id="Nombre_usuario" value="<?php echo decrypt($datos_post['Nombre_usuario'])?>">
 					<input type='hidden' name="Clave" id="Clave" value="<?php echo decrypt($datos_post['Clave'])?>">
 					<input type='hidden' name="Comunidad" id="Comunidad" value="<?php echo decrypt($datos_post['id_comunidad'])?>">
-					
-					
+										
 					<?php echo set_alert("<i class='fa fa-question-circle'></i> ".$language['info_estados'], 'default'); ?>
 					<button type="button" class="btn btn-default show_hide">
 						<?php echo $language['filtros'] ?> <i class="fa fa-chevron-down"></i>
