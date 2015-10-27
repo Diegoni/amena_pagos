@@ -6,6 +6,7 @@
 // A
 $language['abrir']						= 'Abrir';
 $language['accion']						= 'Acción';
+$language['acciones']					= 'Acciones';
 $language['alias']						= 'Nombre de fantasía';
 $language['alta']						= 'Alta';
 $language['archivo']					= 'Archivo';
@@ -25,6 +26,7 @@ $language['buscar']						= 'Buscar';
 // C
 $language['cadena']						= 'Cadena';
 $language['cantidad']					= 'Cantidad';	
+$language['cancelar']					= 'Cancelar';
 $language['cerrar']						= 'Cerrar';	
 $language['certificado']				= 'Certificado';
 $language['cierre']						= 'Cierre';
@@ -36,9 +38,14 @@ $language['cliente']					= 'Cliente';
 $language['clientes']					= 'Clientes';		
 $language['comunidad']					= 'Comunidad';	
 $language['compensacion']				= 'Compensación';
-$language['comprobante']				= 'Comprobante';	
+$language['comprobante']				= 'Comprobante';
+$language['conciliar']					= 'Conciliar';	
+$language['conciliados']				= 'Conciliados';
 $language['config']						= 'Config';
+$language['confirmar']					= 'Confirmar';
 $language['confirm_eliminar']			= 'Esta seguro que quiere eliminar el registro?';
+$language['confirm_eliminar_n']			= 'Esta seguro que quiere eliminar los siguiente registros?';
+$language['confirm_conciliar_n']		= 'Esta seguro que quiere conciliar los siguiente registros?';
 $language['confirm_volver']				= '¿Esta seguro? no se guardaran los cambios';
 $language['contacto']					= 'Contacto';
 $language['control_size']				= 'El archivo pesa más de lo que debería, controlar si todo esta ok';
@@ -56,7 +63,9 @@ $language['detalle']					= 'Detalle';
 $language['direccion']					= 'Dirección';
 
 // E
-$language['editar']						= 'Editar';		
+$language['editar']						= 'Editar';
+$language['eliminados']					= 'Eliminados';
+$language['eliminar']					= 'Eliminar';				
 $language['email']						= 'Email';
 $language['email_ok']					= 'El email se ha enviado con éxito';	
 $language['empresa']					= 'Empresa';
@@ -123,6 +132,7 @@ $language['no_connect']					= 'Error, no se ha podido conectar';
 $language['no_ingreso']					= 'No puedes ingresar.';
 $language['numero']						= 'Número';
 $language['nuevo']						= 'Nuevo';
+$language['nuevos']						= 'Nuevos';
 
 // O	
 $language['observaciones']				= 'Observaciones';
@@ -158,6 +168,7 @@ $language['transaccion']				= 'Transacción';
 $language['transacciones']				= 'Transacciones';
 $language['transferencia']				= 'Transferencia';
 $language['transferencias']				= 'Transferencias';
+$language['todos']						= 'Todos';
 $language['total']						= 'Total';
 
 // U			

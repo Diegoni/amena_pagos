@@ -13,6 +13,18 @@ if($config['environment'] == 'testing' || $config['environment'] == 'production'
 }
 
 include_once('control_usuario.php');
+
+include_once($route['models'].'m_transaccion.php');
+$opcion = 1;
+$obj_transaccion			= new m_transaccion();
+$array_transaccion = $obj_transaccion->get_transacciones($opcion);
+
+if(isset($array_transaccion) && is_array($array_transaccion)){	
+	$cantidad_nuevas = count($array_transaccion);	
+}else{
+	$cantidad_nuevas = 0;
+}
+
 ?>
  
 <!----------------------------------------------------------------------------
@@ -52,7 +64,18 @@ include_once('control_usuario.php');
 		<ul class="nav navbar-nav">
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<i class="fa fa-th-list"></i> <?php echo $language['transacciones'] ?><b class="caret"></b>
+					<i class="fa fa-th-list"></i> 
+					<?php 
+					echo $language['transacciones'];
+					if($cantidad_nuevas > 0){
+					?>
+					<span class="badge">
+						<?php echo $cantidad_nuevas ?>
+					</span>
+					<?php	
+					} 
+					?>
+					<b class="caret"></b>
 				</a>
         		<ul class="dropdown-menu">
         			<?php echo item_menu(BASE_URL.'views/transacciones.php', $language['transacciones']);?>

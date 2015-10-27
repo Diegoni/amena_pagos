@@ -92,6 +92,12 @@ function set_format($dato, $format)
 				return $cadena;
 				
 				break;
+			
+			case 'dateen':
+				$cadena = date('Y-m-d',strtotime($dato));
+				return $cadena;
+				
+				break;	
 				
 			case 'datetime':
 				$cadena = date('Y-m-d H:i:s',strtotime($dato));
