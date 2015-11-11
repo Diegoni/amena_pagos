@@ -36,6 +36,8 @@ echo css_libreria($route['libraries'].'main/css/main.css');
 
 
 echo js_libreria($route['libraries'].'DataTables-1.10.5/media/js/jquery.dataTables.js');
+echo js_libreria($route['libraries'].'DataTables-1.10.5/extensions/TableTools-2.2.4/js/dataTables.tableTools.js');
+echo css_libreria($route['libraries'].'DataTables-1.10.5/extensions/TableTools-2.2.4/css/dataTables.tableTools.css');
 echo css_libreria($route['libraries'].'DataTables-1.10.5/media/css/jquery.dataTables.css');
 
 echo css_libreria($route['libraries'].'font-awesome-4.3.0/css/font-awesome.css');

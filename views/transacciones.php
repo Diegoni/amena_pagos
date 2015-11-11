@@ -16,7 +16,7 @@ $array_transacciones	= $transaccion->get_transacciones($opcion);
 <div class='row'>
 	<div class="col-md-12">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading" style="padding: 15px 15px;">
 				<?php echo get_panel_heading();	?> - 
 				<?php 
 				if($opcion == 1){
@@ -28,9 +28,7 @@ $array_transacciones	= $transaccion->get_transacciones($opcion);
 				}else{
 					echo $language['todos'];
 				}?>
-			</div>
-			<div class="panel-body">
-			<form method="post" action="update_transacciones.php">
+				
 				<div class="pull-right">
 					<div class="btn-group">
 	  					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,7 +60,11 @@ $array_transacciones	= $transaccion->get_transacciones($opcion);
 						"><?php echo $language['conciliar'] ?></button>
 					</div>
 				</div>
-				<br><br>
+			</div>
+			<div class="panel-body">
+			<form method="post" action="update_transacciones.php">
+				
+				
 				<table class="table table-striped table-hover" id="datatable" width='100%'>
 					<thead>
 						<tr>
