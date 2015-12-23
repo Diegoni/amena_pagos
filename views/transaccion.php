@@ -10,7 +10,6 @@ include_once($route['models'].'m_config.php');
 
 include_once($route['helpers'].'h_certificado.php');
 
-
 $c_tra			= new m_Transaccion();
 $c_error_tra	= new m_log_error_Transaccion();
 
@@ -134,7 +133,7 @@ if($bandera)
 	
 	$(document).ready(function(){
 		$('#guardar').click();	
-		window.close();
+		//window.close();
 	});
 </script>
 
